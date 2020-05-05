@@ -154,7 +154,6 @@ module.exports = {
     // Must be placed at the end
     'gatsby-plugin-offline',
     'gatsby-plugin-brotli',
-    'gatsby-plugin-netlify-cache',
     {
       resolve: `gatsby-plugin-netlify`,
       options: {
