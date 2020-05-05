@@ -67,6 +67,7 @@ module.exports = {
         repositoryName: PRISMIC_REPO_NAME,
         accessToken: API_KEY,
         linkResolver: () => doc => `/${doc.uid}`,
+        shouldDownloadImage: () => true,
         schemas: {
           page: pageSchema,
         },

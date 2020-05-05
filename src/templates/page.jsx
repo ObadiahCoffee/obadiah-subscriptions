@@ -39,6 +39,7 @@ export const pageQuery = graphql`
     page: prismicPage(uid: { eq: $uid }) {
       id
       uid
+      prismicId
       data {
         meta_title {
           text

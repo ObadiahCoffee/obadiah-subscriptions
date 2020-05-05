@@ -20,7 +20,7 @@ const Preview = ({ location }) => {
     return '/unpublishedPreview';
   };
 
-  const { previewData, path } = usePrismicPreview(location, {
+  const { previewData, path } = usePrismicPreview({
     repositoryName: prismicRepo,
     pathResolver,
   });
