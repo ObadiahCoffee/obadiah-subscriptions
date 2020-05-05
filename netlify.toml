@@ -1,5 +1,5 @@
 [build]
   command = "yarn build"
   publish = "public"
-[template.environment]
-  API_KEY = "Your Prismic API access token"
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"
