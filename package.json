@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "author": "Sam Logan",
   "scripts": {
-    "build": "gatsby build",
+    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "dev": "gatsby develop -o",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
@@ -15,7 +15,7 @@
     "format": "prettier \"**/*.md \" --write"
   },
   "dependencies": {
-    "gatsby": "^2.13.50",
+    "gatsby": "^2.21.13",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-brotli": "^1.0.0",
     "gatsby-plugin-canonical-urls": "^2.0.10",
