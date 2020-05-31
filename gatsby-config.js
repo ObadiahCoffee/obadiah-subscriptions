@@ -149,6 +149,7 @@ module.exports = {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         output: '/sitemap.xml',
+        exclude: ['/preview/', '/unpublishedPreview/'],
       },
     },
     // Must be placed at the end
