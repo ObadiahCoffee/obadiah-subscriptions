@@ -54,7 +54,7 @@ export const pageQuery = graphql`
           text
         }
         body {
-          ...IntroSectionPageFragement
+          ...IntroSectionPageFragment
         }
       }
     }

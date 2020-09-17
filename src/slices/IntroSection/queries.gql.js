@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 
 export const Queries = graphql`
-  fragment IntroSectionPageFragement on PrismicPageBodyIntroSection {
+  fragment IntroSectionPageFragment on PrismicPageBodyIntroSection {
     slice_type
     id
     primary {
