@@ -1,0 +1,15 @@
+.section {
+  padding: 80px 0;
+  @include media-down(small-tablet) {
+    padding: 60px 0;
+  }
+}
+
+.wrapper {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  @include media-down(small-mobile) {
+    padding: 0 15px;
+  }
+}

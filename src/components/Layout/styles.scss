@@ -5,14 +5,6 @@ body {
   background: $white;
   color: $textcolor;
 }
-.wrapper {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 20px;
-  @include media-down(small-mobile) {
-    padding: 0 10px;
-  }
-}
 
 .buttons {
   display: flex;
