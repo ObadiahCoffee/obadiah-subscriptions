@@ -47,8 +47,15 @@ export const pageQuery = graphql`
         meta_description {
           text
         }
-        open_graph_image {
+        ogImage: open_graph_image {
           url
+          localFile {
+            childImageSharp {
+              fixed(width: 1200, height: 680, quality: 90) {
+                src
+              }
+            }
+          }
         }
         schema {
           text
