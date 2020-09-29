@@ -44,6 +44,7 @@
     "typeface-lato": "^0.0.54"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.11.0",
     "babel-eslint": "^10.0.1",
     "dotenv": "^6.2.0",
     "eslint": "^5.14.0",
