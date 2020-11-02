@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import Facebook from './Facebook';
 import Twitter from './Twitter';
+import useDarkMode from '../../hooks/useDarkMode';
 
 // Complete tutorial: https://www.gatsbyjs.org/docs/add-seo-component/
 
@@ -23,6 +24,21 @@ const SEO = ({ title, desc, banner, schema, pathname, article, node }) => {
       twitter,
     },
   } = site;
+
+  const darkMode = useDarkMode();
+
+  useEffect(() => {
+    const favicon = document.querySelectorAll('[rel="icon"]')[0];
+    const manifest = document.querySelectorAll('[rel="manifest"]')[0];
+    if (darkMode) {
+      if (favicon) favicon.href = '/favicon-dark-mode.png';
+      if (manifest) manifest.href = '/favicon-dark-mode.png';
+    } else {
+      if (favicon) favicon.href = '/favicon-light-mode.png';
+      if (manifest) manifest.href = '/favicon-light-mode.png';
+    }
+  }, [darkMode]);
+
 
   const seo = {
     title: title || defaultTitle,
@@ -152,6 +168,7 @@ const SEO = ({ title, desc, banner, schema, pathname, article, node }) => {
         {!article && <script type="application/ld+json">{JSON.stringify(schema || schemaOrgWebPage)}</script>}
         {article && <script type="application/ld+json">{JSON.stringify(schema || schemaArticle)}</script>}
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
+        <link rel="icon" type="image/png" href="/favicon-light-mode.png" />
       </Helmet>
       <Facebook
         desc={seo.description}
