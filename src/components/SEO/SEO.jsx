@@ -152,6 +152,7 @@ const SEO = ({ title, desc, banner, schema, pathname, article, node }) => {
         {!article && <script type="application/ld+json">{JSON.stringify(schema || schemaOrgWebPage)}</script>}
         {article && <script type="application/ld+json">{JSON.stringify(schema || schemaArticle)}</script>}
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
+        <link rel="icon" type="image/png" href="/favicon-light-mode.png" />
       </Helmet>
       <Facebook
         desc={seo.description}

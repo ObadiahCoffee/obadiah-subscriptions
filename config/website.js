@@ -4,11 +4,11 @@ module.exports = {
   description: 'Example description for SEO', // Default Site Decription used for SEO
   siteName: 'Website Name', // Sitename for Facebook
   siteLanguage: 'en', // Language Tag on <html> element
-  banner: '/logos/logo-1024.jpg', // Default OpenGraph image
+  banner: 'static/open-graph-image.jpg', // Default OpenGraph image
   ogLanguage: 'en_US', // Facebook Language
 
   // JSONLD / Manifest
-  favicon: 'src/favicon.png', // Used for manifest favicon generation
+  icon: 'static/icon.png', // Used for manifest favicon generation
   shortName: 'PWA Name', // shortname for manifest. MUST be shorter than 12 characters
   author: 'PWA Author', // Author for schemaORGJSONLD
   themeColor: '#f0ad4e',
