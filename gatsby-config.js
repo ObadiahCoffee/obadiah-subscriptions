@@ -126,7 +126,7 @@ module.exports = {
         name: website.title,
         short_name: website.shortName,
         description: website.description,
-        start_url: SITE_URL,
+        start_url: '/',
         background_color: website.backgroundColor,
 
         theme_color: website.themeColor,
