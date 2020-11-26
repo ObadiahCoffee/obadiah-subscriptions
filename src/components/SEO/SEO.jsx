@@ -29,14 +29,6 @@ const SEO = ({ title, desc, banner, schema, pathname, article, node }) => {
 
   useEffect(() => {
     const favicon = document.querySelectorAll('[rel="icon"]')[0];
-    const manifest = document.querySelectorAll('[rel="manifest"]')[0];
-    if (darkMode) {
-      if (favicon) favicon.href = '/favicon-dark-mode.png';
-      if (manifest) manifest.href = '/favicon-dark-mode.png';
-    } else {
-      if (favicon) favicon.href = '/favicon-light-mode.png';
-      if (manifest) manifest.href = '/favicon-light-mode.png';
-    }
   }, [darkMode]);
 
 
