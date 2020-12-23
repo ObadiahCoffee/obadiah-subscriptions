@@ -20,7 +20,7 @@ export const Page = ({ location, data: staticData }) => {
   const seo = {
     title: metaTitle.text,
     desc: metaDesc.text,
-    banner: ogImage && ogImage.localFile && ogImage.localFile.childImageSharp.fixed.src,
+    banner: ogImage && ogImage.url,
     schema: schema.text,
   };
   return (
@@ -49,13 +49,6 @@ export const pageQuery = graphql`
         }
         ogImage: open_graph_image {
           url
-          localFile {
-            childImageSharp {
-              fixed(width: 1200, height: 680, quality: 90) {
-                src
-              }
-            }
-          }
         }
         schema {
           text

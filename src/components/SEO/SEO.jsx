@@ -34,10 +34,12 @@ const SEO = ({ title, desc, banner, schema, pathname, article, node }) => {
     }
   }, [darkMode]);
 
+  const ogImage = banner || `${siteUrl}${defaultBanner}`;
+
   const seo = {
     title: title || defaultTitle,
     description: desc || defaultDescription,
-    image: `${siteUrl}${banner || defaultBanner}`,
+    image: ogImage,
     url: `${siteUrl}${pathname || ''}`,
   };
 
@@ -62,7 +64,7 @@ const SEO = ({ title, desc, banner, schema, pathname, article, node }) => {
       '@type': 'Person',
       name: author,
     },
-    copyrightYear: '2019',
+    copyrightYear: '2021',
     creator: {
       '@type': 'Person',
       name: author,
@@ -75,7 +77,7 @@ const SEO = ({ title, desc, banner, schema, pathname, article, node }) => {
     dateModified: buildTime,
     image: {
       '@type': 'ImageObject',
-      url: `${siteUrl}${defaultBanner}`,
+      url: ogImage,
     },
   };
 
@@ -106,7 +108,7 @@ const SEO = ({ title, desc, banner, schema, pathname, article, node }) => {
         '@type': 'Person',
         name: author,
       },
-      copyrightYear: '2019',
+      copyrightYear: '2021',
       creator: {
         '@type': 'Person',
         name: author,
@@ -116,7 +118,7 @@ const SEO = ({ title, desc, banner, schema, pathname, article, node }) => {
         name: author,
         logo: {
           '@type': 'ImageObject',
-          url: `${siteUrl}${defaultBanner}`,
+          url: ogImage,
         },
       },
       datePublished: node.first_publication_date,
