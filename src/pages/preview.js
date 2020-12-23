@@ -13,10 +13,13 @@ const Preview = ({ location }) => {
 
   const pathResolver = () => doc => {
     const previewedUID = doc.uid;
+
     if (previewedUID === 'home') return '/';
+
     if (pageUIDs.includes(previewedUID)) {
       return previewedUID;
     }
+
     return '/unpublishedPreview';
   };
 

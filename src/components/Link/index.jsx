@@ -4,6 +4,7 @@ import { Link as GatsbyLink } from 'gatsby';
 const Link = props => {
   const { children, className, to, title, target = '_blank', onClick = () => {} } = props;
   const isExternal = (to && to.indexOf('http') !== -1) || (to && to[0] === '#');
+
   if (isExternal) {
     return (
       <a
@@ -18,6 +19,7 @@ const Link = props => {
       </a>
     );
   }
+
   return (
     <GatsbyLink to={to} className={className || ''} title={title || null} onClick={onClick}>
       {children}
