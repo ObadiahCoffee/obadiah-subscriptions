@@ -11,6 +11,10 @@ export const UnpublishedPage = props => {
     return null;
   }
   // => Perform any logic from previewData to determine the correct page or template component to use.
+
+  // Example of other post type previews
+  // ----------------------------------------------
+  // if (previewData.prismicBlogPost) return <BlogPost {...props} data={{ blogPost: { ...previewData.prismicBlogPost } }} />;
   return <Page {...props} data={{ page: { ...previewData.prismicPage } }} />;
 };
 
