@@ -66,7 +66,21 @@ module.exports = {
       options: {
         repositoryName: PRISMIC_REPO_NAME,
         accessToken: API_KEY,
-        linkResolver: () => doc => `/${doc.uid}`,
+        linkResolver: () => doc => {
+          const { uid } = doc;
+
+          if (uid === 'home') {
+            return `/`;
+          }
+
+          // Example of link resolver for other post type
+          // --------------------------------------------
+          // if (doc.type === 'blog_post') {
+          //   return `/blog/${uid}/`;
+          // }
+
+          return `/${doc.uid}/`;
+        },
         shouldDownloadImage: () => true,
         schemas: {
           page: pageSchema,
