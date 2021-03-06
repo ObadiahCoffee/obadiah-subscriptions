@@ -108,6 +108,7 @@ module.exports = {
         configFile: IS_STAGING ? 'robots-txt.staging.js' : 'robots-txt.production.js',
       },
     },
+    'gatsby-plugin-image',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {

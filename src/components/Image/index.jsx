@@ -1,22 +1,31 @@
 import React from 'react';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import './styles.scss';
 
 const Image = props => {
-  const { image, className = '' } = props;
+  const { image, alt, className = '', imgStyle, loading } = props;
   if (!image) return <div className={`gatsby-image placeholder ${className}`} />;
-  if (image.localFile && image.localFile.childImageSharp && image.localFile.childImageSharp.fluid) {
+
+  const imageData = getImage(image?.localFile);
+
+  if (imageData) {
     return (
-      <Img
+      <GatsbyImage
         className={`gatsby-image ${className}`}
-        fluid={image.localFile.childImageSharp.fluid}
-        alt={image.alt || ''}
+        loading={loading || 'eager'}
+        image={imageData}
+        alt={image.alt || alt || ''}
+        imgStyle={imgStyle}
       />
     );
   }
+
   if (image.url) {
-    return <img className={`gatsby-image ${className}`} src={image.url} alt={image.alt || ''} />;
+    return (
+      <img className={`gatsby-image ${className}`} src={image.url} alt={image.alt || alt || ''} style={imgStyle} />
+    );
   }
+
   return <div className={`gatsby-image placeholder ${className}`} />;
 };
 
