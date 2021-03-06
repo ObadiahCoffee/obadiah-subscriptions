@@ -1,9 +1,10 @@
 {
-  "extends": ["airbnb", "prettier", "prettier/react"],
+  "extends": ["airbnb", "plugin:prettier/recommended"],
   "parser": "babel-eslint",
   "parserOptions": {
-    "ecmaVersion": 2017,
+    "ecmaVersion": 2020,
     "ecmaFeatures": {
+      "jsx": true,
       "experimentalObjectRestSpread": true,
       "impliedStrict": true,
       "classes": true
@@ -19,7 +20,7 @@
       "node": {
         "paths": ["src", "src/components", "src/images", "src/slices"]
       }
-    },
+    }
   },
   "rules": {
     "no-unused-vars": [
@@ -58,8 +59,11 @@
     "react/react-in-jsx-scope": 0,
     "react/forbid-prop-types": 1,
     "react/prop-types": 0,
+    "react/jsx-props-no-spreading": 0,
     "react/prefer-stateless-function": 0,
     "react/no-unescaped-entities": 0,
+    "jsx-a11y/no-autofocus": 0,
+    "jsx-a11y/label-has-for": 0,
     "jsx-a11y/accessible-emoji": 0,
     "react-hooks/rules-of-hooks": "error",
     "react/jsx-filename-extension": [

@@ -94,8 +94,10 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sass',
       options: {
-        data: '@import "resources.scss";',
-        includePaths: ['src/sass/base'],
+        additionalData: '@import "resources.scss";',
+        sassOptions: {
+          includePaths: ['src/sass/base'],
+        },
       },
     },
     {
