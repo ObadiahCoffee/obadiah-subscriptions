@@ -1,16 +1,32 @@
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 
-const Link = props => {
-  const { children, className, to, title, target = '_blank', onClick = () => {} } = props;
+const Link = (props) => {
+  const {
+    children,
+    activeClassName,
+    className,
+    to,
+    title,
+    target = '_blank',
+    tabIndex,
+    ariaLabel,
+    onClick = () => {},
+    onMouseOver = () => {},
+    onMouseOut = () => {},
+  } = props;
+
   const isExternal = (to && to.indexOf('http') !== -1) || (to && to[0] === '#');
 
-  if (isExternal) {
+  const containsSiteUrl = process.env.SITE_URL && to && to.indexOf(process.env.SITE_URL) !== -1;
+
+  if (isExternal && !containsSiteUrl) {
     return (
       <a
         href={to}
         className={className || ''}
         title={title || null}
+        aria-label={ariaLabel || null}
         target={target}
         onClick={onClick}
         rel="nofollow noopener noreferrer"
@@ -20,8 +36,21 @@ const Link = props => {
     );
   }
 
+  const withTrailingSlash = `${to}${to.endsWith('/') ? '' : '/'}`;
+  const linkTo = containsSiteUrl ? withTrailingSlash.replace(containsSiteUrl, '') : withTrailingSlash;
+
   return (
-    <GatsbyLink to={to} className={className || ''} title={title || null} onClick={onClick}>
+    <GatsbyLink
+      to={linkTo}
+      aria-label={ariaLabel || null}
+      activeClassName={activeClassName}
+      className={className || ''}
+      title={title || null}
+      onClick={onClick}
+      onMouseOver={onMouseOver}
+      onMouseOut={onMouseOut}
+      tabIndex={tabIndex}
+    >
       {children}
     </GatsbyLink>
   );
