@@ -16,7 +16,6 @@
     "format": "prettier \"**/*.md \" --write"
   },
   "dependencies": {
-    "formik": "^2.2.1",
     "gatsby": "^2.21.13",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-brotli": "^1.0.0",
@@ -42,6 +41,7 @@
     "react-alice-carousel": "^1.15.3",
     "react-dom": "^16.8.2",
     "react-helmet": "^5.2.0",
+    "react-hook-form": "^6.15.4",
     "typeface-lato": "^0.0.54"
   },
   "devDependencies": {
