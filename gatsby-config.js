@@ -195,12 +195,7 @@ const trackingPlugins = () => {
 const hostingPlugins = () => {
   const plugins = [];
   const securityHeaders = {
-    '/*': [
-      'X-Frame-Options: DENY',
-      'X-XSS-Protection: 1',
-      'X-Content-Type-Options: nosniff',
-      'Expect-CT: max-age=31536000, enforce',
-    ],
+    '/*': ['X-Frame-Options: DENY', 'X-XSS-Protection: 1; mode=block', 'X-Content-Type-Options: nosniff'],
   };
   if (process.env.HOST === 'netlify') {
     plugins.push(
