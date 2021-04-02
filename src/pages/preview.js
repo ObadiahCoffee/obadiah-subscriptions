@@ -5,13 +5,13 @@ import { usePrismicPreview } from 'gatsby-source-prismic';
 const Preview = ({ location }) => {
   const { allPrismicPage, site } = useStaticQuery(query);
 
-  const pageUIDs = allPrismicPage.nodes.map(node => node.uid);
+  const pageUIDs = allPrismicPage.nodes.map((node) => node.uid);
 
   const {
     siteMetadata: { prismicRepo },
   } = site;
 
-  const pathResolver = () => doc => {
+  const pathResolver = () => (doc) => {
     const previewedUID = doc.uid;
 
     if (previewedUID === 'home') return '/';

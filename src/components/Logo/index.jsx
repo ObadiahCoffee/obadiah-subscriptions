@@ -4,7 +4,7 @@ import { siteName } from '../../../config/website';
 import './styles.scss';
 
 const Logo = () => (
-  <Link className="logo" to="#">
+  <Link className="logo" to="/">
     {siteName}
   </Link>
 );
