@@ -3,44 +3,234 @@ require('dotenv').config({
 });
 
 const path = require('path');
-
-// Configuration file
 const website = require('./config/website');
 
-// Schemas
+// --------------------
+// Prismic schemas
+// --------------------
 const pageSchema = require('./.prismic/page.json');
 
-// Path prefix
-const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix;
-
 // Environment variables
-const {
-  IS_STAGING,
-  SITE_URL,
-  PRISMIC_REPO_NAME,
-  API_KEY,
-  NODE_ENV,
-  gatsby_executing_command: GATSBY_CMD,
-} = process.env;
+const { IS_STAGING, SITE_URL, PRISMIC_REPO_NAME, API_KEY, gatsby_executing_command: GATSBY_CMD } = process.env;
+const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix;
+const isDev = process.env.NODE_ENV === 'development';
 
-// Robots txt warning on build
-if (IS_STAGING && NODE_ENV !== 'development') {
+// --------------------
+// Robots.txt warning on build (do not block content on production)
+// --------------------
+if (IS_STAGING && !isDev) {
   console.log('\x1b[41m%s\x1b[0m', 'blocking search engines, change IS_STAGING env variable to prevent this');
 }
-if (!IS_STAGING && NODE_ENV !== 'development') {
+if (!IS_STAGING && !isDev) {
   console.log('\x1b[42m%s\x1b[0m', 'visible to search engines, change IS_STAGING env variable to prevent this');
 }
 
-// Env variable check
+// --------------------
+// Check all required ENV variables are set
+// --------------------
 if (GATSBY_CMD !== 'serve') {
   const requiredEnvVariables = ['SITE_URL', 'PRISMIC_REPO_NAME', 'API_KEY'];
-  requiredEnvVariables.map(item => {
+  requiredEnvVariables.map((item) => {
     if (!process.env[item]) {
       throw Error(`Set ${item} env variable. See README`);
     }
     return null;
   });
 }
+
+// --------------------
+// Prismic plugins
+// --------------------
+const prismicPlugins = () => {
+  const plugins = [];
+
+  plugins.push({
+    resolve: 'gatsby-source-prismic',
+    options: {
+      repositoryName: PRISMIC_REPO_NAME,
+      accessToken: API_KEY,
+      linkResolver: () => (doc) => {
+        const { uid } = doc;
+        if (uid === 'home') {
+          return `/`;
+        }
+        // Example of link resolver for other post type
+        // --------------------------------------------
+        // if (doc.type === 'blog_post') {
+        //   return `/blog/${uid}/`;
+        // }
+        return `/${doc.uid}/`;
+      },
+      shouldDownloadImage: () => !isDev,
+      schemas: {
+        page: pageSchema,
+      },
+    },
+  });
+  plugins.push({
+    resolve: 'gatsby-plugin-create-client-paths',
+    options: { prefixes: ['/preview/*', '/unpublishedPreview/*'] },
+  });
+
+  return plugins;
+};
+
+// --------------------
+// SEO plugins
+// --------------------
+const seoPlugins = () => {
+  const plugins = [];
+
+  plugins.push('gatsby-plugin-react-helmet');
+  plugins.push({
+    resolve: 'gatsby-plugin-robots-txt',
+    options: {
+      host: null,
+      sitemap: null,
+      configFile: IS_STAGING ? 'robots-txt.staging.js' : 'robots-txt.production.js',
+    },
+  });
+  plugins.push({
+    resolve: 'gatsby-plugin-canonical-urls',
+    options: {
+      siteUrl: SITE_URL + pathPrefix,
+    },
+  });
+  plugins.push({
+    resolve: 'gatsby-plugin-force-trailing-slashes',
+    options: {
+      excludedPaths: ['/404.html'],
+    },
+  });
+  plugins.push({
+    resolve: 'gatsby-plugin-sitemap',
+    options: {
+      output: '/sitemap.xml',
+      exclude: ['/preview/', '/unpublishedPreview/'],
+    },
+  });
+  plugins.push({
+    resolve: 'gatsby-plugin-manifest',
+    options: {
+      name: website.title,
+      short_name: website.shortName,
+      description: website.description,
+      start_url: '/',
+      background_color: website.backgroundColor,
+
+      theme_color: website.themeColor,
+      display: 'standalone',
+      icon: website.icon,
+      include_favicon: false,
+    },
+  });
+  plugins.push('gatsby-plugin-offline');
+  plugins.push('gatsby-plugin-brotli');
+
+  return plugins;
+};
+
+// --------------------
+// Tracking plugins
+// --------------------
+const trackingPlugins = () => {
+  const plugins = [];
+
+  if (process.env.GA_ID) {
+    plugins.push({
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GA_ID,
+        head: true,
+        anonymize: true,
+      },
+    });
+  }
+
+  if (process.env.GTM_ID) {
+    const getUrlParams = (queries) => {
+      if (!queries) return {};
+      return Object.fromEntries(new URLSearchParams(queries));
+    };
+    plugins.push({
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: process.env.GTM_ID,
+        includeInDevelopment: true,
+        defaultDataLayer: {
+          platform: `gatsby`,
+          ...getUrlParams(document.location.search),
+        },
+      },
+    });
+  }
+
+  if (process.env.SEGMENT_WRITE_KEY) {
+    plugins.push({
+      resolve: `gatsby-plugin-segment-js`,
+      options: {
+        prodKey: process.env.SEGMENT_WRITE_KEY,
+        devKey: process.env.SEGMENT_WRITE_KEY,
+        trackPage: false,
+      },
+    });
+  }
+
+  if (process.env.HOTJAR_ID && process.env.HOTJAR_VERSION) {
+    plugins.push({
+      resolve: `gatsby-plugin-hotjar`,
+      options: {
+        id: process.env.HOTJAR_ID,
+        sv: process.env.HOTJAR_VERSION,
+      },
+    });
+  }
+
+  return plugins;
+};
+
+// --------------------
+// Hosting plugins
+// --------------------
+const hostingPlugins = () => {
+  const plugins = [];
+  const securityHeaders = {
+    '/*': [
+      'X-Frame-Options: DENY',
+      'X-XSS-Protection: 1',
+      'X-Content-Type-Options: nosniff',
+      'Expect-CT: max-age=31536000, enforce',
+    ],
+  };
+  if (process.env.HOST === 'netlify') {
+    plugins.push(
+      { resolve: 'gatsby-plugin-netlify-cache' },
+      {
+        resolve: `gatsby-plugin-netlify`,
+        options: {
+          headers: securityHeaders, // option to add more headers. `Link` headers are transformed by the below criteria
+          allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
+          mergeSecurityHeaders: true, // boolean to turn off the default security headers
+          mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers (disabled by default, until gzip is fixed for server push)
+          mergeCachingHeaders: true, // boolean to turn off the default caching headers
+        },
+      }
+    );
+  }
+  if (process.env.HOST === 'gatsby-cloud') {
+    plugins.push({
+      resolve: `gatsby-plugin-gatsby-cloud`,
+      options: {
+        headers: securityHeaders, // option to add more headers. `Link` headers are transformed by the below criteria
+        allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
+        mergeSecurityHeaders: true, // boolean to turn off the default security headers
+        mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
+        mergeCachingHeaders: true, // boolean to turn off the default caching headers
+      },
+    });
+  }
+  return plugins;
+};
 
 module.exports = {
   /* General Information */
@@ -60,54 +250,6 @@ module.exports = {
   },
   /* Plugins */
   plugins: [
-    'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-source-prismic',
-      options: {
-        repositoryName: PRISMIC_REPO_NAME,
-        accessToken: API_KEY,
-        linkResolver: () => doc => {
-          const { uid } = doc;
-
-          if (uid === 'home') {
-            return `/`;
-          }
-
-          // Example of link resolver for other post type
-          // --------------------------------------------
-          // if (doc.type === 'blog_post') {
-          //   return `/blog/${uid}/`;
-          // }
-
-          return `/${doc.uid}/`;
-        },
-        shouldDownloadImage: () => true,
-        schemas: {
-          page: pageSchema,
-        },
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-create-client-paths',
-      options: { prefixes: ['/preview/*', '/unpublishedPreview/*'] },
-    },
-    {
-      resolve: 'gatsby-plugin-sass',
-      options: {
-        additionalData: '@import "resources.scss";',
-        sassOptions: {
-          includePaths: ['src/sass/base'],
-        },
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        host: null,
-        sitemap: null,
-        configFile: IS_STAGING ? 'robots-txt.staging.js' : 'robots-txt.production.js',
-      },
-    },
     'gatsby-plugin-image',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
@@ -125,65 +267,17 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: 'gatsby-plugin-sass',
       options: {
-        name: website.title,
-        short_name: website.shortName,
-        description: website.description,
-        start_url: '/',
-        background_color: website.backgroundColor,
-
-        theme_color: website.themeColor,
-        display: 'standalone',
-        icon: website.icon,
-        include_favicon: false,
+        additionalData: '@import "resources.scss";',
+        sassOptions: {
+          includePaths: ['src/sass/base'],
+        },
       },
     },
-    {
-      resolve: 'gatsby-plugin-canonical-urls',
-      options: {
-        siteUrl: SITE_URL + pathPrefix,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-force-trailing-slashes',
-      options: {
-        excludedPaths: ['/404.html'],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-sitemap',
-      options: {
-        output: '/sitemap.xml',
-        exclude: ['/preview/', '/unpublishedPreview/'],
-      },
-    },
-    // Uncomment before go-live
-    // {
-    //   resolve: `gatsby-plugin-google-tagmanager`,
-    //   options: {
-    //     id: website.googleTagManagerId,
-    //
-    //     // Include GTM in development.
-    //     // Defaults to false meaning GTM will only be loaded in production.
-    //     includeInDevelopment: false,
-    //     // Specify optional GTM environment details.
-    //     // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_AUTH_STRING",
-    //     // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_PREVIEW_NAME",
-    //   },
-    // },
-    // Must be placed at the end
-    'gatsby-plugin-offline',
-    'gatsby-plugin-brotli',
-    {
-      resolve: `gatsby-plugin-netlify`,
-      options: {
-        headers: {}, // option to add more headers. `Link` headers are transformed by the below criteria
-        allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
-        mergeSecurityHeaders: true, // boolean to turn off the default security headers
-        mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers (disabled by default, until gzip is fixed for server push)
-        mergeCachingHeaders: true, // boolean to turn off the default caching headers
-      },
-    },
+    ...trackingPlugins(),
+    ...prismicPlugins(),
+    ...seoPlugins(),
+    ...hostingPlugins(),
   ],
 };
