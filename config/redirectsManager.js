@@ -7,12 +7,13 @@ module.exports = (createRedirect, reporter) => {
   // Create Redirects
   const combinedRedirects = [...redirects, ...rewrites];
 
-  // Gatsby Cloud et al
   combinedRedirects.map((redirect) =>
-    createRedirect({ fromPath: redirect.source, toPath: redirect.destination, isPermanent: redirect.status !== 302 })
+    createRedirect({
+      fromPath: redirect.source,
+      toPath: redirect.destination,
+      isPermanent: !redirect.status || redirect.status === 301,
+    })
   );
-
-  // Netlify
 
   const netlifyRedirectsArr = combinedRedirects.map(
     (redirect) => `${redirect.source} ${redirect.destination.replace(/\*/g, ':splat')} ${redirect.status || '301!'}`
@@ -24,36 +25,39 @@ module.exports = (createRedirect, reporter) => {
 
   fs.writeFile(path.join(__dirname, '../static/_redirects'), netlifyRedirects, () => {});
 
-  // Vercel
-
   const vercelObj = {
     trailingSlash: true,
     redirects: redirects.map((redirect) => ({
-      source: redirect.source,
-      destination: redirect.destination,
+      source: redirect.source.replace(/\*/g, '(.*)'),
+      destination: redirect.destination.replace(/\*/g, '$1'),
       permanent: !redirect.status || redirect.status === 301,
     })),
     rewrites: rewrites.map((rewrite) => ({
-      source: rewrite.source,
-      destination: rewrite.destination,
+      source: rewrite.source.replace(/\*/g, '(.*)'),
+      destination: rewrite.destination.replace(/\*/g, '$1'),
     })),
     headers: [
       {
-        key: 'X-Content-Type-Options',
-        value: 'nosniff',
-      },
-      {
-        key: 'X-Frame-Options',
-        value: 'DENY',
-      },
-      {
-        key: 'X-XSS-Protection',
-        value: '1; mode=block',
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+        ],
       },
     ],
   };
 
-  fs.writeFile(path.join(__dirname, '../vercel.json'), JSON.stringify(vercelObj, null, 2), () =>
+  fs.writeFile(path.join(__dirname, '../static/vercel.json'), JSON.stringify(vercelObj, null, 2), () =>
     reporter.info(`generated redirect files with ${combinedRedirects.length} redirects`)
   );
 };
