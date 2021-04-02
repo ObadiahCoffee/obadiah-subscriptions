@@ -1,3 +1,1 @@
 # Important: configure redirects in /config/redirects and /config/rewrites
-
-http://example.netlify.app/* https://example.netlify.app/:splat 301!

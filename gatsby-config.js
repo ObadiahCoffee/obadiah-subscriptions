@@ -87,7 +87,7 @@ const seoPlugins = () => {
     options: {
       host: null,
       sitemap: null,
-      configFile: IS_STAGING ? 'robots-txt.staging.js' : 'robots-txt.production.js',
+      configFile: IS_STAGING ? 'config/robots-txt.staging.js' : 'config/robots-txt.production.js',
     },
   });
   plugins.push({
