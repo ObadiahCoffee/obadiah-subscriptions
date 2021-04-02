@@ -1,71 +1,47 @@
-const path = require('path');
+// --------------------
+// Create pages
+// --------------------
 
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+// GraphQL queries aliases - must have - the
+// same name as their respective templates
+
+// Function to create pages
+const pagesCreator = (createPage, data) => {
+  Object.keys(data).forEach((key) => {
+    const component = `${__dirname}/src/templates/${key}.jsx`;
+    if (!component)
+      return console.log('\x1b[41m%s\x1b[0m', `Missing ${component} template in gatsby-node.js pagesCreator`);
+
+    const { slugs } = data[key];
+
+    if (!slugs.find((uid) => uid === 'home')) {
+      throw Error('Create page with slug home');
+    }
+
+    // Page
+    if (key === 'page') {
+      return slugs.forEach((uid) => {
+        const pageSlug = uid === 'home' ? '/' : `/${uid}/`;
+        createPage({ path: pageSlug, component, context: { uid } });
+      });
+    }
+
+    console.log('\x1b[41m%s\x1b[0m', `Missing ${key} type in gatsby-node.js pagesCreator`);
+  });
+};
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage, createRedirect } = actions;
 
   // Get all pages
-  const pages = await graphql(`
+  const { data } = await graphql(`
     {
-      allPrismicPage {
-        edges {
-          node {
-            id
-            uid
-          }
-        }
+      page: allPrismicPage {
+        slugs: distinct(field: uid)
       }
     }
   `);
 
-  // Get all blog posts
-  // const blogPosts = await graphql(`
-  //   {
-  //     allPrismicBlogPosts {
-  //       edges {
-  //         node {
-  //           uid
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
-
-  // Templates
-  const pageTemplate = path.resolve('src/templates/page.jsx');
-  // const blogPostsTemplate = path.resolve('src/templates/blogpost.jsx');
-
-  // GraphQL responses
-  const pageList = pages.data.allPrismicPage.edges;
-  // const blogPostsList = blogPosts.data.allPrismicBlogPosts.edges;
-
-  // Loop through all pages and create a new page for each based on its uid
-  if (!pageList.find(edge => edge.node.uid === 'home')) {
-    throw Error('Create page with slug home');
-  }
-  pageList.forEach(edge => {
-    createPage({
-      path: `/${edge.node.uid === 'home' ? '' : edge.node.uid}`,
-      component: pageTemplate,
-      context: {
-        uid: edge.node.uid,
-      },
-    });
-  });
-
-  // Loop through all blog posts and create a new page for each based on its uid
-  // blogPostsList.forEach(edge => {
-  //   createPage({
-  //     path: `/${edge.node.uid}`,
-  //     component: blogPostsTemplate,
-  //     context: {
-  //       uid: edge.node.uid,
-  //     },
-  //   });
-  // });
-};
-
-exports.onCreateBabelConfig = ({ actions }) => {
-  actions.setBabelPlugin({
-    name: require.resolve('@babel/plugin-proposal-optional-chaining'),
-  });
+  // Create Pages
+  pagesCreator(createPage, data);
 };
