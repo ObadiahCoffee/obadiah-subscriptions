@@ -14,7 +14,7 @@ const WmAscii = () => {
 
   useEffect(() => {
     const domFirstChild = document.documentElement.firstChild;
-    const commentExists = domFirstChild.textContent.includes('<!-- Made by');
+    const commentExists = domFirstChild.textContent.includes('Made by');
     if (!commentExists) {
       const comment = document.createComment(ascii);
       document.documentElement.prepend(comment);
