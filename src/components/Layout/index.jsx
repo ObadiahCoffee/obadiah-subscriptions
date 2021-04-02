@@ -4,7 +4,7 @@ import 'typeface-lato';
 import '../../sass/global/styles.scss';
 import './styles.scss';
 
-const Layout = props => {
+const Layout = (props) => {
   const { children, customSEO } = props;
   return (
     <>

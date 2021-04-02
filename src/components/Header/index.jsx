@@ -1,14 +1,20 @@
 import React from 'react';
-import { Logo, Navigation } from 'components';
-import './styles.scss';
+import { Link, Logo } from 'components';
+import * as styles from './styles.module.scss';
 
-const navigationLinks = [{ to: '/goodbye', text: 'Goodbye', className: '' }];
+const links = [{ to: '/goodbye', text: 'Goodbye', className: `button ${styles.button}` }];
 
 const Header = () => (
-  <header className="header">
-    <div className="wrapper">
+  <header className={styles.header}>
+    <div className={`wrapper ${styles.wrapper}`}>
       <Logo />
-      <Navigation classNamePrefix="header" links={navigationLinks} />
+      <nav className={styles.navigation}>
+        {links.map((link) => (
+          <Link key={link.text} className={`${styles.link || ''} ${link.className || ''}`} to={link.to}>
+            {link.text}
+          </Link>
+        ))}
+      </nav>
     </div>
   </header>
 );

@@ -28,7 +28,7 @@ const FormField = ({
   if (type === 'select') {
     return (
       <select name={name} ref={register(validation)}>
-        {options.map(option => (
+        {options.map((option) => (
           <option value={option} defaultValue={defaultValue} key={option}>
             {option}
           </option>
@@ -40,7 +40,7 @@ const FormField = ({
   if (type === 'radio' || type === 'checkbox') {
     return (
       <div className={`${type}-buttons`}>
-        {options.map(option => (
+        {options.map((option) => (
           <div key={option} className={`${type}-button`}>
             <input
               ref={register(validation)}
@@ -53,7 +53,7 @@ const FormField = ({
             />
             {type === 'checkbox' && (
               <svg viewBox="0 0 21 21">
-                <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                <polyline points="5 10.75 8.5 14.25 16 6" />
               </svg>
             )}
             <label htmlFor={option}>{option}</label>

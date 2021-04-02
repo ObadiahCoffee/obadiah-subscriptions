@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './styles.scss';
+import * as styles from './styles.module.scss';
 
 const Video = ({ id, src, type = 'video/mp4', placeholder, className }) => {
   const [loaded, setLoaded] = useState(false);
@@ -16,16 +16,16 @@ const Video = ({ id, src, type = 'video/mp4', placeholder, className }) => {
 
   return (
     <div
-      className={`video-bg-container ${className || ''}`}
+      className={`${styles.container} ${className || ''}`}
       style={{ background: `url('${placeholder}') center no-repeat` }}
     >
       <video
+        className={styles.video}
         preload="true"
         autoPlay
         playsInline
         muted
         loop
-        className="video"
         id={id}
         style={{ opacity: loaded ? 1 : 0 }}
       >

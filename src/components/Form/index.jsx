@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { navigate } from 'gatsby';
 import { useForm } from 'react-hook-form';
 import { FormField } from 'components';
-import './styles.scss';
+import * as styles from './styles.module.scss';
 
 const Form = ({ content, location, prefilledEmail }) => {
   const { register, handleSubmit, formState, errors } = useForm({ mode: 'onChange' });
@@ -70,12 +70,12 @@ const Form = ({ content, location, prefilledEmail }) => {
     },
   ];
 
-  const encode = formData =>
+  const encode = (formData) =>
     Object.keys(formData)
-      .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(formData[key])}`)
+      .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(formData[key])}`)
       .join('&');
 
-  const onSubmit = async values => {
+  const onSubmit = async (values) => {
     setSubmitting(true);
     try {
       const url = 'Enter form submission endpoint';
@@ -108,23 +108,23 @@ const Form = ({ content, location, prefilledEmail }) => {
   };
 
   return (
-    <section className="contact-form">
+    <section className={styles.container}>
       {submissionError && <p>{submissionError}</p>}
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <button type="submit" disabled aria-hidden="true" style={{ display: 'none' }} />
-        {fields.map(field => {
+        {fields.map((field) => {
           const hasError = dirtyFields[field.name] && errors[field.name];
           return (
-            <div key={field.label} className={`contact-form-field ${field.className || ''}`}>
-              <span className="contact-form-label">{field.label}</span>
+            <div key={field.label} className={`${styles.field} ${field.className || ''}`}>
+              <span className={styles.label}>{field.label}</span>
               <FormField {...field} register={register} />
-              <div className={`validation-error ${hasError ? 'active' : 'inactive'}`}>
+              <div className={`${styles.fieldError} ${hasError ? 'active' : 'inactive'}`}>
                 {hasError && <span>{field.validationMessage || 'This field is required'}</span>}
               </div>
             </div>
           );
         })}
-        <button type="submit" className="button" disabled={submitting}>
+        <button type="submit" className={`button ${styles.formButton}`} disabled={submitting}>
           {submitting ? 'Submitting' : 'Submit'}
         </button>
       </form>

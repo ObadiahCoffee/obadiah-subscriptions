@@ -1,13 +1,13 @@
 import React from 'react';
 import { Logo } from 'components';
-import './styles.scss';
+import * as styles from './styles.module.scss';
 
 const Footer = () => (
-  <footer className="footer">
-    <div className="wrapper">
+  <footer className={styles.footer}>
+    <div className={`wrapper ${styles.footerWrapper}`}>
       <Logo />
-      <div className="sitemap">
-        <span className="legal">© Copyright {new Date().getFullYear()}</span>
+      <div className={styles.sitemap}>
+        <span className={styles.legal}>© Copyright {new Date().getFullYear()}</span>
       </div>
     </div>
   </footer>
