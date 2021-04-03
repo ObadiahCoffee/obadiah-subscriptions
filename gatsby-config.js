@@ -11,9 +11,16 @@ const website = require('./config/website');
 const pageSchema = require('./.prismic/page.json');
 
 // Environment variables
-const { IS_STAGING, SITE_URL, PRISMIC_REPO_NAME, API_KEY, gatsby_executing_command: GATSBY_CMD } = process.env;
+const { IS_STAGING, SITE_URL, PRISMIC_REPO_NAME, PRISMIC_API_KEY, gatsby_executing_command: GATSBY_CMD } = process.env;
 const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix;
 const isDev = process.env.NODE_ENV === 'development';
+
+// --------------------
+// Check for default website config values
+// --------------------
+if (website.siteName === 'Website Name') {
+  console.log('\x1b[41m%s\x1b[0m', 'Found default values in /config/website.js, update before launch');
+}
 
 // --------------------
 // Robots.txt warning on build (do not block content on production)
@@ -29,7 +36,7 @@ if (!IS_STAGING && !isDev) {
 // Check all required ENV variables are set
 // --------------------
 if (GATSBY_CMD !== 'serve') {
-  const requiredEnvVariables = ['SITE_URL', 'PRISMIC_REPO_NAME', 'API_KEY'];
+  const requiredEnvVariables = ['SITE_URL', 'PRISMIC_REPO_NAME', 'PRISMIC_API_KEY'];
   requiredEnvVariables.map((item) => {
     if (!process.env[item]) {
       throw Error(`Set ${item} env variable. See README`);
@@ -48,7 +55,7 @@ const prismicPlugins = () => {
     resolve: 'gatsby-source-prismic',
     options: {
       repositoryName: PRISMIC_REPO_NAME,
-      accessToken: API_KEY,
+      accessToken: PRISMIC_API_KEY,
       linkResolver: () => (doc) => {
         const { uid } = doc;
         if (uid === 'home') {
@@ -172,6 +179,17 @@ const trackingPlugins = () => {
         prodKey: process.env.SEGMENT_WRITE_KEY,
         devKey: process.env.SEGMENT_WRITE_KEY,
         trackPage: false,
+      },
+    });
+  }
+
+  if (process.env.HUBSPOT_ID) {
+    plugins.push({
+      resolve: 'gatsby-plugin-hubspot',
+      options: {
+        trackingCode: process.env.HUBSPOT_ID,
+        respectDNT: false,
+        productionOnly: true,
       },
     });
   }
