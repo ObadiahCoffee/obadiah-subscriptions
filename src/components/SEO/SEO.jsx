@@ -55,7 +55,7 @@ const SEO = ({ title, desc, banner, schema, pathname, article, node }) => {
     inLanguage: siteLanguage,
     mainEntityOfPage: siteUrl,
     description: seo.description,
-    name: seo.title,
+    name: siteName,
     author: {
       '@type': 'Person',
       name: author,

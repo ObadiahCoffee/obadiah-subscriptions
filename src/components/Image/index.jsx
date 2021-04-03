@@ -2,7 +2,7 @@ import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import './styles.scss';
 
-const Image = props => {
+const Image = (props) => {
   const { image, alt, className = '', imgStyle, loading } = props;
   if (!image) return <div className={`gatsby-image placeholder ${className}`} />;
 
