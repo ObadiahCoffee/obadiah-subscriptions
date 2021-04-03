@@ -6010,13 +6010,6 @@ gatsby-plugin-force-trailing-slashes@^1.0.5:
   dependencies:
     "@babel/runtime" "7.12.5"
 
-gatsby-plugin-google-tagmanager@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-tagmanager/-/gatsby-plugin-google-tagmanager-3.0.0.tgz#7dfb88f6cc6edd1d0904c66bdd71f21dcf8f56d0"
-  integrity sha512-qhbmiEPUeexSgsWfHL1hs853W+xkC8zM6NzHlsAnnmPak0y76yFKsNppGz/UbrbD5SBzZ5i6xETVL84Ytqlm+A==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-
 gatsby-plugin-image@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-1.0.0.tgz#100ab670549c1b4b742034d09944c19b6a5cd4ee"
