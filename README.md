@@ -4,24 +4,26 @@ Gatsby Starter which uses the Headless CMS [Prismic](https://prismic.io/).
 
 ## Features
 
+- Gatsby V3
 - Prismic as Headless CMS
 - Prismic preview functionality - [see here](https://github.com/angeloashmore/gatsby-source-prismic/blob/v3-beta/docs/previews.md)
-- Responsive images (gatsby-image)
-  - The right image size for every screen size
-  - Traced SVG Loading (Lazy-Loading)
-  - WebP Support
+- gatsby-plugin-image
+- SASS with CSS modules
 - SEO
   - Sitemap
   - Canonical Tags
   - Schema.org JSONLD
   - OpenGraph Tags
   - Twitter Tags
-  - Favicons
-  - Google Tag Manager
+  - Forced trailing slashes
+  - Favicons (light and dark mode)
+  - Optional GA, GTM, Segment, Hubspot and HotJar setup
   - Robots.txt generator
-- Offline Support
+  - Redirects generator for Netlify, Vercel, AWS and Gatsby Cloud
+- PWA
+  - Offline Support
+  - - WebApp Manifest Support
 - Brotli Compression
-- WebApp Manifest Support
 - Configurable
   - Use the `website.js` to easily change the most important information
   - Use `.env.template` to generate `.env.development` and `.env.production` files containing ENV variables
@@ -58,9 +60,9 @@ This is the frontend URL of your project, for development it will be http://loca
 
 Don't forget to change the default `PRISMIC_REPO_NAME` env variable. The `PRISMIC_REPO_NAME` is the name you have entered at the creation of the repository (you’ll also find it as the subdomain in the URL)
 
-#### API_KEY
+#### PRISMIC_API_KEY
 
-You need to define the `API_KEY` for your Primis project. You can retrieve the key here:
+You need to define the `PRISMIC_API_KEY` for your Primis project. You can retrieve the key here:
 
 - You can generate an access token in the **API & Security** section of your repository settings. Setting a **Callback URL** is not necessary.
 - The token will be listed under "Permanent access tokens".
@@ -70,9 +72,16 @@ You need to define the `API_KEY` for your Primis project. You can retrieve the k
 
 Specifies whether the site is in staging, setting this variable will ensure the site is not crawlable by search engines. Remove this variable if you are deploying to the production URL and you want the site indexed.
 
-### Netlify
+#### HOST
 
-If you deploy to Netlify you will need to use their UI to create the above build variables. See instructions [here](https://www.netlify.com/docs/continuous-deployment/#build-environment-variables)
+Generates relevant redirect files for your chosen hosting provider, following options are accepted:
+
+- `netlify` - generates a `_redirects` file in the static directory based on contents in `/config/redirects.js` & `/config/rewrites.js`. Adds the `gatsby-plugin-netlify` and `gatsby-plugin-netlify-cache` plugins to the `gatsby-config.js` file.
+- `vercel` - generates a `vercel.json` file in the static directory based on contents in `/config/redirects.js` & `/config/rewrites.js`
+- `gatsby-cloud` - uses the `createRedirect` function from the `createPages` lifecycle event inside `gatsby-node.js` to create redirects based on contents in `/config/redirects.js` & `/config/rewrites.js`. Adds the `gatsby-plugin-gatsby-cloud` plugins to the `gatsby-config.js` file.
+- `other` - uses the `createRedirect` function from the `createPages` lifecycle event inside `gatsby-node.js` to create redirects based on contents in `/config/redirects.js` & `/config/rewrites.js`
+
+By default the redirects manager (`/config/redirectsManager.js`) will create files for all three options if `HOST` is not set.
 
 ## Development
 
@@ -83,7 +92,7 @@ If you deploy to Netlify you will need to use their UI to create the above build
 After that you can run the local server:
 
 ```shell
-npm run dev
+yarn dev
 ```
 
 ### Adding new features/plugins
@@ -93,14 +102,12 @@ You can add other features by having a look at the official [plugins page](https
 ### Building your site
 
 ```shell
-npm run build
+yarn build && yarn serve
 ```
-
-Copy the content of the `public` folder to your webhost or use a website like Netlify which automates that for you.
 
 ## Configuration
 
-You can configure your setup in `config/website`:
+You can configure your setup in `/config/website`:
 
 ```JS
 module.exports = {
@@ -122,6 +129,7 @@ module.exports = {
   twitter: '', // Twitter Username
   googleAnalyticsID: '',
 }
+```
 
 ## Typography
 
