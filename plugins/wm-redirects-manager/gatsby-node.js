@@ -1,34 +1,40 @@
 const fs = require('fs');
 const path = require('path');
-const redirects = require('./redirects');
-const rewrites = require('./rewrites');
 
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+exports.createPages = async ({ actions, reporter }, pluginOptions) => {
+  const { createRedirect } = actions;
 
-module.exports = (createRedirect, reporter) => {
-  const { HOST } = process.env;
+  const { redirects, rewrites, host } = pluginOptions;
 
-  const useAll = !HOST;
-  const useVercel = HOST === 'vecel' || useAll;
-  const useNetlify = HOST === 'netlify' || useAll;
+  const useAll = !host;
+  const useVercel = host === 'vecel' || useAll;
+  const useNetlify = host === 'netlify' || useAll;
   const useOther = (!useVercel && !useNetlify) || useAll;
 
   // Combine redirects and writes
   const combinedRedirects = [...redirects, ...rewrites];
 
-  const reporterMsg = `generated redirect files with ${combinedRedirects.length} redirects`;
+  const reporterMsg = `generated ${combinedRedirects.length} redirects`;
 
   // Generate redirects for AWS / Gatsby Cloud / etc
   if (useOther) {
-    combinedRedirects.map((redirect) =>
-      createRedirect({
+    combinedRedirects.map((redirect) => {
+      const isPermanent = !redirect.status || redirect.status === 301;
+      reporter.verbose(
+        `${isPermanent ? 'Permanently' : 'Temporarily'} redirecting ${redirect.source} to ${redirect.destination}`
+      );
+
+      if (redirect.source.indexOf('http') !== -1) {
+        reporter.warn(`Absolute redirect source URLs only work with Netlify, ignoring ${redirect.source}`);
+        return null;
+      }
+
+      return createRedirect({
         fromPath: redirect.source,
         toPath: redirect.destination,
         isPermanent: !redirect.status || redirect.status === 301,
-      })
-    );
+      });
+    });
 
     if (!useAll) {
       reporter.info(reporterMsg);
@@ -45,7 +51,7 @@ module.exports = (createRedirect, reporter) => {
 
     const netlifyRedirects = netlifyRedirectsArr.join('\n');
 
-    fs.writeFile(path.join(__dirname, '../static/_redirects'), netlifyRedirects, () => {
+    fs.writeFile(path.join(__dirname, '../../static/_redirects'), netlifyRedirects, () => {
       if (!useAll) {
         reporter.info(reporterMsg);
       }
@@ -56,11 +62,18 @@ module.exports = (createRedirect, reporter) => {
   if (useVercel) {
     const vercelObj = {
       trailingSlash: true,
-      redirects: redirects.map((redirect) => ({
-        source: redirect.source.replace(/\*/g, '(.*)'),
-        destination: redirect.destination.replace(/\*/g, '$1'),
-        permanent: !redirect.status || redirect.status === 301,
-      })),
+      redirects: redirects.map((redirect) => {
+        if (redirect.source.indexOf('http') !== -1) {
+          reporter.warn(`Vercel: Absolute redirect source URLs only work with Netlify, ignoring ${redirect.source}`);
+          return null;
+        }
+
+        return {
+          source: redirect.source.replace(/\*/g, '(.*)'),
+          destination: redirect.destination.replace(/\*/g, '$1'),
+          permanent: !redirect.status || redirect.status === 301,
+        };
+      }),
       rewrites: rewrites.map((rewrite) => ({
         source: rewrite.source.replace(/\*/g, '(.*)'),
         destination: rewrite.destination.replace(/\*/g, '$1'),
@@ -86,7 +99,7 @@ module.exports = (createRedirect, reporter) => {
       ],
     };
 
-    fs.writeFile(path.join(__dirname, '../static/vercel.json'), JSON.stringify(vercelObj, null, 2), () =>
+    fs.writeFile(path.join(__dirname, '../../static/vercel.json'), JSON.stringify(vercelObj, null, 2), () =>
       reporter.info(reporterMsg)
     );
   }

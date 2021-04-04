@@ -1,5 +1,3 @@
-const redirectsManager = require('./config/redirectsManager');
-
 // --------------------
 // Create pages
 // --------------------
@@ -32,8 +30,8 @@ const pagesCreator = (createPage, data) => {
   });
 };
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage, createRedirect } = actions;
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
 
   // Get all pages
   const { data } = await graphql(`
@@ -46,5 +44,4 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Create Pages
   pagesCreator(createPage, data);
-  redirectsManager(createRedirect, reporter);
 };

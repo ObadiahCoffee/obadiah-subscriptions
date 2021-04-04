@@ -4,6 +4,8 @@ require('dotenv').config({
 
 const path = require('path');
 const website = require('./config/website');
+const redirects = require('./config/redirects');
+const rewrites = require('./config/rewrites');
 
 // --------------------
 // Prismic schemas
@@ -11,7 +13,15 @@ const website = require('./config/website');
 const pageSchema = require('./.prismic/page.json');
 
 // Environment variables
-const { IS_STAGING, SITE_URL, PRISMIC_REPO_NAME, PRISMIC_API_KEY, gatsby_executing_command: GATSBY_CMD } = process.env;
+const {
+  IS_STAGING,
+  SITE_URL,
+  PRISMIC_REPO_NAME,
+  PRISMIC_API_KEY,
+  HOST,
+  gatsby_executing_command: GATSBY_CMD,
+} = process.env;
+
 const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix;
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -89,6 +99,14 @@ const seoPlugins = () => {
   const plugins = [];
 
   plugins.push('gatsby-plugin-react-helmet');
+  plugins.push({
+    resolve: 'wm-redirects-manager',
+    options: {
+      host: HOST,
+      redirects,
+      rewrites,
+    },
+  });
   plugins.push({
     resolve: 'gatsby-plugin-robots-txt',
     options: {
@@ -215,7 +233,7 @@ const hostingPlugins = () => {
   const securityHeaders = {
     '/*': ['X-Frame-Options: DENY', 'X-XSS-Protection: 1; mode=block', 'X-Content-Type-Options: nosniff'],
   };
-  if (process.env.HOST === 'netlify') {
+  if (HOST === 'netlify') {
     plugins.push(
       { resolve: 'gatsby-plugin-netlify-cache' },
       {
@@ -230,7 +248,7 @@ const hostingPlugins = () => {
       }
     );
   }
-  if (process.env.HOST === 'gatsby-cloud') {
+  if (HOST === 'gatsby-cloud') {
     plugins.push({
       resolve: `gatsby-plugin-gatsby-cloud`,
       options: {
