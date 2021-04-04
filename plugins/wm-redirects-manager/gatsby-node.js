@@ -6,6 +6,11 @@ exports.createPages = async ({ actions, reporter }, pluginOptions) => {
 
   const { redirects, rewrites, host } = pluginOptions;
 
+  if (!redirects || !rewrites || !Array.isArray(redirects) || !Array.isArray(rewrites)) {
+    reporter.warn(`No redirects or rewrites passed to wm-redirects-manager`);
+    return null;
+  }
+
   const useAll = !host;
   const useVercel = host === 'vecel' || useAll;
   const useNetlify = host === 'netlify' || useAll;
