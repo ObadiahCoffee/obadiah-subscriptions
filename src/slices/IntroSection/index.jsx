@@ -7,7 +7,7 @@ const IntroSection = (props) => {
   const { primary } = data;
   const { title, subtitle } = primary;
   return (
-    <Section wrapperClassName={styles.container} sliceName="IntroSection">
+    <Section containerClassName={styles.container} sliceName="IntroSection">
       <h1>{title.text}</h1>
       <p dangerouslySetInnerHTML={{ __html: subtitle.html }} />
     </Section>

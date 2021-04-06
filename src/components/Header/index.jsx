@@ -6,7 +6,7 @@ const links = [{ to: '/goodbye', text: 'Goodbye', className: `button ${styles.bu
 
 const Header = () => (
   <header className={styles.header}>
-    <div className={`wrapper ${styles.wrapper}`}>
+    <div className={`container ${styles.container}`}>
       <Logo />
       <nav className={styles.navigation}>
         {links.map((link) => (

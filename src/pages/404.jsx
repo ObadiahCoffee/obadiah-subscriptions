@@ -6,7 +6,7 @@ import './404.scss';
 
 const FourOhFour = ({ location }) => (
   <Layout location={location}>
-    <div className="wrapper not-found-wrap">
+    <div className="container not-found-wrap">
       <img className="not-found-image" src={FourOhFourImage} alt="Opps this page has gone missing" />
       <div className="not-found-text">
         <h2>404 Not found</h2>
