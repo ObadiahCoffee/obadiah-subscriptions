@@ -108,7 +108,7 @@ const Form = ({ content, location, prefilledEmail }) => {
   };
 
   return (
-    <section className={styles.container}>
+    <section>
       {submissionError && <p>{submissionError}</p>}
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <button type="submit" disabled aria-hidden="true" style={{ display: 'none' }} />

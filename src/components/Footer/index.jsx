@@ -6,9 +6,7 @@ const Footer = () => (
   <footer className={styles.footer}>
     <div className={`container ${styles.container}`}>
       <Logo />
-      <div className={styles.sitemap}>
-        <span className={styles.legal}>© Copyright {new Date().getFullYear()}</span>
-      </div>
+      <div className={styles.sitemap}>© Copyright {new Date().getFullYear()}</div>
     </div>
   </footer>
 );

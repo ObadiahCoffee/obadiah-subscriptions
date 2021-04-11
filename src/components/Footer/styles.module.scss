@@ -1,5 +1,5 @@
 .footer {
-
+  padding: 20px 0;
 }
 
 .container {
@@ -8,7 +8,6 @@
   justify-content: space-between;
   align-items: center;
   border-top: rgba($white, 0.1) 1px solid;
-  padding: 20px;
   @include media-down(mobile) {
     text-align: center;
   }
@@ -28,11 +27,4 @@
   a {
     color: $white;
   }
-}
-
-.legal {
-  // &:after {
-  //   content: '-';
-  //   margin: 0 5px;
-  // }
 }
