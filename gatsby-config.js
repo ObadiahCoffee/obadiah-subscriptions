@@ -297,6 +297,7 @@ module.exports = {
         slices: path.join(__dirname, 'src/slices'),
       },
     },
+    'wm-disable-css-order-warnings',
     {
       resolve: 'gatsby-plugin-sass',
       options: {

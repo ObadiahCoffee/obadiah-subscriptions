@@ -1,0 +1,16 @@
+{
+  "name": "wm-disable-css-order-warnings",
+  "version": "1.0.0",
+  "description": "Disable warnings from MiniCssExtractPlugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"No build script setup\""
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin"
+  ],
+  "author": "Sam Logan <sam@mammoth.tech>",
+  "license": "0BSD"
+}
