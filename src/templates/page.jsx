@@ -1,11 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { mergePrismicPreviewData } from 'gatsby-source-prismic';
-import { Layout, Slice, Form } from 'components';
+import { Layout, Slice } from 'components';
 
 const IS_BROWSER = typeof window !== 'undefined';
 
-export const Page = ({ location, data: staticData }) => {
+const Page = ({ location, data: staticData }) => {
   const previewData = IS_BROWSER && window.__PRISMIC_PREVIEW_DATA__;
   const data = mergePrismicPreviewData({ staticData, previewData });
   const { page } = data;
@@ -25,7 +25,7 @@ export const Page = ({ location, data: staticData }) => {
   };
   return (
     <Layout location={location} seo={seo}>
-      {sliceData.map(slice => (
+      {sliceData.map((slice) => (
         <Slice key={slice.id} data={slice} />
       ))}
     </Layout>

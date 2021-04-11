@@ -2,7 +2,7 @@ import React from 'react';
 import { navigate } from 'gatsby';
 import { Page } from '../templates/page';
 
-export const UnpublishedPage = props => {
+const UnpublishedPage = props => {
   const IS_BROWSER = typeof window !== 'undefined';
   if (!IS_BROWSER) return null;
   const previewData = window.__PRISMIC_PREVIEW_DATA__;
