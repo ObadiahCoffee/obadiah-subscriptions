@@ -83,9 +83,7 @@ const Fable = () => {
           })}
         </div>
       </div>
-      <div className={content}>
-        <Component {...variationData.props} />
-      </div>
+      <div className={content}>{variationData ? <Component {...variationData.props} /> : <p>No Fables Found</p>}</div>
     </div>
   );
 };

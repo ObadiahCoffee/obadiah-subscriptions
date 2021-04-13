@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 const WmAscii = () => {
-  const ascii =`
+  const ascii = `
   Made by
   ███╗░░░███╗░█████╗░███╗░░░███╗███╗░░░███╗░█████╗░████████╗██╗░░██╗░██████╗
   ████╗░████║██╔══██╗████╗░████║████╗░████║██╔══██╗╚══██╔══╝██║░░██║██╔════╝
@@ -18,7 +18,7 @@ const WmAscii = () => {
     if (!commentExists) {
       const comment = document.createComment(ascii);
       document.documentElement.prepend(comment);
-      console.log(ascii)
+      console.log(ascii);
     }
   }, []);
 
