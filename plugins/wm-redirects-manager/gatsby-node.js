@@ -11,6 +11,17 @@ exports.createPages = async ({ actions, reporter }, pluginOptions) => {
     return null;
   }
 
+  // Delete stale redirect files from public
+  if (fs.existsSync(path.join(__dirname, '../../public/vercel.json'))) {
+    reporter.verbose('successfully deleted stale vercel.json');
+    fs.unlinkSync(path.join(__dirname, '../../public/vercel.json'));
+  }
+  if (fs.existsSync(path.join(__dirname, '../../public/_redirects'))) {
+    reporter.verbose('successfully deleted stale _redirects');
+    fs.unlinkSync(path.join(__dirname, '../../public/_redirects'));
+  }
+
+  // Configure host options
   const useAll = !host;
   const useVercel = host === 'vecel' || useAll;
   const useNetlify = host === 'netlify' || useAll;
@@ -19,6 +30,7 @@ exports.createPages = async ({ actions, reporter }, pluginOptions) => {
   // Combine redirects and writes
   const combinedRedirects = [...redirects, ...rewrites];
 
+  // Bootstrap reporter response
   const reporterMsg = `generated ${combinedRedirects.length} redirects`;
 
   // Generate redirects for AWS / Gatsby Cloud / etc
