@@ -17,7 +17,7 @@ const Preview = ({ location }) => {
     if (previewedUID === 'home') return '/';
 
     if (pageUIDs.includes(previewedUID)) {
-      return previewedUID;
+      return `/${previewedUID}`;
     }
 
     return '/unpublishedPreview';
