@@ -78,7 +78,7 @@ const Form = ({ content, location, prefilledEmail }) => {
   const onSubmit = async values => {
     setSubmitting(true);
     try {
-      const url = 'Enter form submission endpoint';
+      const url = 'https://aeqni6fq2h.execute-api.ap-southeast-2.amazonaws.com/prod/';
       const config = {
         method: 'POST',
         headers: {
@@ -87,7 +87,8 @@ const Form = ({ content, location, prefilledEmail }) => {
         },
         body: encode({
           ...values,
-          _to: 'Enter encrypted email recipient',
+          _to: 'Enter encrypted email recipient', // client
+          _bcc: 'c2bee1791c9add490e29c4881d392e5a', // wm
           _sender: 'Woolly Mammoth',
           _formname: 'New form submission',
           _replyTo: values.email,
