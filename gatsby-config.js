@@ -176,7 +176,7 @@ const trackingPlugins = () => {
     plugins.push({
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
-        id: process.env.GATSBY_GTM_ID,
+        id: process.env.GTM_ID,
         includeInDevelopment: true,
         defaultDataLayer: () => {
           const queryStrings = (document && document.location && document.location.search) || {};
