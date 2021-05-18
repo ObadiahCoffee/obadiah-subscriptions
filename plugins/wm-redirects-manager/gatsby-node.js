@@ -68,7 +68,7 @@ exports.createPages = async ({ actions, reporter }, pluginOptions) => {
 
     const netlifyRedirects = netlifyRedirectsArr.join('\n');
 
-    fs.writeFile(path.join(__dirname, '../../static/_redirects'), netlifyRedirects, () => {
+    fs.writeFile(path.join(__dirname, '../../public/_redirects'), netlifyRedirects, () => {
       if (!useAll) {
         reporter.info(reporterMsg);
       }
@@ -116,7 +116,7 @@ exports.createPages = async ({ actions, reporter }, pluginOptions) => {
       ],
     };
 
-    fs.writeFile(path.join(__dirname, '../../static/vercel.json'), JSON.stringify(vercelObj, null, 2), () =>
+    fs.writeFile(path.join(__dirname, '../../public/vercel.json'), JSON.stringify(vercelObj, null, 2), () =>
       reporter.info(reporterMsg)
     );
   }
