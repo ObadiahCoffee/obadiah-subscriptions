@@ -173,18 +173,22 @@ const trackingPlugins = () => {
   }
 
   if (process.env.GTM_ID) {
-    const getUrlParams = (queries) => {
-      if (!queries) return {};
-      return Object.fromEntries(new URLSearchParams(queries));
-    };
     plugins.push({
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
-        id: process.env.GTM_ID,
+        id: process.env.GATSBY_GTM_ID,
         includeInDevelopment: true,
-        defaultDataLayer: {
-          platform: `gatsby`,
-          ...getUrlParams(document.location.search),
+        defaultDataLayer: () => {
+          const queryStrings = (document && document.location && document.location.search) || {};
+
+          window.utms = queryStrings;
+
+          const queriesObj = queryStrings ? Object.fromEntries(new URLSearchParams(queryStrings)) : {};
+
+          return {
+            platform: `gatsby`,
+            ...queriesObj,
+          };
         },
       },
     });
