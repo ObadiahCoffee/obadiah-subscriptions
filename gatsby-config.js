@@ -110,9 +110,9 @@ const seoPlugins = () => {
   plugins.push({
     resolve: 'gatsby-plugin-robots-txt',
     options: {
-      host: null,
-      sitemap: null,
-      configFile: IS_STAGING ? 'config/robots-txt.staging.js' : 'config/robots-txt.production.js',
+      host: process.env.SITE_URL,
+      sitemap: `${process.env.SITE_URL}/sitemap.xml`,
+      configFile: IS_STAGING ? 'robots-txt.staging.js' : 'robots-txt.production.js',
     },
   });
   plugins.push({
@@ -282,6 +282,11 @@ module.exports = {
     author: website.author,
     twitter: website.twitter,
     prismicRepo: PRISMIC_REPO_NAME,
+  },
+  /* Flags */
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
   },
   /* Plugins */
   plugins: [
