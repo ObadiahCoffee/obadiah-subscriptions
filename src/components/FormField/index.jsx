@@ -16,7 +16,7 @@ const FormField = ({
   if (type === 'textarea') {
     return (
       <textarea
-        ref={register(validation)}
+        {...register(name, validation)}
         name={name}
         id={name}
         placeholder={placeholder}
@@ -27,7 +27,7 @@ const FormField = ({
   }
   if (type === 'select') {
     return (
-      <select name={name} ref={register(validation)}>
+      <select name={name} {...register(name, validation)}>
         {options.map((option) => (
           <option value={option} defaultValue={defaultValue} key={option}>
             {option}
@@ -43,7 +43,7 @@ const FormField = ({
         {options.map((option) => (
           <div key={option} className={`${type}-button`}>
             <input
-              ref={register(validation)}
+              {...register(name, validation)}
               type={type}
               id={option}
               name={name}
@@ -64,7 +64,7 @@ const FormField = ({
   }
   return (
     <input
-      ref={register(validation)}
+      {...register(name, validation)}
       type={type}
       name={name}
       id={name}

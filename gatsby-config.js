@@ -15,7 +15,7 @@ const pageSchema = require('./.prismic/page.json');
 // Environment variables
 const {
   IS_STAGING,
-  SITE_URL,
+  GATSBY_SITE_URL,
   PRISMIC_REPO_NAME,
   PRISMIC_API_KEY,
   HOST,
@@ -46,7 +46,7 @@ if (!IS_STAGING && !isDev) {
 // Check all required ENV variables are set
 // --------------------
 if (GATSBY_CMD !== 'serve') {
-  const requiredEnvVariables = ['SITE_URL', 'PRISMIC_REPO_NAME', 'PRISMIC_API_KEY'];
+  const requiredEnvVariables = ['GATSBY_SITE_URL', 'PRISMIC_REPO_NAME', 'PRISMIC_API_KEY'];
   requiredEnvVariables.map((item) => {
     if (!process.env[item]) {
       throw Error(`Set ${item} env variable. See README`);
@@ -110,15 +110,17 @@ const seoPlugins = () => {
   plugins.push({
     resolve: 'gatsby-plugin-robots-txt',
     options: {
-      host: process.env.SITE_URL,
-      sitemap: `${process.env.SITE_URL}/sitemap.xml`,
-      configFile: IS_STAGING ? 'robots-txt.staging.js' : 'robots-txt.production.js',
+      host: process.env.GATSBY_SITE_URL,
+      sitemap: `${process.env.GATSBY_SITE_URL}/sitemap.xml`,
+      configFile: IS_STAGING
+        ? path.join(__dirname, 'config/robots-txt.staging.js')
+        : path.join(__dirname, 'config/robots-txt.production.js'),
     },
   });
   plugins.push({
     resolve: 'gatsby-plugin-canonical-urls',
     options: {
-      siteUrl: SITE_URL + pathPrefix,
+      siteUrl: GATSBY_SITE_URL + pathPrefix,
     },
   });
   plugins.push({
@@ -130,8 +132,7 @@ const seoPlugins = () => {
   plugins.push({
     resolve: 'gatsby-plugin-sitemap',
     options: {
-      output: '/sitemap.xml',
-      exclude: ['/preview/', '/unpublishedPreview/'],
+      excludes: ['/preview/', '/unpublishedPreview/'],
     },
   });
   plugins.push({
@@ -271,7 +272,7 @@ module.exports = {
   /* General Information */
   pathPrefix: website.pathPrefix,
   siteMetadata: {
-    siteUrl: SITE_URL + pathPrefix,
+    siteUrl: GATSBY_SITE_URL + pathPrefix,
     pathPrefix,
     title: website.title,
     description: website.description,

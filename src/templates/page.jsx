@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { mergePrismicPreviewData } from 'gatsby-source-prismic';
-import { Layout, Slice } from 'components';
+import { Layout, Slice, Form } from 'components';
 
 const IS_BROWSER = typeof window !== 'undefined';
 

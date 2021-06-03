@@ -18,7 +18,7 @@ const Link = (props) => {
 
   const isExternal = (to && to.indexOf('http') !== -1) || (to && to[0] === '#');
 
-  const containsSiteUrl = process.env.SITE_URL && to && to.indexOf(process.env.SITE_URL) !== -1;
+  const containsSiteUrl = process.env.GATSBY_SITE_URL && to && to.indexOf(process.env.GATSBY_SITE_URL) !== -1;
 
   if (isExternal && !containsSiteUrl) {
     return (

@@ -5,12 +5,12 @@ import { FormField } from 'components';
 import * as styles from './styles.module.scss';
 
 const Form = ({ content, location, prefilledEmail }) => {
-  const { register, handleSubmit, formState, errors } = useForm({ mode: 'onChange' });
+  const { register, handleSubmit, formState } = useForm({ mode: 'onChange' });
 
   const [submitting, setSubmitting] = useState(false);
   const [submissionError, setSubmissionError] = useState(false);
 
-  const { dirtyFields } = formState;
+  const { errors, dirtyFields } = formState;
 
   useEffect(
     () =>
@@ -70,12 +70,12 @@ const Form = ({ content, location, prefilledEmail }) => {
     },
   ];
 
-  const encode = formData =>
+  const encode = (formData) =>
     Object.keys(formData)
-      .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(formData[key])}`)
+      .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(formData[key])}`)
       .join('&');
 
-  const onSubmit = async values => {
+  const onSubmit = async (values) => {
     setSubmitting(true);
     try {
       const url = 'https://aeqni6fq2h.execute-api.ap-southeast-2.amazonaws.com/prod/';
@@ -113,7 +113,7 @@ const Form = ({ content, location, prefilledEmail }) => {
       {submissionError && <p>{submissionError}</p>}
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <button type="submit" disabled aria-hidden="true" style={{ display: 'none' }} />
-        {fields.map(field => {
+        {fields.map((field) => {
           const hasError = dirtyFields[field.name] && errors[field.name];
           return (
             <div key={field.label} className={`${styles.field} ${field.className || ''}`}>
