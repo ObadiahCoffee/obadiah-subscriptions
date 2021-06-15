@@ -1,0 +1,326 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Slug",
+        "placeholder": "Enter slug"
+      }
+    },
+    "prismic_reference": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Prismic Reference",
+        "placeholder": "Enter Prismic Reference"
+      }
+    },
+    "header_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+        "label": "Header Title",
+        "placeholder": "Enter title here"
+      }
+    },
+    "header_description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink",
+        "label": "Header Description",
+        "placeholder": "Enter description here"
+      }
+    },
+    "subscription_cta_text": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Subscription CTA Text",
+        "placeholder": "Enter subscription CTA text here"
+      }
+    },
+    "subscription_cta_link": {
+      "type": "Link",
+      "config": {
+        "label": "Subscription CTA Link",
+        "placeholder": "Select subscription link here"
+      }
+    },
+    "coffees_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+        "label": "Coffees Title",
+        "placeholder": "Enter coffees title here"
+      }
+    },
+    "coffee_1_region_tagline": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6",
+        "label": "Coffee 1 Region Tagline",
+        "placeholder": "Enter region tagline"
+      }
+    },
+    "coffee_2_region_tagline": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6",
+        "label": "Coffee 2 Region Tagline",
+        "placeholder": "Enter region tagline"
+      }
+    },
+    "coffee_1_region_title": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6",
+        "label": "Coffee 1 Region Title",
+        "placeholder": "Enter region title here"
+      }
+    },
+    "coffee_2_region_title": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6",
+        "label": "Coffee 2 Region Title",
+        "placeholder": "Enter region title here"
+      }
+    },
+    "coffee_1_region": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Coffee 1 Region",
+        "placeholder": "Enter region"
+      }
+    },
+    "coffee_2_region": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Coffee 2 Region",
+        "placeholder": "Enter region"
+      }
+    },
+    "coffee_1_harvest": {
+      "type": "Date",
+      "config": {
+        "label": "Coffee 1 Harvest",
+        "placeholder": "Enter harvest date"
+      }
+    },
+    "coffee_2_harvest": {
+      "type": "Date",
+      "config": {
+        "label": "Coffee 2 Harvest",
+        "placeholder": "Enter harvest date"
+      }
+    },
+    "coffee_1_process": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Coffee 1 Process",
+        "placeholder": "Enter coffee process"
+      }
+    },
+    "coffee_2_process": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Coffee 2 Process",
+        "placeholder": "Enter coffee process"
+      }
+    },
+    "coffee_1_variety": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Coffee 1 Variety",
+        "placeholder": "Enter variety"
+      }
+    },
+    "coffee_2_variety": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Coffee 2 Variety",
+        "placeholder": "Enter variety"
+      }
+    },
+    "coffee_1_altitude": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Coffee 1 Altitude",
+        "placeholder": "Enter altitude"
+      }
+    },
+    "coffee_2_altitude": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Coffee 2 Altitude",
+        "placeholder": "Enter altitude"
+      }
+    },
+    "coffee_1_taste_notes": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Coffee 1 Taste Notes",
+        "placeholder": "Enter taste notes"
+      }
+    },
+    "coffee_2_taste_notes": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Coffee 2 Taste Notes",
+        "placeholder": "Enter taste notes"
+      }
+    },
+    "coffee_1_producer": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6",
+        "label": "Coffee 1 Producer",
+        "placeholder": "Enter producer"
+      }
+    },
+    "coffee_2_producer": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6",
+        "label": "Coffee 2 Producer",
+        "placeholder": "Enter producer"
+      }
+    },
+    "coffee_1_read_more_cta": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Coffee 1 Read More CTA",
+        "placeholder": "Enter read more CTA text"
+      }
+    },
+    "coffee_2_read_more_cta": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph",
+        "label": "Coffee 2 Read More CTA",
+        "placeholder": "Enter read more CTA text"
+      }
+    },
+    "coffee_1_read_more_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 2000
+        },
+        "thumbnails": [],
+        "label": "Coffee 1 Read More Image"
+      }
+    },
+    "coffee_2_read_more_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 2000
+        },
+        "thumbnails": [],
+        "label": "Coffee 2 Read More Image"
+      }
+    },
+    "coffee_1_read_more_wysiwyg": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink",
+        "label": "Coffee 1 Read More WYSIWYG",
+        "placeholder": "Enter Read More content"
+      }
+    },
+    "coffee_2_read_more_wysiwyg": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink",
+        "label": "Coffee 2 Read More WYSIWYG",
+        "placeholder": "Enter Read More content"
+      }
+    },
+    "box_price_1": {
+      "type": "Number",
+      "config": {
+        "label": "1 Box Price",
+        "placeholder": "Enter 1 box price"
+      }
+    },
+    "box_price_2": {
+      "type": "Number",
+      "config": {
+        "label": "2 Box Price",
+        "placeholder": "Enter 2 box price"
+      }
+    },
+    "box_price_4": {
+      "type": "Number",
+      "config": {
+        "label": "4 Box Price",
+        "placeholder": "Enter 4 box price"
+      }
+    },
+    "sidebar_wysiwyg": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink",
+        "label": "Sidebar WYSIWYG",
+        "placeholder": "Enter sidebar content"
+      }
+    },
+    "checkout_tooltip": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,strong,em,hyperlink",
+        "label": "Checkout Tooltip",
+        "placeholder": "Enter checkout tooltip content"
+      }
+    }
+  },
+  "SEO": {
+    "meta_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Meta Title",
+        "placeholder": "Enter meta title"
+      }
+    },
+    "meta_description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item",
+        "label": "Meta Description",
+        "placeholder": "Enter meta description"
+      }
+    },
+    "schema": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "preformatted",
+        "label": "Schema",
+        "placeholder": "Enter JSON schema"
+      }
+    },
+    "open_graph_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 1200,
+          "height": 630
+        },
+        "thumbnails": [],
+        "label": "Open Graph Image"
+      }
+    }
+  }
+}

@@ -5,14 +5,17 @@
 // Font weight variables
 // NOTE: Use 400 and 700 weights only
 // $font-weight-thin: 100;
-// $font-weight-extra-light: 200;
+$font-weight-extra-light: 200;
 // $font-weight-light: 300;
 $font-weight-regular: 400;
-// $font-weight-medium: 500;
+$font-weight-medium: 500;
 // $font-weight-semi-bold: 600;
 $font-weight-bold: 700;
 // $font-weight-extra-bold: 800;
 // $font-weight-black: 900;
+
+$font-family-alt: 'Cormorant', serif;
+$font-family: 'Founders Grotesk', sans-serif;
 
 
 @mixin heading-font() {
@@ -42,8 +45,9 @@ $font-weight-bold: 700;
 
 @mixin h2 {
   @include heading-font();
-  font-size: 30px;
+  font-size: 36px;
   line-height: 1.2em;
+  font-weight: $font-weight-regular;
   @include media-down(tablet) {
     font-size: 30px;
   }
@@ -53,6 +57,7 @@ $font-weight-bold: 700;
   @include heading-font();
   font-size: 26px;
   line-height: 1.3em;
+  font-weight: $font-weight-regular;
   @include media-down(tablet) {
     font-size: 22px;
   }
@@ -62,6 +67,7 @@ $font-weight-bold: 700;
   @include heading-font();
   font-size: 20px;
   line-height: 1.3em;
+  font-weight: $font-weight-regular;
   @include media-down(tablet) {
     font-size: 18px;
   }

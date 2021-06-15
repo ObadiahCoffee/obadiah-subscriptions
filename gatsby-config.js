@@ -11,7 +11,7 @@ const rewrites = require('./config/rewrites');
 // Prismic schemas
 // --------------------
 const pageSchema = require('./.prismic/page.json');
-const homepageSchema = require('./.prismic/homepage.json');
+const homeSchema = require('./.prismic/home.json');
 
 // Environment variables
 const {
@@ -79,9 +79,10 @@ const prismicPlugins = () => {
         // }
         return `/${doc.uid}/`;
       },
-      shouldDownloadImage: () => !isDev,
+      shouldDownloadImage: () => true,
       schemas: {
         page: pageSchema,
+        home: homeSchema,
       },
     },
   });

@@ -10,6 +10,13 @@ body {
 
 }
 
+header {
+
+  position: fixed;
+  width: 100%;
+
+}
+
 .mainContainer {
 
   background-color: $primary;
@@ -18,5 +25,37 @@ body {
 }
 
 a {
+
   margin: 0;
+  font-family: 'Cormorant', serif;
+  font-style: italic;
+  padding: 6px 6px 2px 6px;
+  border-bottom: 1px solid black;
+  transition: 0.2s;
+  transition-property: color background-color;
+
+}
+
+a:hover {
+
+  color: $primary;
+  background-color: $secondary;
+  text-decoration: none;
+
+}
+
+p {
+
+  font-weight: $font-weight-extra-light;
+
+}
+
+::-moz-selection {
+  color: $primary;
+  background: $secondary;
+}
+
+::selection {
+  color: $primary;
+  background: $secondary;
 }

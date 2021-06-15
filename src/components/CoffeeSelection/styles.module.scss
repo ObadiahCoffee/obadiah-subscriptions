@@ -1,0 +1,27 @@
+.sectionContainer {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 180px);
+  text-align: center;
+  position: relative;
+
+  h2 {
+
+    padding: 20px;
+    top: 50px;
+
+  }
+
+  p {
+
+    font-size: 20px;
+    line-height: 28px;
+    width: 50%;
+
+  }
+
+}

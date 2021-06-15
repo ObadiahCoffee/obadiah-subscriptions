@@ -1,5 +1,5 @@
 .header {
-  padding: 14px 0;
+  
 }
 
 h1 {
@@ -11,6 +11,8 @@ h1 {
 }
 
 .container {
+  padding: 14px 0;
+  background-color: red;
   display: flex;
   justify-content: space-between;
   align-items: center;
