@@ -21,9 +21,9 @@ const CoffeeCard = (props) => {
     coffee_1_harvest: harvest1,
     coffee_1_process: process1,
     coffee_1_producer: producer1,
-    coffee_1_read_more_cta: readMoreCta1,
+    coffee_1_read_more_cta: readMoreCTA1,
     coffee_1_read_more_image: readMoreImage1,
-    coffee_1_read_more_wysiwyg: readMoreWysiwig1,
+    coffee_1_read_more_wysiwyg: readMoreWYSIWIG1,
     coffee_1_region: region1,
     coffee_1_region_tagline: regionTagline1,
     coffee_1_region_title: regionTitle1,
@@ -33,9 +33,9 @@ const CoffeeCard = (props) => {
     coffee_2_harvest: harvest2,
     coffee_2_process: process2,
     coffee_2_producer: producer2,
-    coffee_2_read_more_cta: readMoreCta2,
+    coffee_2_read_more_cta: readMoreCTA2,
     coffee_2_read_more_image: readMoreImage2,
-    coffee_2_read_more_wysiwyg: readMoreWysiwig2,
+    coffee_2_read_more_wysiwyg: readMoreWYSIWIG2,
     coffee_2_region: region2,
     coffee_2_region_tagline: regionTagline2,
     coffee_2_region_title: regionTitle2,
@@ -44,8 +44,34 @@ const CoffeeCard = (props) => {
   } = data;
 
   const tableData = [
-    { region: region1.raw[0].text, harvest: harvest1, process: process1.raw[0].text, regionTitle: regionTitle1.raw[0].text, regionTagline: regionTagline1.raw[0].text },
-    { region: region2.raw[0].text, harvest: harvest2, process: process2.raw[0].text, regionTitle: regionTitle2.raw[0].text, regionTagline: regionTagline2.raw[0].text }
+    {
+      regionTitle: regionTitle1.raw[0].text,
+      regionTagline: regionTagline1.raw[0].text,
+      region: region1.raw[0].text,
+      harvest: harvest1,
+      process: process1.raw[0].text,
+      altitude: altitude1.raw[0].text,
+      producer: producer1.raw[0].text,
+      tasteNotes: tasteNotes1.raw[0].text,
+      variety: variety1.raw[0].text,
+      readMoreCTA: readMoreCTA1.raw[0].text,
+      readMoreImage: readMoreImage1,
+      readMoreWYSIWIG: readMoreWYSIWIG1.raw[0].text,
+    },
+    {
+      regionTitle: regionTitle2.raw[0].text,
+      regionTagline: regionTagline2.raw[0].text,
+      region: region2.raw[0].text,
+      harvest: harvest2,
+      process: process2.raw[0].text,
+      altitude: altitude2.raw[0].text,
+      producer: producer2.raw[0].text,
+      tasteNotes: tasteNotes2.raw[0].text,
+      variety: variety2.raw[0].text,
+      readMoreCTA: readMoreCTA2.raw[0].text,
+      readMoreImage: readMoreImage2,
+      readMoreWYSIWIG: readMoreWYSIWIG1.raw[0].text,
+    },
   ];
 
   // <div className={styles.coffeeRegionTagline}>{data.coffee_1_region_tagline.raw[0].text}</div>
@@ -91,19 +117,29 @@ const CoffeeCard = (props) => {
 
   return (
     <div className={styles.coffeesContainer}>
-
-      {tableData.map(item => {
-        const {region, harvest, process, regionTitle, regionTagline} = item;
-          return (
-            <div className={styles.coffeeCard}>
-              <div className={styles.coffeeRegionTagline}>{data.coffee_1_region_tagline.raw[0].text}</div>
-              <div className={styles.coffeeRegionTitle}>{regionTitle}</div>
-                <div className={styles.infoRowItem}>Region<span>{region}</span></div>
-              <a href="#">Read More About The Origins</a>
+      {tableData.map((coffee) => {
+        const { regionTitle, regionTagline, region, harvest, process, altitude, producer, tasteNotes, variety, readMoreCTA, readMoreImage, readMoreWYSIWIG } = coffee;
+        return (
+          <div className={styles.coffeeCard}>
+            <div className={styles.coffeeRegionTagline}>{data.coffee_1_region_tagline.raw[0].text}</div>
+            <div className={styles.coffeeRegionTitle}>{regionTitle}</div>
+            <div className={styles.coffeeInfoContainer}>
+              <div className={styles.infoRowItem}>Region<span>{region}</span></div>
+              <div className={styles.infoRowItem}>Harvest<span>{harvest}</span></div>
+              <div className={styles.infoRowItem}>Process<span>{process}</span></div>
+              <div className={styles.infoRowItem}>Altitude<span>{altitude} MASL</span></div>
+              <div className={styles.infoRowItem}>Taste Notes<span>{tasteNotes}</span></div>
             </div>
-          )
-      })}
 
+            <div className={styles.coffeeProducedBy}>
+              Produced by
+              <div className={styles.coffeeProducedByValue}>{producer}</div>
+            </div>
+
+            <a href="#">Read More About The Origins</a>
+          </div>
+        );
+      })}
     </div>
   );
 };
