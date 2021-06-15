@@ -11,6 +11,7 @@ const rewrites = require('./config/rewrites');
 // Prismic schemas
 // --------------------
 const pageSchema = require('./.prismic/page.json');
+const homepageSchema = require('./.prismic/homepage.json');
 
 // Environment variables
 const {

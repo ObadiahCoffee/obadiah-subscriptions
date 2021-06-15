@@ -9,13 +9,13 @@ $buttons: (
 
 .button {
   @include heading-font();
-  background: $primary;
-  color: $white;
+  background: $secondary;
+  color: $highlight;
   border: 1px solid $primary;
   border-radius: 3px;
   padding: 8px 25px;
   font-size: 14px;
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-regular;
   text-transform: uppercase;
   display: inline-block;
   text-align: center;

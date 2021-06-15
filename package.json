@@ -21,6 +21,7 @@
     "gatsby-plugin-canonical-urls": "^3.6.0",
     "gatsby-plugin-create-client-paths": "^3.6.0",
     "gatsby-plugin-force-trailing-slashes": "^1.0.5",
+    "gatsby-plugin-gatsby-cloud": "^2.7.1",
     "gatsby-plugin-image": "^1.6.0",
     "gatsby-plugin-manifest": "^3.6.0",
     "gatsby-plugin-offline": "^4.6.0",

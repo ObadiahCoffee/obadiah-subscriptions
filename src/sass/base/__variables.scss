@@ -1,15 +1,15 @@
 /*=============================================>>>>>
 = Body font colour =
 ===============================================>>>>>*/
-$textcolor: #111111;
+$textcolor: #000000;
 
 /*=============================================>>>>>
 = Brand colours =
 ===============================================>>>>>*/
-$primary: #1d1dff;
-$secondary: #01f7ff;
-$tertiary: #2C405A;
-$highlight: #ff01b1;
+$primary: #F2D9CD;
+$secondary: #000000;
+$tertiary: #FFFFFF;
+$highlight: #EFEFEF;
 $primary-darker: darken($primary, 5%);
 $secondary-darker: darken($secondary, 5%);
 $tertiary-darker: darken($tertiary, 5%);

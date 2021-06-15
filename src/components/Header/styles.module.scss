@@ -2,6 +2,14 @@
   padding: 14px 0;
 }
 
+h1 {
+
+  position: absolute;
+  left: 30px;
+  top: 30px;
+
+}
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -9,6 +17,9 @@
 }
 
 .nav {
+  position: absolute;
+  right: 30px;
+  top: 30px;
   .button {
     padding: 5px 35px;
   }
