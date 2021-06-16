@@ -95,9 +95,12 @@
   min-width: 316px;
   color: $highlight;
   background-color: $secondary;
+  border: 1px solid $secondary;
   border-radius: 30px;
   margin: 50px 0 0 0;
   cursor: pointer;
+  transition: 0.2s;
+  transition-property: color background-color;
 
 }
 
@@ -105,6 +108,7 @@
 
   color: $secondary;
   background-color: $primary;
+  border: 1px solid $secondary;
 
 }
 
@@ -125,6 +129,9 @@
   cursor: pointer;
   transition: 0.2s;
   transition-property: color background-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
 }
 

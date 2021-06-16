@@ -20,7 +20,7 @@ const Cart = (props) => (
           </div>
         </div>
         <div className={styles.checkoutButton}>Checkout</div>
-        <div className={styles.checkoutInfo}>i</div>
+        <div className={styles.checkoutInfo}><span>i</span></div>
       </div>
     </div>
   </Section>
