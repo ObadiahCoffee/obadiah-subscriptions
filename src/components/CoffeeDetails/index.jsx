@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Section } from 'components';
+import { Section, CoffeeCard } from 'components';
 import * as styles from './styles.module.scss';
 
-const Landing = (props) => {
+const CoffeeDetails = (props) => {
 
   // LINKS DATA FROM SETTINGS ////////////////////////////////////////////////////
   const homeQuery = graphql`
@@ -12,16 +12,15 @@ const Landing = (props) => {
     }
   `;
 
-  const { prismicHome } = useStaticQuery(homeQuery);
+  const { prismicHome: { data } } = useStaticQuery(homeQuery);
 
   return (
     <Section>
       <div className={styles.sectionContainer}>
-        <h2>{prismicHome.data.header_title?.text}</h2>
-        <p>{prismicHome.data.header_description?.text}</p>
-        <a href="#">Set up a subscription</a>
+        <h2>{data.coffees_title?.text}</h2>
+        <CoffeeCard />
       </div>
     </Section>
   );
 };
-export default Landing;
+export default CoffeeDetails;

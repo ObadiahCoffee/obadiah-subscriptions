@@ -9,32 +9,32 @@ export const Queries = graphql`
         box_price_4
         checkout_tooltip {
           html
-          raw
+          text
         }
         header_title {
           html
-          raw
+          text
         }
         header_description {
           html
-          raw
+          text
         }
         coffee_1_altitude {
           html
-          raw
+          text
         }
         coffee_1_harvest(formatString: "MMM YYYY")
         coffee_1_process {
           html
-          raw
+          text
         }
         coffee_1_producer {
           html
-          raw
+          text
         }
         coffee_1_read_more_cta {
           html
-          raw
+          text
         }
         coffee_1_read_more_image {
           url
@@ -47,44 +47,44 @@ export const Queries = graphql`
         }
         coffee_1_read_more_wysiwyg {
           html
-          raw
+          text
         }
         coffee_1_region {
           html
-          raw
+          text
         }
         coffee_1_region_tagline {
           html
-          raw
+          text
         }
         coffee_1_region_title {
           html
-          raw
+          text
         }
         coffee_1_taste_notes {
           html
-          raw
+          text
         }
         coffee_1_variety {
           html
-          raw
+          text
         }
         coffee_2_altitude {
           html
-          raw
+          text
         }
         coffee_2_harvest(formatString: "MMM YYYY")
         coffee_2_producer {
           html
-          raw
+          text
         }
         coffee_2_process {
           html
-          raw
+          text
         }
         coffee_2_read_more_cta {
           html
-          raw
+          text
         }
         coffee_2_read_more_image {
           url(imgixParams: {})
@@ -96,38 +96,38 @@ export const Queries = graphql`
         }
         coffee_2_read_more_wysiwyg {
           html
-          raw
+          text
         }
         coffee_2_region {
           html
-          raw
+          text
         }
         coffee_2_region_tagline {
           html
-          raw
+          text
         }
         coffee_2_region_title {
           html
-          raw
+          text
         }
         coffee_2_taste_notes {
           html
-          raw
+          text
         }
         coffee_2_variety {
           html
-          raw
+          text
         }
         coffees_title {
           html
-          raw
+          text
         }
         subscription_cta_link {
           url
         }
         subscription_cta_text {
           html
-          raw
+          text
         }
       }
     }

@@ -1,0 +1,136 @@
+.sectionContainer {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 180px);
+  text-align: center;
+  position: relative;
+
+}
+
+.cartContainer {
+
+  position: relative;
+
+}
+
+.cartSummaryContainer {
+
+  background-color: $highlight;
+  padding: 20px;
+
+  h3 {
+
+    font-size: 28px;
+    padding: 30px 30px 10px 30px;
+
+  }
+
+}
+
+.cartItemsContainer {
+
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+
+  .cartItem {
+
+    border-bottom: 1px solid black;
+    padding: 9px 0 2px 0;
+    width: 100%;
+    font-weight: $font-weight-medium;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: left;
+
+    span:last-child {
+
+      font-weight: $font-weight-regular;
+      position: absolute;
+      right: 0;
+
+    }
+
+  }
+
+  .cartItem:last-child {
+
+    border-bottom: none;
+
+  }
+
+}
+
+.cartTotal {
+
+  font-size: 28px;
+  margin: 40px;
+
+}
+
+.cartNotes {
+
+  font-size: 10px;
+  line-height: 14px;
+  display: flex;
+  flex-direction: column;
+
+  span {
+
+    display: block;
+
+  }
+
+}
+
+.checkoutButton {
+
+  font-size: 24px;
+  font-weight: 300;
+  padding: 20px 0 12px 0;
+  min-width: 316px;
+  color: $highlight;
+  background-color: $secondary;
+  border-radius: 30px;
+  margin: 50px 0 0 0;
+  cursor: pointer;
+
+}
+
+.checkoutButton:hover {
+
+  color: $secondary;
+  background-color: $primary;
+
+}
+
+.checkoutInfo {
+
+  position: absolute;
+  bottom: 5px;
+  right: -60px;
+  font-family: $font-family-alt;
+  font-style: italic;
+  font-size: 20px;
+  padding: 20px;
+  max-height: 45px;
+  max-width: 45px;
+  border: 1px solid $secondary;
+  border-radius: 50%;
+  padding-bottom: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  transition-property: color background-color;
+
+}
+
+.checkoutInfo:hover {
+
+  color: $primary;
+  background-color: $secondary;
+
+}

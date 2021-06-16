@@ -1,26 +1,29 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Section, CoffeeCard } from 'components';
+import { Section } from 'components';
 import * as styles from './styles.module.scss';
 
-const Landing = (props) => {
+const CoffeeSelection = ({ fieldData }) => (
+  <Section>
+    <div className={styles.sectionContainer}>
+      <h2>{fieldData[0]?.title}</h2>
 
-  // LINKS DATA FROM SETTINGS ////////////////////////////////////////////////////
-  const homeQuery = graphql`
-    query {
-      ...homeData
-    }
-  `;
+      <div className={styles.optionsContainer}>
+        {fieldData.slice(1).map((field, index) => {
+          const { title, img, label, sublabel } = field;
 
-  const { prismicHome: { data } } = useStaticQuery(homeQuery);
-
-  return (
-    <Section>
-      <div className={styles.sectionContainer}>
-        <h2>{data.coffees_title.raw[0].text}</h2>
-        <CoffeeCard number="1" />
+          return (
+            <div className={styles.option} key={index}>
+              {img && <div className={styles.imgContainer}>{img}</div>}
+              <span className={styles.dot} />
+              <span>{label}</span>
+              {img && <span className={styles.sublabel}>{sublabel}</span>}
+            </div>
+          );
+        })}
       </div>
-    </Section>
-  );
-};
-export default Landing;
+    </div>
+  </Section>
+);
+
+export default CoffeeSelection;

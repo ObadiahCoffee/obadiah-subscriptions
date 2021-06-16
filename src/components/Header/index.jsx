@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Logo, Cart } from 'components';
+import { Link, Logo } from 'components';
 import * as styles from './styles.module.scss';
 
 const links = [{ to: '/goodbye', text: 'Cart', className: `button ${styles.button}` }];
@@ -14,7 +14,7 @@ const Header = () => (
             {link.text}
           </Link>
         ))*/}
-        <Cart />
+        <span>Cart (0)</span>
       </nav>
     </div>
   </header>

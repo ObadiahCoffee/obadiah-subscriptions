@@ -45,83 +45,42 @@ const CoffeeCard = (props) => {
 
   const tableData = [
     {
-      regionTitle: regionTitle1.raw[0].text,
-      regionTagline: regionTagline1.raw[0].text,
-      region: region1.raw[0].text,
+      regionTitle: regionTitle1?.text,
+      regionTagline: regionTagline1?.text,
+      region: region1?.text,
       harvest: harvest1,
-      process: process1.raw[0].text,
-      altitude: altitude1.raw[0].text,
-      producer: producer1.raw[0].text,
-      tasteNotes: tasteNotes1.raw[0].text,
-      variety: variety1.raw[0].text,
-      readMoreCTA: readMoreCTA1.raw[0].text,
+      process: process1?.text,
+      altitude: altitude1?.text,
+      producer: producer1?.text,
+      tasteNotes: tasteNotes1?.text,
+      variety: variety1?.text,
+      readMoreCTA: readMoreCTA1?.text,
       readMoreImage: readMoreImage1,
-      readMoreWYSIWIG: readMoreWYSIWIG1.raw[0].text,
+      readMoreWYSIWIG: readMoreWYSIWIG1?.text,
     },
     {
-      regionTitle: regionTitle2.raw[0].text,
-      regionTagline: regionTagline2.raw[0].text,
-      region: region2.raw[0].text,
+      regionTitle: regionTitle2?.text,
+      regionTagline: regionTagline2?.text,
+      region: region2?.text,
       harvest: harvest2,
-      process: process2.raw[0].text,
-      altitude: altitude2.raw[0].text,
-      producer: producer2.raw[0].text,
-      tasteNotes: tasteNotes2.raw[0].text,
-      variety: variety2.raw[0].text,
-      readMoreCTA: readMoreCTA2.raw[0].text,
+      process: process2?.text,
+      altitude: altitude2?.text,
+      producer: producer2?.text,
+      tasteNotes: tasteNotes2?.text,
+      variety: variety2?.text,
+      readMoreCTA: readMoreCTA2?.text,
       readMoreImage: readMoreImage2,
-      readMoreWYSIWIG: readMoreWYSIWIG1.raw[0].text,
+      readMoreWYSIWIG: readMoreWYSIWIG1?.text,
     },
   ];
 
-  // <div className={styles.coffeeRegionTagline}>{data.coffee_1_region_tagline.raw[0].text}</div>
-  //
-  // <div className={styles.coffeeRegionTitle}>{data.coffee_1_region_title.raw[0].text}</div>
-  //
-  // <div className={styles.coffeeInfoContainer}>
-  //   <div className={styles.infoRowItem}>
-  //     Region
-  //     <span>{data.coffee_1_region.raw[0].text}</span>
-  //   </div>
-  //
-  //   <div className={styles.infoRowItem}>
-  //     Harvest
-  //     <span>{dateMonth}</span>
-  //   </div>
-  //
-  //   <div className={styles.infoRowItem}>
-  //     Process
-  //     <span>{data.coffee_1_process.raw[0].text}</span>
-  //   </div>
-  //
-  //   <div className={styles.infoRowItem}>
-  //     Variety
-  //     <span>{data.coffee_1_variety.raw[0].text}</span>
-  //   </div>
-  //
-  //   <div className={styles.infoRowItem}>
-  //     Altitude
-  //     <span>{data.coffee_1_altitude.raw[0].text} MASL</span>
-  //   </div>
-  //
-  //   <div className={styles.infoRowItem}>
-  //     Taste Notes
-  //     <span>{data.coffee_1_taste_notes.raw[0].text}</span>
-  //   </div>
-  // </div>
-  //
-  // <div className={styles.coffeeProducedBy}>
-  //   Produced by
-  //   <div className={styles.coffeeProducedByValue}>{data.coffee_1_producer.raw[0].text}</div>
-  // </div>
-
   return (
     <div className={styles.coffeesContainer}>
-      {tableData.map((coffee) => {
+      {tableData.map((coffee, i) => {
         const { regionTitle, regionTagline, region, harvest, process, altitude, producer, tasteNotes, variety, readMoreCTA, readMoreImage, readMoreWYSIWIG } = coffee;
         return (
-          <div className={styles.coffeeCard}>
-            <div className={styles.coffeeRegionTagline}>{data.coffee_1_region_tagline.raw[0].text}</div>
+          <div className={styles.coffeeCard} key={i}>
+            <div className={styles.coffeeRegionTagline}>{data.coffee_1_region_tagline?.text}</div>
             <div className={styles.coffeeRegionTitle}>{regionTitle}</div>
             <div className={styles.coffeeInfoContainer}>
               <div className={styles.infoRowItem}>Region<span>{region}</span></div>
