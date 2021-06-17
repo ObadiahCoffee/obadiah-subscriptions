@@ -73,9 +73,31 @@
 
   }
 
+  .selected {
+
+    height: 36px;
+    width: 36px;
+    margin: 30px;
+    background-color: $secondary;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid $secondary;
+    transition: 0.2s;
+    transition-property: color background-color;
+    cursor: pointer;
+    background-color: $secondary;
+
+  }
+
   .dot:hover {
 
     background-color: $secondary;
+
+  }
+
+  .selected:hover {
+
+    cursor: default;
 
   }
 

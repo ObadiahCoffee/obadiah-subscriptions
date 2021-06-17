@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Header, Footer, Landing, Section, Carousel, Image , CoffeeDetails, CoffeeSelection, Cart } from 'components';
+import { ThemeProvider } from '../context/ThemeContext';
 import '../sass/global/styles.scss';
 import * as styles from './styles.module.scss';
 
@@ -16,6 +17,7 @@ const homeQuery = graphql`
 `;
 
 const Homepage = (props) => {
+
   const {
     prismicHome: { data },
   } = useStaticQuery(homeQuery);
@@ -24,19 +26,19 @@ const Homepage = (props) => {
 
   const coffeeData = [
     [
-      { title: 'How many boxes would you like?' },
-      { img: <Box1 />, label: `1 box for £${price1}`, sublabel: '(250g)' },
-      { img: <Box2 />, label: `2 boxes for £${price2}`, sublabel: '(250g)' },
-      { img: <Box4 />, label: `4 boxes for £${price4}`, sublabel: '(250g)' },
+      { title: 'How many boxes would you like?', section: 'boxes' },
+      { img: <Box1 />, label: `1 box for £${price1}`, sublabel: '(250g)', value: 1 },
+      { img: <Box2 />, label: `2 boxes for £${price2}`, sublabel: '(250g)', value: 2 },
+      { img: <Box4 />, label: `4 boxes for £${price4}`, sublabel: '(250g)', value: 4 },
     ],
     [
-      { title: 'And how often would you like to receive it?' },
+      { title: 'And how often would you like to receive it?', section: 'frequency' },
       { label: 'Weekly' },
-      { label: 'Fornightly' },
+      { label: 'Fortnightly' },
       { label: 'Monthly' },
     ],
     [
-      { title: 'Finally, where in the world are you?' },
+      { title: 'Finally, where in the world are you?', section: 'location' },
       { label: 'United Kingdom' },
       { label: 'Europe' },
       { label: 'Rest of World' },
@@ -44,16 +46,18 @@ const Homepage = (props) => {
   ];
 
   return (
-    <div className={styles.mainContainer}>
-      <Header />
-      <Landing />
-      <CoffeeDetails />
-      {coffeeData.map(section => (
-        <CoffeeSelection fieldData={section} />
-      ))}
-      <Cart />
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className={styles.mainContainer}>
+        <Header />
+        <Landing />
+        <CoffeeDetails />
+        {coffeeData.map(section => (
+          <CoffeeSelection fieldData={section} />
+        ))}
+        <Cart />
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 };
 export default Homepage;
