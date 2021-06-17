@@ -48,6 +48,7 @@
     min-height: 200px;
     display: flex;
     align-items: flex-end;
+    justify-content: center;
     padding: 0 0 30px 0;
 
     img {
@@ -58,8 +59,7 @@
 
   }
 
-  .dot {
-
+  .dotEmpty, .dotFilled {
     height: 36px;
     width: 36px;
     margin: 30px;
@@ -70,35 +70,25 @@
     transition: 0.2s;
     transition-property: color background-color;
     cursor: pointer;
-
   }
 
-  .selected {
-
-    height: 36px;
-    width: 36px;
-    margin: 30px;
+  .dotFilled {
     background-color: $secondary;
-    border-radius: 50%;
-    display: inline-block;
-    border: 1px solid $secondary;
-    transition: 0.2s;
-    transition-property: color background-color;
-    cursor: pointer;
-    background-color: $secondary;
-
   }
 
-  .dot:hover {
-
-    background-color: $secondary;
-
+  .dotEmpty {
+    &:hover {
+      background-color: $secondary;
+    }
   }
 
-  .selected:hover {
-
-    cursor: default;
-
+  .dotFilled {
+    &:hover {
+      cursor: default;
+    }
   }
+}
 
+:global(.box1) {
+  max-width: 50%;
 }

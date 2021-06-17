@@ -5,9 +5,10 @@ export const ThemeContext = createContext();
 export function ThemeProvider({ children }) {
   const [cart, setCart] = useState(
     {
-      boxes: 1,
+      boxes: '1',
       frequency: 'Weekly',
-      location: 'United Kingdom'
+      location: 'United Kingdom',
+      total: 12
     },
   );
 
