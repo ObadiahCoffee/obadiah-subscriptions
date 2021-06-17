@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
+    "babel-loader": "^8.2.2",
     "gatsby": "^3.6.2",
     "gatsby-plugin-brotli": "^2.0.0",
     "gatsby-plugin-canonical-urls": "^3.6.0",
