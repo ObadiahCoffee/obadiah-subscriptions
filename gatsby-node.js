@@ -14,6 +14,8 @@ const pagesCreator = (createPage, data) => {
 
     const { slugs } = data[key];
 
+    if (!slugs || slugs.length < 1) return null;
+
     if (!slugs.find((uid) => uid === 'home')) {
       throw Error('Create page with slug home');
     }
