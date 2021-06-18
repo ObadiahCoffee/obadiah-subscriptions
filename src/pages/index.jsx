@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Header, Footer, Landing, Section, Carousel, Image , CoffeeDetails, CoffeeSelection, Cart, MoreInfo } from 'components';
-import { ThemeProvider } from '../context/ThemeContext';
-import { CartConsumer } from '../context/Cart';
+import { CartProvider } from '../context/Cart';
 import '../sass/global/styles.scss';
 import * as styles from './styles.module.scss';
 
@@ -47,19 +46,19 @@ const Homepage = (props) => {
   ];
 
   return (
-    <ThemeProvider>
+    <CartProvider>
       <div className={styles.mainContainer}>
         <Header />
         <MoreInfo />
         <Landing />
         <CoffeeDetails />
-        {coffeeData.map(section => (
-          <CoffeeSelection fieldData={section} />
+        {coffeeData.map((section, index) => (
+          <CoffeeSelection fieldData={section} key={index} />
         ))}
         <Cart />
         <Footer />
       </div>
-    </ThemeProvider>
+    </CartProvider>
   );
 };
 export default Homepage;

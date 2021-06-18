@@ -1,14 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Section } from 'components';
-import { ThemeContext } from '../../context/ThemeContext';
-import { CartConsumer  } from '../../context/Cart';
+import { CartContext  } from '../../context/Cart';
 import * as styles from './styles.module.scss';
 
 const CoffeeSelection = ({ fieldData }) => {
   const { title, section } = fieldData[0];
 
-  const { cart, setCart } = useContext(ThemeContext);
+  const { cart, setCart } = useContext(CartContext);
 
   const handleClick = (e) => {
 
