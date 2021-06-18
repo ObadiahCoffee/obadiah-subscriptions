@@ -1,0 +1,16 @@
+.mainContainer {
+
+  max-width: 200px;
+  text-transform: uppercase;
+  padding: 12px 50px 5px 50px;
+  margin: 0;
+  display: inline-block;
+  transform: rotate(270deg);
+  background-color: $secondary;
+  color: $highlight;
+  position: fixed;
+  right: -68px;
+  top: 50%;
+  cursor: pointer;
+
+}

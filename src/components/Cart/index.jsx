@@ -18,7 +18,7 @@ const Cart = (props) => {
     <div className={styles.cartItem}>Frequency<span>{cart.frequency}</span></div>
     <div className={styles.cartItem}>Location<span>{cart.location}</span></div>
     </div>
-    <div className={styles.cartTotal}>Total: £21.00 p/m</div>
+    <div className={styles.cartTotal}>Total: £{cart.total.toFixed(2)} p/m</div>
     <div className={styles.cartNotes}>
     <span>Need to make changes? No problem.</span>
     <span>Check the different selections before you go through to payment.</span>

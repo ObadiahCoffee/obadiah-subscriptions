@@ -1,7 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Section } from 'components';
 import { ThemeContext } from '../../context/ThemeContext';
+import { CartConsumer  } from '../../context/Cart';
 import * as styles from './styles.module.scss';
 
 const CoffeeSelection = ({ fieldData }) => {
@@ -10,10 +11,27 @@ const CoffeeSelection = ({ fieldData }) => {
   const { cart, setCart } = useContext(ThemeContext);
 
   const handleClick = (e) => {
-    const selSection = e.target.getAttribute('section');
-    const selValue = e.target.getAttribute('value');
 
-    return setCart({ ...cart, [selSection]: selValue });
+    if (e.target.getAttribute('price')) {
+
+      const selSection = e.target.getAttribute('section');
+      const selValue = e.target.getAttribute('value');
+      const selPrice = Number(e.target.getAttribute('price'));
+
+      return setCart({ ...cart,
+          [selSection]: selValue,
+          total: selPrice,
+        });
+
+    } else {
+
+      const selSection = e.target.getAttribute('section');
+      const selValue = e.target.getAttribute('value');
+
+      return setCart({ ...cart, [selSection]: selValue });
+
+    }
+
   };
 
   return (
