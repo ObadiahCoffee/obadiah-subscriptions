@@ -1,17 +1,22 @@
-import React from 'react';
-import { Image } from 'components';
+import React, { useContext, useState } from 'react';
+import { Section, Image } from 'components';
+import { ThemeContext } from '../../context/ThemeContext';
 import * as styles from './styles.module.scss';
 
-const ReadMore = ({ tableData }) => {
+const ReadMore = () => {
 
-  console.log(tableData)
+  const { tableData } = useContext(ThemeContext);
 
   return (
-    <div className={styles.mainContainer} >
-    <span>{tableData.readMoreWYSIWIG}</span>
-    </div>
-  );
-
-}
+    <Section>
+      <div className={styles.mainContainer} >
+        <div className={styles.imageContainer}>
+          <Image image={tableData[0].readMoreImage} />
+        </div>
+        <div className={styles.wysiwyg} dangerouslySetInnerHTML={{__html: tableData[0].readMoreWYSIWIG}} />
+      </div>
+    </Section>
+  )
+};
 
 export default ReadMore;

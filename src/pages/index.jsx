@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Header, Footer, Landing, Section, Carousel, Image , CoffeeDetails, CoffeeOrder, CoffeeSelection, Cart, MoreInfo } from 'components';
+import { Header, Footer, Landing, Section, Carousel, Image , CoffeeDetails, ReadMore, CoffeeOrder, CoffeeSelection, Cart, MoreInfo } from 'components';
 import { ThemeProvider } from '../context/ThemeContext';
 import { CartProvider } from '../context/Cart';
 import '../sass/global/styles.scss';
@@ -14,6 +14,7 @@ const Homepage = () => (
         <MoreInfo />
         <Landing />
         <CoffeeDetails />
+        <ReadMore />
         <CoffeeOrder />
         <Cart />
         <Footer />

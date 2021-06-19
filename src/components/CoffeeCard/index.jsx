@@ -106,8 +106,6 @@ const CoffeeCard = () => {
             </div>
 
             <a href="#">Read More About The Origins</a>
-
-            {/* <ReadMore tableData={tableData[i]} /> */}
           </div>
         );
       })}

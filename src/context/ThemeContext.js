@@ -62,7 +62,7 @@ export function ThemeProvider({ children }) {
       variety: variety1?.text,
       readMoreCTA: readMoreCTA1?.text,
       readMoreImage: readMoreImage1,
-      readMoreWYSIWIG: readMoreWYSIWIG1?.text,
+      readMoreWYSIWIG: readMoreWYSIWIG1?.html,
     },
     {
       regionTitle: regionTitle2?.text,
