@@ -49,7 +49,7 @@ const CoffeeSelection = ({ fieldData }) => {
                   section={section}
                   value={value || label}
                   price={price}
-                  onClick={(e) => handleClick(e)}
+                  onClick={handleClick}
                 />
                 <span>{label}</span>
                 {img && <span className={styles.sublabel}>{sublabel}</span>}
