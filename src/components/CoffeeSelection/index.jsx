@@ -5,7 +5,7 @@ import { CartContext  } from '../../context/Cart';
 import * as styles from './styles.module.scss';
 
 const CoffeeSelection = ({ fieldData }) => {
-  
+
   const { title, section } = fieldData[0];
 
   const { cart, setCart } = useContext(CartContext);
@@ -36,7 +36,7 @@ const CoffeeSelection = ({ fieldData }) => {
 
   return (
     <Section>
-      <div className={styles.sectionContainer}>
+      <div className="sectionContainer">
         <h2>{title}</h2>
 
         <div className={styles.optionsContainer}>

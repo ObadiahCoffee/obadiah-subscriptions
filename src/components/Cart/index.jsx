@@ -3,12 +3,12 @@ import { Section } from 'components';
 import { CartContext } from '../../context/Cart';
 import * as styles from './styles.module.scss';
 
-const Cart = (props) => {
+const Cart = () => {
   const { cart, setCart } = useContext(CartContext);
 
   return (
     <Section>
-      <div className={styles.mainContainer}>
+      <div className="sectionContainer">
         <div className={styles.cartContainer}>
           <div className={styles.cartSummaryContainer}>
             <h3>Subscription Details</h3>

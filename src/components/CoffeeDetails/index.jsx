@@ -10,7 +10,7 @@ const CoffeeDetails = () => {
   return (
     <div ref={coffeeSelectionAnchor}>
       <Section>
-        <div className={styles.sectionContainer}>
+        <div className={`${styles.mainContainer}`}>
           <h2>{data.coffees_title?.text}</h2>
           <CoffeeCard coffeeData={data} />
         </div>

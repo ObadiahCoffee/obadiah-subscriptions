@@ -80,7 +80,9 @@ export function ThemeProvider({ children }) {
     },
   ];
 
-  const [setActiveAccordion, setActiveAccordionState] = useState({status: "", index: 0});
+  // States for interactive elements
+  const [isActiveAccordion, setIsActiveAccordion] = useState({status: "", index: 0});
+  const [isActiveMoreInfo, setIsActiveMoreInfo] = useState(false);
 
   // Anchors
   const moreInfoAnchor = useRef(null)
@@ -115,8 +117,10 @@ export function ThemeProvider({ children }) {
     data,
     tableData,
     coffeeOrderData,
-    setActiveAccordion,
-    setActiveAccordionState,
+    isActiveAccordion,
+    setIsActiveAccordion,
+    isActiveMoreInfo,
+    setIsActiveMoreInfo,
     coffeeSelectionAnchor,
     moreInfoAnchor,
   };

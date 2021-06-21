@@ -24,6 +24,19 @@ header {
 
 }
 
+:global(.sectionContainer) {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  min-height: calc(100vh - 180px);
+  text-align: center;
+  position: relative;
+
+}
+
 h2 {
 
   text-align: center;

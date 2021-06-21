@@ -6,7 +6,7 @@ import * as styles from './styles.module.scss';
 
 const CoffeeCard = () => {
 
-  const { data, tableData, setActiveAccordion, setActiveAccordionState, moreInfoAnchor } = useContext(ThemeContext);
+  const { data, tableData, isActiveAccordion, setIsActiveAccordion, moreInfoAnchor } = useContext(ThemeContext);
 
   const carouselSettings = {
     dots: false,
@@ -68,7 +68,7 @@ const CoffeeCard = () => {
 
   const toggleAccordion = (index) => {
 
-    setActiveAccordionState(setActiveAccordion.status === "active" && setActiveAccordion.index === index ? {status: "", index: index} : {status: "active", index: index});
+    setIsActiveAccordion(isActiveAccordion.status === "active" && isActiveAccordion.index === index ? {status: "", index: index} : {status: "active", index: index});
     moreInfoAnchor.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
   }

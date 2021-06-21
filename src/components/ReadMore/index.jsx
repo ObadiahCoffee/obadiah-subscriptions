@@ -6,23 +6,23 @@ import * as styles from './styles.module.scss';
 
 const ReadMore = () => {
   // Data for population
-  const { tableData, setActiveAccordion, setActiveAccordionState, coffeeSelectionAnchor } = useContext(ThemeContext);
+  const { tableData, isActiveAccordion, setIsActiveAccordion, coffeeSelectionAnchor } = useContext(ThemeContext);
 
   const closeAccordion = () => {
-    setActiveAccordionState({ status: '', index: setActiveAccordion.index });
+    setIsActiveAccordion({ status: '', index: isActiveAccordion.index });
     coffeeSelectionAnchor.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
-    <div className={setActiveAccordion.status === 'active' ? `${styles.open}` : `${styles.close}`}>
+    <div className={isActiveAccordion.status === 'active' ? `${styles.open}` : `${styles.close}`}>
       <Section>
         <div className={styles.mainContainer}>
           <div className={styles.imageContainer}>
-            <Image image={tableData[setActiveAccordion.index].readMoreImage} />
+            <Image image={tableData[isActiveAccordion.index].readMoreImage} />
           </div>
           <div
             className={styles.wysiwyg}
-            dangerouslySetInnerHTML={{ __html: tableData[setActiveAccordion.index].readMoreWYSIWIG }}
+            dangerouslySetInnerHTML={{ __html: tableData[isActiveAccordion.index].readMoreWYSIWIG }}
           />
           <Cross onClick={closeAccordion} />
         </div>

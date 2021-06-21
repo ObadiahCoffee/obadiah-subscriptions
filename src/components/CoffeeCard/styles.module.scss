@@ -20,10 +20,8 @@
 
   a {
 
-    font-family: $font-family;
+    @include button;
     font-style: normal;
-    text-transform: uppercase;
-    font-size: 12px;
     cursor: pointer;
 
   }
@@ -32,9 +30,8 @@
 
 .coffeeRegionTagline {
 
+  @include tagline;
   padding: 10px;
-  font-size: 12px;
-  text-transform: uppercase;
 
 }
 

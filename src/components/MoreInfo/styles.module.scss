@@ -1,4 +1,4 @@
-.mainContainer {
+.stickyButton {
 
   max-width: 200px;
   text-transform: uppercase;
@@ -12,5 +12,85 @@
   right: -68px;
   top: 50%;
   cursor: pointer;
+
+}
+
+.moreInfoContainer {
+
+  position: fixed;
+  right: 0;
+  height: 100%;
+  color: $highlight;
+  background-color: $secondary;
+
+  .contentContainer {
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 30px;
+    justify-content: center;
+    transition: opacity 0.25s 1s;
+    will-change: margin-top;
+    transition: all 700ms;
+    transition-delay: 600ms;
+
+  }
+
+  svg {
+
+    width: 16px;
+    position: relative;
+    top: 30px;
+    left: 30px;
+    cursor: pointer;
+    fill: $highlight;
+
+  }
+
+  h3:nth-last-child(4) {
+
+    padding-bottom: 30px;
+
+  }
+
+  h4 {
+
+    @include tagline;
+
+  }
+
+}
+
+.open {
+
+  max-width: 400px;
+  opacity: 100%;
+  z-index: 100;
+  transition: max-width 0.6s;
+  transition-timing-function: ease;
+
+}
+
+.close {
+
+  max-width: 0;
+  z-index: 100;
+  transition: max-width 0.6s 1s;
+  transition-timing-function: ease;
+
+}
+
+.show {
+
+  opacity: 100%;
+  transition: opacity 0.6s, ;
+
+}
+
+.hide {
+
+  opacity: 0%;
+  transition: opacity 0.1s;
 
 }
