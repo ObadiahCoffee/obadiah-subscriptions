@@ -5,16 +5,17 @@ import { ThemeContext } from '../../context/ThemeContext';
 import * as styles from './styles.module.scss';
 
 const CoffeeDetails = () => {
-
-  const { data } = useContext(ThemeContext);
+  const { data, coffeeSelectionAnchor } = useContext(ThemeContext);
 
   return (
-    <Section>
-      <div className={styles.sectionContainer}>
-        <h2>{data.coffees_title?.text}</h2>
-        <CoffeeCard coffeeData={data} />
-      </div>
-    </Section>
+    <div ref={coffeeSelectionAnchor}>
+      <Section>
+        <div className={styles.sectionContainer}>
+          <h2>{data.coffees_title?.text}</h2>
+          <CoffeeCard coffeeData={data} />
+        </div>
+      </Section>
+    </div>
   );
 };
 export default CoffeeDetails;

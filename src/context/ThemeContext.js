@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 // Assets
@@ -80,6 +80,12 @@ export function ThemeProvider({ children }) {
     },
   ];
 
+  const [setActiveAccordion, setActiveAccordionState] = useState({status: "", index: 0});
+
+  // Anchors
+  const moreInfoAnchor = useRef(null)
+  const coffeeSelectionAnchor = useRef(null)
+
   // COFFEE ORDER DATA /////////////////////////////////////////////////////////
 
   const { box_price_1: price1, box_price_2: price2, box_price_4: price4 } = data;
@@ -108,7 +114,11 @@ export function ThemeProvider({ children }) {
   const values = {
     data,
     tableData,
-    coffeeOrderData
+    coffeeOrderData,
+    setActiveAccordion,
+    setActiveAccordionState,
+    coffeeSelectionAnchor,
+    moreInfoAnchor,
   };
 
   return <ThemeContext.Provider value={values}>{children}</ThemeContext.Provider>;

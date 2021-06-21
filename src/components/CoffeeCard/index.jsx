@@ -1,11 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Carousel, ReadMore } from 'components';
 import { ThemeContext } from '../../context/ThemeContext';
 import * as styles from './styles.module.scss';
 
 const CoffeeCard = () => {
-  const { data, tableData } = useContext(ThemeContext);
+
+  const { data, tableData, setActiveAccordion, setActiveAccordionState, moreInfoAnchor } = useContext(ThemeContext);
 
   const carouselSettings = {
     dots: false,
@@ -13,6 +14,7 @@ const CoffeeCard = () => {
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 2,
+    mobileFirst: true,
     responsive: [
       {
         breakpoint: 9999,
@@ -21,6 +23,7 @@ const CoffeeCard = () => {
           slidesToScroll: 2,
           adaptiveHeight: false,
           infinite: true,
+          settings: "unslick",
         },
       },
       {
@@ -30,6 +33,7 @@ const CoffeeCard = () => {
           slidesToScroll: 2,
           centerMode: true,
           infinite: true,
+          settings: "unslick",
         },
       },
       {
@@ -60,10 +64,20 @@ const CoffeeCard = () => {
     ],
   };
 
+  // const moreInfoAnchor = useRef(null)
+
+  const toggleAccordion = (index) => {
+
+    setActiveAccordionState(setActiveAccordion.status === "active" && setActiveAccordion.index === index ? {status: "", index: index} : {status: "active", index: index});
+    moreInfoAnchor.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+
+  }
+
+
   return (
     <div className={styles.coffeesContainer}>
-      {/* <Carousel settings={carouselSettings}> */}
-      {tableData.map((coffee, i) => {
+      {/*<Carousel settings={carouselSettings}>*/}
+      {tableData.map((coffee, index) => {
         const {
           regionTitle,
           regionTagline,
@@ -79,37 +93,38 @@ const CoffeeCard = () => {
           readMoreWYSIWIG,
         } = coffee;
         return (
-          <div className={styles.coffeeCard} key={i}>
-            <div className={styles.coffeeRegionTagline}>{data.coffee_1_region_tagline?.text}</div>
-            <div className={styles.coffeeRegionTitle}>{regionTitle}</div>
-            <div className={styles.coffeeInfoContainer}>
-              <div className={styles.infoRowItem}>
-                Region<span>{region}</span>
+            <div className={styles.coffeeCard} key={index}>
+              <div className={styles.coffeeRegionTagline}>{data.coffee_1_region_tagline?.text}</div>
+              <div className={styles.coffeeRegionTitle}>{regionTitle}</div>
+              <div className={styles.coffeeInfoContainer}>
+                <div className={styles.infoRowItem}>
+                  Region<span>{region}</span>
+                </div>
+                <div className={styles.infoRowItem}>
+                  Harvest<span>{harvest}</span>
+                </div>
+                <div className={styles.infoRowItem}>
+                  Process<span>{process}</span>
+                </div>
+                <div className={styles.infoRowItem}>
+                  Altitude<span>{altitude} MASL</span>
+                </div>
+                <div className={styles.infoRowItem}>
+                  Taste Notes<span>{tasteNotes}</span>
+                </div>
               </div>
-              <div className={styles.infoRowItem}>
-                Harvest<span>{harvest}</span>
-              </div>
-              <div className={styles.infoRowItem}>
-                Process<span>{process}</span>
-              </div>
-              <div className={styles.infoRowItem}>
-                Altitude<span>{altitude} MASL</span>
-              </div>
-              <div className={styles.infoRowItem}>
-                Taste Notes<span>{tasteNotes}</span>
-              </div>
-            </div>
 
-            <div className={styles.coffeeProducedBy}>
-              Produced by
-              <div className={styles.coffeeProducedByValue}>{producer}</div>
-            </div>
+              <div className={styles.coffeeProducedBy}>
+                Produced by
+                <div className={styles.coffeeProducedByValue}>{producer}</div>
+              </div>
 
-            <a href="#">Read More About The Origins</a>
-          </div>
+              <a onClick={() => toggleAccordion(index)}>Read More About The Origins</a>
+            </div>
         );
       })}
-      {/* </Carousel> */}
+      {/*</Carousel>*/}
+      <span className={styles.moreInfoAnchor} ref={moreInfoAnchor} />
     </div>
   );
 };

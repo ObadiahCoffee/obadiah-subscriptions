@@ -5,6 +5,10 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  //
+  // @include media-down(mobile) {
+  //   display: block;
+  // }
 
 }
 
@@ -20,6 +24,7 @@
     font-style: normal;
     text-transform: uppercase;
     font-size: 12px;
+    cursor: pointer;
 
   }
 
@@ -92,5 +97,11 @@
   font-family: $font-family-alt;
   font-style: italic;
   margin: 2px 0 50px 0;
+
+}
+
+.moreInfoAnchor {
+
+  margin-bottom: -300px;
 
 }
