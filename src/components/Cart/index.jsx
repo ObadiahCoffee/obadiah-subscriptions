@@ -8,7 +8,7 @@ const Cart = (props) => {
 
   return (
     <Section>
-      <div className={styles.sectionContainer}>
+      <div className={styles.mainContainer}>
         <div className={styles.cartContainer}>
           <div className={styles.cartSummaryContainer}>
             <h3>Subscription Details</h3>
