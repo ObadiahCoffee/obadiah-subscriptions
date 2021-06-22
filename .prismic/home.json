@@ -284,6 +284,14 @@
         "label": "Checkout Tooltip",
         "placeholder": "Enter checkout tooltip content"
       }
+    },
+    "more_info" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph,heading1,heading2,heading3,heading4,heading5,heading6",
+        "label" : "More Info",
+        "placeholder" : "Enter More Info content"
+      }
     }
   },
   "SEO": {

@@ -13,7 +13,7 @@
 
 .cartContainer {
 
-  position: relative;
+  position: absolute;
 
 }
 
@@ -109,45 +109,5 @@
   color: $secondary;
   background-color: $primary;
   border: 1px solid $secondary;
-
-}
-
-.checkoutInfo {
-
-  position: absolute;
-  bottom: 5px;
-  right: -60px;
-  font-family: $font-family-alt;
-  font-style: italic;
-  font-size: 20px;
-  padding: 20px;
-  max-height: 45px;
-  max-width: 45px;
-  border: 1px solid $secondary;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.2s;
-  transition-property: color background-color;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  @include media-down(tablet) {
-
-    display: inline-flex;
-    position: relative;
-    right: 0;
-    bottom: 0;
-    margin-top: 20px;
-    width: 100%;
-
-  }
-
-}
-
-.checkoutInfo:hover {
-
-  color: $primary;
-  background-color: $secondary;
 
 }

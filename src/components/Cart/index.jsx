@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Section } from 'components';
+import { Section, CheckoutInfo } from 'components';
 import { CartContext } from '../../context/Cart';
 import * as styles from './styles.module.scss';
 
@@ -30,9 +30,7 @@ const Cart = () => {
             </div>
           </div>
           <div className={styles.checkoutButton}>Checkout</div>
-          <div className={styles.checkoutInfo}>
-            <span>i</span>
-          </div>
+          <CheckoutInfo />
         </div>
       </div>
     </Section>
