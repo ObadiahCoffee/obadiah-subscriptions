@@ -10,8 +10,8 @@ const Homepage = () => (
   <ThemeProvider>
     <CartProvider>
       <div className={styles.mainContainer}>
-        <Header />
         <MoreInfo />
+        <Header />
         <Landing />
         <CoffeeDetails />
         <ReadMore />

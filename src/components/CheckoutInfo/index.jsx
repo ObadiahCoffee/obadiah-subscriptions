@@ -7,13 +7,15 @@ import * as styles from './styles.module.scss';
 const CheckoutInfo = () => {
   const { data } = useContext(ThemeContext);
 
+  const { checkout_tooltip: { html: checkoutTooltip } } = data;
+
   return (
       <>
         <div className={styles.checkoutInfoButton}>
           <span>i</span>
           <div
           className={styles.checkoutInfoContent}
-          dangerouslySetInnerHTML={{ __html: data.checkout_tooltip.html }}
+          dangerouslySetInnerHTML={{ __html: checkoutTooltip }}
           />
         </div>
       </>

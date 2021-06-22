@@ -1,6 +1,8 @@
 .stickyButton {
 
   max-width: 200px;
+  position: fixed;
+  z-index: 80;
   text-transform: uppercase;
   padding: 12px 50px 5px 50px;
   margin: 0;
@@ -8,10 +10,20 @@
   transform: rotate(270deg);
   background-color: $secondary;
   color: $highlight;
-  position: fixed;
-  right: -68px;
-  top: 50%;
+  right: 0;
+  transform-origin: right center;
+  transform: rotate(270deg) translateY(-50%);
+  top: 45%;
   cursor: pointer;
+
+  // @include media-down(tablet) {
+  //
+  //   right: none;
+  //   top: none;
+  //   bottom: 0;
+  //   transform: rotate(0deg);
+  //
+  // }
 
 }
 
@@ -91,6 +103,7 @@
 .hide {
 
   opacity: 0%;
+  display: none;
   transition: opacity 0.2s;
 
 }

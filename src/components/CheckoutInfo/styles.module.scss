@@ -47,22 +47,30 @@
 .checkoutInfoContent {
 
   visibility: hidden;
+  position: absolute;
   opacity: 0;
   @include body-font;
   z-index: 110;
   color: $secondary;
   background-color: $primary;
-  padding: 5px;
+  padding: 5px 5px 0 5px;
   font-size: 14px;
-  border-radius: 30px;
   text-align: left;
   font-style: normal;
-  position: absolute;
   bottom: 5px;
-  min-width: 375px;
-  max-width: 425px;
+  min-width: 370px;
   left: 20px;
-  bottom: 40px;
+  bottom: 45px;
   transition: all 0.25s;
+
+  @include media-down(tablet) {
+
+    left: -128px;
+    bottom: 150px;
+    min-width: 300px;
+    border: 1px solid $secondary;
+    padding: 20px 20px 0px 20px;
+
+  }
 
 }

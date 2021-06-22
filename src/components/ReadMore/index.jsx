@@ -16,15 +16,17 @@ const ReadMore = () => {
   return (
     <div className={isActiveAccordion.status === 'active' ? `${styles.open}` : `${styles.close}`}>
       <Section>
-        <div className={styles.mainContainer}>
-          <div className={styles.imageContainer}>
-            <Image image={tableData[isActiveAccordion.index].readMoreImage} />
-          </div>
-          <div
-            className={styles.wysiwyg}
-            dangerouslySetInnerHTML={{ __html: tableData[isActiveAccordion.index].readMoreWYSIWIG }}
-          />
+        <div className={styles.container}>
           <Cross onClick={closeAccordion} />
+          <div className={styles.contentContainer}>
+            <div className={styles.imageContainer}>
+              <Image image={tableData[isActiveAccordion.index].readMoreImage} />
+            </div>
+            <div
+              className={styles.wysiwyg}
+              dangerouslySetInnerHTML={{ __html: tableData[isActiveAccordion.index].readMoreWYSIWIG }}
+            />
+          </div>
         </div>
       </Section>
     </div>

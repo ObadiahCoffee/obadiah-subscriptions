@@ -18,6 +18,13 @@
   max-width: 400px;
   margin: 0 45px;
 
+  @include media-down(tablet) {
+
+    margin: 0;
+    min-width: 100%;
+
+  }
+
   a {
 
     @include button;
@@ -99,6 +106,6 @@
 
 .moreInfoAnchor {
 
-  margin-bottom: -300px;
+  margin-bottom: -400px;
 
 }

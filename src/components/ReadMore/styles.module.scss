@@ -1,18 +1,41 @@
-.mainContainer {
+.container {
 
   margin: -80px 0 0 0;
   display: flex;
-  flex-direction: row;
-  padding: 0 50px;
+  flex-direction: column;
+  align-items: flex-end;
 
   svg {
 
     width: 16px;
-    margin: -50px -40px 0 0;
+    margin: 0 40px 30px 0;
     cursor: pointer;
-    align-self: flex-start;
+
+    @include media-down(tablet) {
+
+      align-self: flex-end;
+      margin: 0 20px 20px 0;
+
+    }
 
   }
+
+}
+
+.contentContainer {
+
+  // margin: -80px 0 0 0;
+  display: flex;
+  flex-direction: row;
+  padding: 0 50px;
+
+  @include media-down(tablet) {
+
+    flex-direction: column;
+    padding: 0 20px;
+
+  }
+
 
 }
 
@@ -21,11 +44,24 @@
   width: 55%;
   padding: 15px 50px 15px 80px;
 
+  @include media-down(tablet) {
+
+    width: 100%;
+    padding: 40px 0 20px 0;
+
+  }
+
 }
 
 .imageContainer {
 
   width: 45%;
+
+  @include media-down(tablet) {
+
+    width: 100%;
+
+  }
 
 }
 
@@ -39,7 +75,8 @@ h4 {
 
   opacity: 100%;
   max-height: 2000px;
-  transition: max-height 0.3s 0.1s, opacity 0.6s 0.5s;
+  display: block;
+  transition: max-height 0.3s 0.1s, opacity 0.6s 0.5s, display 2s 4s;
 
 }
 
@@ -47,6 +84,7 @@ h4 {
 
   opacity: 0%;
   max-height: 0;
-  transition: opacity 0.6s 0.1s, max-height 0.6s 0.6s;
+  // display: none;
+  transition: opacity 0.6s 0.1s, max-height 0.6s 0.6s, display 0.3s;
 
 }
