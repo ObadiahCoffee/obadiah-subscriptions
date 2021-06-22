@@ -4,6 +4,10 @@ import { Section } from 'components';
 import { CartContext  } from '../../context/Cart';
 import * as styles from './styles.module.scss';
 
+import { ReactComponent as Box1 } from '../../images/coffee-box-1.svg';
+import { ReactComponent as Box2 } from '../../images/coffee-box-2.svg';
+import { ReactComponent as Box4 } from '../../images/coffee-box-4.svg';
+
 const CoffeeSelection = ({ fieldData }) => {
 
   const { title, section } = fieldData[0];
