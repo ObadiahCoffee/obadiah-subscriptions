@@ -63,6 +63,7 @@ const CoffeeSelection = ({ fieldData }) => {
           })}
         </div>
       </div>
+      <Box1 />
     </Section>
   );
 };
