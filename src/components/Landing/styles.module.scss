@@ -33,6 +33,12 @@
     padding: 7px;
     margin-top: 80px;
 
+    @include media-down(tablet) {
+
+      margin-top: 40px;
+
+    }
+
   }
 
 }

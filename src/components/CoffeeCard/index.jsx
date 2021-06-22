@@ -9,62 +9,31 @@ const CoffeeCard = () => {
   const { data, tableData, isActiveAccordion, setIsActiveAccordion, moreInfoAnchor } = useContext(ThemeContext);
 
   const carouselSettings = {
-    dots: false,
+    dots: true,
     arrows: false,
-    infinite: true,
-    slidesToShow: 2,
-    slidesToScroll: 2,
     mobileFirst: true,
+    // appendDots: $(`${styles.coffeeDots}`),
+    appendDots: dots => <div className={styles.coffeeDots}>{dots}</div>,
     responsive: [
       {
         breakpoint: 9999,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          adaptiveHeight: false,
-          infinite: true,
-          settings: "unslick",
-        },
-      },
-      {
-        breakpoint: 1250,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          centerMode: true,
-          infinite: true,
           settings: "unslick",
         },
       },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          centerMode: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           infinite: true,
-        },
-      },
-      {
-        breakpoint: 750,
-        settings: {
           dots: true,
-          slidesToScroll: 1,
-          centerMode: true,
-        },
-      },
-      {
-        breakpoint: 390,
-        settings: {
-          dots: true,
-          slidesToScroll: 1,
-          centerMode: false,
         },
       },
     ],
   };
-
-  // const moreInfoAnchor = useRef(null)
 
   const toggleAccordion = (index) => {
 
@@ -76,7 +45,7 @@ const CoffeeCard = () => {
 
   return (
     <div className={styles.coffeesContainer}>
-      {/*<Carousel settings={carouselSettings}>*/}
+      <Carousel settings={carouselSettings}>
       {tableData.map((coffee, index) => {
         const {
           regionTitle,
@@ -123,8 +92,9 @@ const CoffeeCard = () => {
             </div>
         );
       })}
-      {/*</Carousel>*/}
+      </Carousel>
       <span className={styles.moreInfoAnchor} ref={moreInfoAnchor} />
+      <div className={styles.coffeeDots}><ul></ul></div>
     </div>
   );
 };

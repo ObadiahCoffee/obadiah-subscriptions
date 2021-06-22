@@ -18,7 +18,7 @@
   align-items: center;
   justify-content: center;
 
-  @include media-down(tablet) {
+  @include media-down(small-desktop) {
 
     display: inline-flex;
     position: relative;
@@ -46,10 +46,10 @@
 
 .checkoutInfoContent {
 
+  @include body-font;
   visibility: hidden;
   position: absolute;
   opacity: 0;
-  @include body-font;
   z-index: 110;
   color: $secondary;
   background-color: $primary;
@@ -63,7 +63,16 @@
   bottom: 45px;
   transition: all 0.25s;
 
-  @include media-down(tablet) {
+  @include media-down(small-desktop) {
+
+    left: auto;
+    right: 190px;
+    bottom: -40px;
+    min-width: 330px;
+
+  }
+
+  @include media-down(large-tablet) {
 
     left: -129px;
     bottom: 150px;

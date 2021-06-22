@@ -5,10 +5,8 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  //
-  // @include media-down(mobile) {
-  //   display: block;
-  // }
+  overflow: hidden;
+  max-width: 100%;
 
 }
 
@@ -16,7 +14,6 @@
 
   min-width: 350px;
   max-width: 400px;
-  margin: 0 45px;
 
   @include media-down(tablet) {
 
@@ -59,7 +56,7 @@
   .infoRowItem {
 
     border-bottom: 1px solid black;
-    padding: 9px 0 2px 0;
+    padding: 9px 0px 2px 0px;
     width: 100%;
     font-weight: $font-weight-medium;
     font-size: 14px;
@@ -108,4 +105,71 @@
 
   margin-bottom: -400px;
 
+}
+
+/////////////////////////////////////////
+
+
+.slick-dotted.slick-slider {
+  margin-bottom: 30px;
+}
+
+.coffeeDots {
+  bottom: -40px;
+  width: 100%;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.coffeeDots li {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 2px;
+  padding: 0;
+  cursor: none;
+}
+
+.coffeeDots li button {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  cursor: none;
+  color: transparent;
+  border: 0;
+  outline: 0;
+  background: 0 0;
+}
+
+.coffeeDots li button:focus,
+.coffeeDots li button:hover {
+  outline: 0;
+}
+
+.coffeeDots li button:focus:before,
+.coffeeDots li button:hover:before {
+  opacity: 1;
+}
+
+.coffeeDots li button:before {
+  line-height: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  text-align: center;
+  opacity: 0.25;
+  content: "";
+  background-color: $secondary;
+}
+
+.coffeeDots li.slick-active button:before {
+  opacity: 0.75;
 }
