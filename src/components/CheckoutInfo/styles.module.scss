@@ -53,7 +53,7 @@
   z-index: 110;
   color: $secondary;
   background-color: $primary;
-  padding: 5px 5px 0 5px;
+  padding: 10px 10px 0 10px;
   font-size: 14px;
   text-align: left;
   font-style: normal;
@@ -65,7 +65,7 @@
 
   @include media-down(tablet) {
 
-    left: -128px;
+    left: -129px;
     bottom: 150px;
     min-width: 300px;
     border: 1px solid $secondary;

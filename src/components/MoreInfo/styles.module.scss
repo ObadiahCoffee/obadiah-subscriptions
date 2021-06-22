@@ -1,29 +1,31 @@
 .stickyButton {
 
-  max-width: 200px;
   position: fixed;
+  display: inline-block;
   z-index: 80;
   text-transform: uppercase;
   padding: 12px 50px 5px 50px;
   margin: 0;
-  display: inline-block;
   transform: rotate(270deg);
   background-color: $secondary;
   color: $highlight;
   right: 0;
   transform-origin: right center;
   transform: rotate(270deg) translateY(-50%);
-  top: 45%;
+  top: 40%;
   cursor: pointer;
 
-  // @include media-down(tablet) {
-  //
-  //   right: none;
-  //   top: none;
-  //   bottom: 0;
-  //   transform: rotate(0deg);
-  //
-  // }
+  @include media-down(tablet) {
+
+    right: auto;
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    transform-origin: right center;
+    transform: rotate(0deg) translateY(0%);
+
+  }
 
 }
 
@@ -35,17 +37,9 @@
   color: $highlight;
   background-color: $secondary;
 
-  .contentContainer {
+  div {
 
-    display: flex;
-    flex-direction: column;
     height: 100%;
-    padding: 30px;
-    justify-content: center;
-    transition: opacity 0.25s 1s;
-    will-change: margin-top;
-    transition: all 700ms;
-    transition-delay: 600ms;
 
   }
 
@@ -60,15 +54,29 @@
 
   }
 
-  h3:nth-last-child(4) {
+  .contentContainer {
 
-    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 30px;
+    justify-content: center;
+    transition: opacity 0.25s 1s;
+    will-change: margin-top;
+    transition: all 700ms;
+    transition-delay: 600ms;
 
-  }
+    h3:nth-last-child(4) {
 
-  h4 {
+      padding-bottom: 30px;
 
-    @include tagline;
+    }
+
+    h4 {
+
+      @include tagline;
+
+    }
 
   }
 
@@ -76,34 +84,60 @@
 
 .open {
 
-  max-width: 400px;
   opacity: 100%;
   z-index: 100;
-  transition: max-width 0.6s;
   transition-timing-function: ease;
+
+  @include media-up(tablet) {
+
+    max-width: 400px;
+    transition: max-width 0.5s;
+
+  }
+
+  @include media-down(tablet) {
+
+    max-width: auto;
+    max-height: 100%;
+    transition: max-height 0.5s;
+
+  }
 
 }
 
 .close {
 
-  max-width: 0;
   z-index: 100;
-  transition: max-width 0.3s 1s;
   transition-timing-function: ease;
+
+  @include media-up(tablet) {
+
+    max-width: 0;
+    transition: max-width 0.3s 1s;
+
+  }
+
+  @include media-down(tablet) {
+
+    max-width: auto;
+    max-height: 0%;
+    transition: max-height 0.5s 1s;
+
+  }
 
 }
 
 .show {
 
   opacity: 100%;
-  transition: opacity 0.6s;
+  transition: opacity 0.6s 0.5s;
 
 }
 
 .hide {
 
   opacity: 0%;
-  display: none;
-  transition: opacity 0.2s;
+  // display: none;
+  transition: opacity 0.6s;
 
 }

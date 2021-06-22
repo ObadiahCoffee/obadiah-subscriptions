@@ -15,11 +15,13 @@ const MoreInfo = () => {
   return (
     <>
       <div className={isActiveMoreInfo ? `${styles.moreInfoContainer} ${styles.open}` : `${styles.moreInfoContainer} ${styles.close}`}>
-        <Cross onClick={toggleMoreInfo} />
-        <div
-        className={isActiveMoreInfo ? `${styles.contentContainer} ${styles.show}` : `${styles.contentContainer} ${styles.hide}`}
-        dangerouslySetInnerHTML={{ __html: moreInfo }}
-        />
+        <div className={isActiveMoreInfo ? `${styles.show}` : `${styles.hide}`}>
+          <Cross onClick={toggleMoreInfo} />
+          <div
+          className={styles.contentContainer}
+          dangerouslySetInnerHTML={{ __html: moreInfo }}
+          />
+        </div>
       </div>
       <div className={styles.stickyButton} onClick={toggleMoreInfo}>
         <span>More Info</span>
