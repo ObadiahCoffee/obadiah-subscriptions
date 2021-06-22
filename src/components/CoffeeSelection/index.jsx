@@ -4,6 +4,8 @@ import { Section } from 'components';
 import { CartContext  } from '../../context/Cart';
 import * as styles from './styles.module.scss';
 
+import { ReactComponent as Test } from '../../images/dark-left-arrow.svg';
+
 const CoffeeSelection = ({ fieldData }) => {
 
   const { title, section } = fieldData[0];
@@ -59,6 +61,7 @@ const CoffeeSelection = ({ fieldData }) => {
           })}
         </div>
       </div>
+      <Test />
     </Section>
   );
 };

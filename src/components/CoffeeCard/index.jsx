@@ -13,7 +13,7 @@ const CoffeeCard = () => {
     arrows: false,
     mobileFirst: true,
     // appendDots: $(`${styles.coffeeDots}`),
-    appendDots: dots => <div className={styles.coffeeDots}>{dots}</div>,
+    // appendDots: dots => <div className={styles.coffeeDots}>{dots}</div>,
     responsive: [
       {
         breakpoint: 9999,
