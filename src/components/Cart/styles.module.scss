@@ -4,7 +4,8 @@
 
   @include media-down(tablet) {
 
-    margin-bottom: -50px;
+    position: relative;
+    top: 50px;
 
   }
 
