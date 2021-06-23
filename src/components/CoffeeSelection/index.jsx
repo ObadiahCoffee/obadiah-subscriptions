@@ -46,6 +46,7 @@ const CoffeeSelection = ({ fieldData }) => {
         <div className={styles.optionsContainer}>
           {fieldData.slice(1).map((field, index) => {
             const { img, label, sublabel, value, price } = field;
+            console.log(img);
             return (
               <div className={styles.option} key={index}>
                 {img && <div className={styles.imgContainer}>{img}</div>}
@@ -63,7 +64,6 @@ const CoffeeSelection = ({ fieldData }) => {
           })}
         </div>
       </div>
-      <Box1 />
     </Section>
   );
 };
