@@ -96,6 +96,12 @@
   transition: 0.2s;
   transition-property: color background-color;
 
+  @include media-down(tablet) {
+
+    margin: 25px 0 0 0;
+
+  }
+
 }
 
 .checkoutButton:hover {
