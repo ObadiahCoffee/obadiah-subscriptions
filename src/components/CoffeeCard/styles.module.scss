@@ -103,7 +103,14 @@
 
 .moreInfoAnchor {
 
-  margin-bottom: -400px;
+  position: relative;
+  top: 200px;
+
+  @include media-down(large-tablet) {
+
+    top: 100px;
+
+  }
 
 }
 
