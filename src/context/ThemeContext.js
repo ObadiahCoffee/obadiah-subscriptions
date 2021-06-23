@@ -95,9 +95,9 @@ export function ThemeProvider({ children }) {
   const coffeeOrderData = [
     [
       { title: 'How many boxes would you like?', section: 'boxes' },
-      { img: <Box1 className="box1" />, label: `1 box for £${price1}`, sublabel: '(250g)', value: '1', price: price1 },
-      { img: <Box2 />, label: `2 boxes for £${price2}`, sublabel: '(250g)', value: '2', price: price2 },
-      { img: <Box4 />, label: `4 boxes for £${price4}`, sublabel: '(250g)', value: '4', price: price4 },
+      { img: <Box1 className="singleBox" />, label: `1 box for £${price1}`, sublabel: '(250g)', value: '1', price: price1 },
+      { img: <Box2 className="multipleBoxes" />, label: `2 boxes for £${price2}`, sublabel: '(250g)', value: '2', price: price2 },
+      { img: <Box4 className="multipleBoxes" />, label: `4 boxes for £${price4}`, sublabel: '(250g)', value: '4', price: price4 },
     ],
     [
       { title: 'And how often would you like to receive it?', section: 'frequency' },
