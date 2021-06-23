@@ -138,8 +138,8 @@
 .hide {
 
   opacity: 0%;
-  // display: none;
-  transition: opacity 0.6s;
+  margin-top: -2000px;
+  transition: opacity 0.6s, margin-top 1s 3s;
 
   svg {
 
