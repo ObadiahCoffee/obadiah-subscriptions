@@ -18,6 +18,14 @@
   @include media-down(tablet) {
 
     margin: 0;
+    min-width: 80%;
+    padding-bottom: 50px;
+
+  }
+
+  @include media-down(small-tablet) {
+
+    margin: 0;
     min-width: 100%;
     padding-bottom: 50px;
 

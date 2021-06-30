@@ -4,7 +4,9 @@ import { CartContext } from '../../context/Cart';
 import * as styles from './styles.module.scss';
 
 const Cart = () => {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart, addToCart, checkout, reChargeCartSubmit, goToCheckout } = useContext(CartContext);
+
+  if (!checkout || !checkout.webUrl) return null;
 
   return (
     <Section>
@@ -29,7 +31,7 @@ const Cart = () => {
               <span>Check the different selections before you go through to payment.</span>
             </div>
           </div>
-          <div className={styles.checkoutButton}>Checkout</div>
+          <a className={styles.checkoutButton} onClick={goToCheckout}>Checkout</a>
           <CheckoutInfo />
         </div>
       </div>

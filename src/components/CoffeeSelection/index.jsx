@@ -1,36 +1,37 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Section } from 'components';
-import { CartContext  } from '../../context/Cart';
+import { CartContext } from '../../context/Cart';
 import * as styles from './styles.module.scss';
 
 const CoffeeSelection = ({ fieldData }) => {
-
   const { title, section } = fieldData[0];
 
   const { cart, setCart } = useContext(CartContext);
 
   const handleClick = (e) => {
 
+    const selSection = e.target.getAttribute('section');
+    const selValue = e.target.getAttribute('value');
+
+    // Updates cart if section options have price //////////////////////////////
     if (e.target.getAttribute('price')) {
 
-      const selSection = e.target.getAttribute('section');
-      const selValue = e.target.getAttribute('value');
       const selPrice = Number(e.target.getAttribute('price'));
 
-      return setCart({ ...cart,
-          [selSection]: selValue,
-          total: selPrice,
-        });
-
-    } else {
-
-      const selSection = e.target.getAttribute('section');
-      const selValue = e.target.getAttribute('value');
-
-      return setCart({ ...cart, [selSection]: selValue });
+      return setCart({
+        ...cart,
+        [selSection]: selValue,
+        total: selPrice,
+      });
 
     }
+
+    // Updates cart if section options DON'T have price ////////////////////////
+    return setCart({
+      ...cart,
+      [selSection]: selValue,
+    });
 
   };
 

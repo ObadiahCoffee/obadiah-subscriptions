@@ -83,8 +83,11 @@
 
 .checkoutButton {
 
+  display: block;
   font-size: 24px;
   font-weight: 300;
+  font-style: normal;
+  font-family: $font-family;
   padding: 20px 0 12px 0;
   min-width: 316px;
   color: $highlight;

@@ -12,8 +12,6 @@ const CoffeeCard = () => {
     dots: true,
     arrows: false,
     mobileFirst: true,
-    // appendDots: $(`${styles.coffeeDots}`),
-    // appendDots: dots => <div className={styles.coffeeDots}>{dots}</div>,
     responsive: [
       {
         breakpoint: 9999,
@@ -24,7 +22,7 @@ const CoffeeCard = () => {
         },
       },
       {
-        breakpoint: 1024,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
