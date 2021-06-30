@@ -4,9 +4,9 @@ import { CartContext } from '../../context/Cart';
 import * as styles from './styles.module.scss';
 
 const Cart = () => {
-  const { cart, setCart, addToCart, checkout, reChargeCartSubmit, goToCheckout } = useContext(CartContext);
+  const { cart, setCart, goToCheckout } = useContext(CartContext);
 
-  if (!checkout || !checkout.webUrl) return null;
+  
 
   return (
     <Section>
