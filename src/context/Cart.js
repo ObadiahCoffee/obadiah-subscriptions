@@ -92,7 +92,6 @@ export const CartProvider = ({ children }) => {
 
   // Add to cart ///////////////////////////////////////////////////////////////
   const addToCart = async () => {
-    console.log('adding to cart');
     const checkoutId = checkout.id;
     const lineItemsToAdd = [{ variantId: shopifyVariant, quantity: 1 }];
     const newCheckout = await client.checkout.addLineItems(checkoutId, lineItemsToAdd);
