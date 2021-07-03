@@ -45,12 +45,26 @@ const Homepage = () => {
     }
   };
 
-  const goToSection = (prev, forcedIndex) => {
+  const goToSection = (prev) => {
     setBlockScroll(true);
-    // Foced index used for mobile where activeSectionIndex
-    // stays 0 due to no mousewheel event
-    const indexToUse = forcedIndex || activeSectionIndex || 0;
+    const indexToUse = activeSectionIndex || 0;
     const newActiveSectionIndex = prev ? indexToUse - 1 : indexToUse + 1;
+    const nextSection = sections[newActiveSectionIndex];
+    if (nextSection) {
+      scrollIntoView(sections[newActiveSectionIndex], {
+        ease: (t) => (1 + Math.sin(Math.PI * t - Math.PI / 2)) / 2,
+        block: 'start',
+        inline: 'center',
+      });
+      setActiveSectionIndex(newActiveSectionIndex);
+    }
+  };
+
+  const goToNextSection = (event) => {
+    event.preventDefault();
+    const parent = event.target.closest('.anchor');
+    const indexOf = [...sections].indexOf(parent);
+    const newActiveSectionIndex = indexOf + 1;
     const nextSection = sections[newActiveSectionIndex];
     if (nextSection) {
       scrollIntoView(sections[newActiveSectionIndex], {
@@ -69,10 +83,10 @@ const Homepage = () => {
         <div className={styles.mainContainer} id="mainContainer">
           <MoreInfo />
           <Header />
-          <Landing goToSection={goToSection} />
+          <Landing goToNextSection={goToNextSection} />
           <CoffeeDetails />
           <ReadMore />
-          <CoffeeOrder goToSection={goToSection} />
+          <CoffeeOrder goToNextSection={goToNextSection} />
           <Cart />
           <Footer />
         </div>

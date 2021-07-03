@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { Section } from 'components';
 import * as styles from './styles.module.scss';
 
-const Landing = ({ goToSection }) => {
+const Landing = ({ goToNextSection }) => {
   // LINKS DATA FROM SETTINGS ////////////////////////////////////////////////////
   const homeQuery = graphql`
     query {
@@ -13,17 +13,12 @@ const Landing = ({ goToSection }) => {
 
   const { prismicHome } = useStaticQuery(homeQuery);
 
-  const handleGoToSection = (event) => {
-    event.preventDefault();
-    goToSection(false, 0);
-  };
-
   return (
     <Section className="anchor">
       <div className={styles.sectionContainer}>
         <h2>{prismicHome.data.header_title?.text}</h2>
         <p>{prismicHome.data.header_description?.text}</p>
-        <a href="#" onClick={handleGoToSection}>
+        <a href="#" onClick={goToNextSection}>
           Set up a subscription
         </a>
       </div>
