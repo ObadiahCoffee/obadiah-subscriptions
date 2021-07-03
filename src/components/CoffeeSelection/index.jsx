@@ -4,39 +4,38 @@ import { Section } from 'components';
 import { CartContext } from '../../context/Cart';
 import * as styles from './styles.module.scss';
 
-const CoffeeSelection = ({ fieldData }) => {
+const CoffeeSelection = ({ fieldData, goToSection }) => {
   const { title, section } = fieldData[0];
 
   const { cart, setCart } = useContext(CartContext);
 
   const handleClick = (e) => {
-
     const selSection = e.target.getAttribute('section');
     const selValue = e.target.getAttribute('value');
 
     // Updates cart if section options have price //////////////////////////////
     if (e.target.getAttribute('price')) {
-
       const selPrice = Number(e.target.getAttribute('price'));
 
-      return setCart({
+      setCart({
         ...cart,
         [selSection]: selValue,
         total: selPrice,
       });
-
+    } else {
+      setCart({
+        ...cart,
+        [selSection]: selValue,
+      });
     }
 
-    // Updates cart if section options DON'T have price ////////////////////////
-    return setCart({
-      ...cart,
-      [selSection]: selValue,
-    });
-
+    setTimeout(() => {
+      goToSection();
+    }, 300);
   };
 
   return (
-    <Section>
+    <Section className="anchor">
       <div className="sectionContainer">
         <h2>{title}</h2>
 

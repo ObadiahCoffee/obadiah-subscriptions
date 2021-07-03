@@ -6,10 +6,10 @@ import * as styles from './styles.module.scss';
 const Cart = () => {
   const { cart, setCart, goToCheckout } = useContext(CartContext);
 
-  
+
 
   return (
-    <Section>
+    <Section className="anchor">
       <div className="sectionContainer">
         <div className={styles.cartContainer}>
           <div className={styles.cartSummaryContainer}>
