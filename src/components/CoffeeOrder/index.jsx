@@ -10,7 +10,7 @@ const CoffeeOrder = ({ goToNextSection }) => {
   return (
     <>
       {coffeeOrderData.map((section, index) => (
-        <CoffeeSelection fieldData={section} goToNextSection={goToNextSection} sectionIndex={2 + index} key={index} />
+        <CoffeeSelection fieldData={section} goToNextSection={goToNextSection} key={index} />
       ))}
     </>
   );

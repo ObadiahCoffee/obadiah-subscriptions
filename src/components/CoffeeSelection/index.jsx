@@ -4,7 +4,7 @@ import { Section } from 'components';
 import { CartContext } from '../../context/Cart';
 import * as styles from './styles.module.scss';
 
-const CoffeeSelection = ({ fieldData, goToNextSection, sectionIndex }) => {
+const CoffeeSelection = ({ fieldData, goToNextSection }) => {
   const { title, section } = fieldData[0];
 
   const { cart, setCart } = useContext(CartContext);
@@ -30,7 +30,7 @@ const CoffeeSelection = ({ fieldData, goToNextSection, sectionIndex }) => {
     }
 
     setTimeout(() => {
-      goToNextSection(e, sectionIndex);
+      goToNextSection(e);
     }, 300);
   };
 
