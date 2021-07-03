@@ -49,7 +49,7 @@ const Homepage = () => {
     setBlockScroll(true);
     // Foced index used for mobile where activeSectionIndex
     // stays 0 due to no mousewheel event
-    const indexToUse = forcedIndex || activeSectionIndex;
+    const indexToUse = forcedIndex || activeSectionIndex || 0;
     const newActiveSectionIndex = prev ? indexToUse - 1 : indexToUse + 1;
     const nextSection = sections[newActiveSectionIndex];
     if (nextSection) {
