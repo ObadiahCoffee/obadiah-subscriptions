@@ -1,19 +1,13 @@
-.sectionContainer {
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  height: calc(100vh - 180px);
-  text-align: center;
-  position: relative;
-
-}
-
 .cartContainer {
 
-  position: relative;
+  position: absolute;
+
+  @include media-down(tablet) {
+
+    position: relative;
+    top: 50px;
+
+  }
 
 }
 
@@ -89,8 +83,11 @@
 
 .checkoutButton {
 
+  display: block;
   font-size: 24px;
   font-weight: 300;
+  font-style: normal;
+  font-family: $font-family;
   padding: 20px 0 12px 0;
   min-width: 316px;
   color: $highlight;
@@ -102,6 +99,12 @@
   transition: 0.2s;
   transition-property: color background-color;
 
+  @include media-down(tablet) {
+
+    margin: 15px 0 0 0;
+
+  }
+
 }
 
 .checkoutButton:hover {
@@ -109,35 +112,5 @@
   color: $secondary;
   background-color: $primary;
   border: 1px solid $secondary;
-
-}
-
-.checkoutInfo {
-
-  position: absolute;
-  bottom: 5px;
-  right: -60px;
-  font-family: $font-family-alt;
-  font-style: italic;
-  font-size: 20px;
-  padding: 20px;
-  max-height: 45px;
-  max-width: 45px;
-  border: 1px solid $secondary;
-  border-radius: 50%;
-  padding-bottom: 20px;
-  cursor: pointer;
-  transition: 0.2s;
-  transition-property: color background-color;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-}
-
-.checkoutInfo:hover {
-
-  color: $primary;
-  background-color: $secondary;
 
 }

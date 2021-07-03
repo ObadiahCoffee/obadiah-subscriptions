@@ -1,0 +1,85 @@
+.checkoutInfoButton {
+
+  position: absolute;
+  bottom: 5px;
+  right: -60px;
+  font-family: $font-family-alt;
+  font-style: italic;
+  font-size: 20px;
+  padding: 20px;
+  max-height: 45px;
+  max-width: 45px;
+  border: 1px solid $secondary;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s;
+  transition-property: color background-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include media-down(small-desktop) {
+
+    display: inline-flex;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    margin-top: 15px;
+    width: 100%;
+
+  }
+
+}
+
+.checkoutInfoButton:hover {
+
+  color: $primary;
+  background-color: $secondary;
+
+}
+
+.checkoutInfoButton:hover .checkoutInfoContent {
+
+  visibility: visible;
+  opacity: 1;
+}
+
+.checkoutInfoContent {
+
+  @include body-font;
+  visibility: hidden;
+  position: absolute;
+  opacity: 0;
+  z-index: 110;
+  color: $secondary;
+  background-color: $primary;
+  padding: 10px 10px 0 10px;
+  font-size: 14px;
+  text-align: left;
+  font-style: normal;
+  bottom: 5px;
+  min-width: 370px;
+  left: 20px;
+  bottom: 45px;
+  transition: all 0.25s;
+
+  @include media-down(small-desktop) {
+
+    left: auto;
+    right: 190px;
+    bottom: -40px;
+    min-width: 330px;
+
+  }
+
+  @include media-down(large-tablet) {
+
+    left: -129px;
+    bottom: 150px;
+    min-width: 300px;
+    border: 1px solid $secondary;
+    padding: 20px 20px 0px 20px;
+
+  }
+
+}

@@ -17,9 +17,13 @@
 
   p {
 
-    font-size: 20px;
-    line-height: 28px;
-    width: 50%;
+    width: 75%;
+
+    @include media-up(tablet) {
+      font-size: 20px;
+      line-height: 28px;
+      width: 50%;
+    }
 
   }
 
@@ -27,8 +31,13 @@
 
     font-size: 26px;
     padding: 7px;
-    position: absolute;
-    bottom: 50px;
+    margin-top: 80px;
+
+    @include media-down(tablet) {
+
+      margin-top: 40px;
+
+    }
 
   }
 

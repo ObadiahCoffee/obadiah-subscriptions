@@ -25,11 +25,25 @@ $font-family: 'Founders Grotesk', sans-serif;
 @mixin body-font() {
   font-family: 'Founders Grotesk', sans-serif;
   font-size: 16px;
-  font-weight: $font-weight-regular;
+  font-weight: $font-weight-extra-light;
   line-height: 1.6em;
   @include media-down(mobile) {
     font-size: 14px;
   }
+}
+
+@mixin tagline() {
+  font-family: 'Founders Grotesk', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: $font-weight-medium;
+}
+
+@mixin button() {
+  font-family: 'Founders Grotesk', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: $font-weight-medium;
 }
 
 @mixin h1 {
@@ -48,7 +62,7 @@ $font-family: 'Founders Grotesk', sans-serif;
   line-height: 1.2em;
   font-weight: $font-weight-regular;
   @include media-down(tablet) {
-    font-size: 30px;
+    font-size: 28px;
   }
 }
 

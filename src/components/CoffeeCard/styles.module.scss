@@ -5,20 +5,37 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  // overflow: hidden;
+  max-width: 100%;
 
 }
 
 .coffeeCard {
 
   min-width: 350px;
-  margin: 0 45px;
+  max-width: 400px;
+
+  @include media-down(tablet) {
+
+    margin: 0;
+    min-width: 80%;
+    padding-bottom: 50px;
+
+  }
+
+  @include media-down(small-tablet) {
+
+    margin: 0;
+    min-width: 100%;
+    padding-bottom: 50px;
+
+  }
 
   a {
 
-    font-family: $font-family;
+    @include button;
     font-style: normal;
-    text-transform: uppercase;
-    font-size: 12px;
+    cursor: pointer;
 
   }
 
@@ -26,9 +43,8 @@
 
 .coffeeRegionTagline {
 
+  @include tagline;
   padding: 10px;
-  font-size: 12px;
-  text-transform: uppercase;
 
 }
 
@@ -49,7 +65,7 @@
   .infoRowItem {
 
     border-bottom: 1px solid black;
-    padding: 9px 0 2px 0;
+    padding: 9px 0px 2px 0px;
     width: 100%;
     font-weight: $font-weight-medium;
     font-size: 14px;
@@ -91,5 +107,18 @@
   font-family: $font-family-alt;
   font-style: italic;
   margin: 2px 0 50px 0;
+
+}
+
+.moreInfoAnchor {
+
+  position: relative;
+  top: 200px;
+
+  @include media-down(large-tablet) {
+
+    top: 50px;
+
+  }
 
 }

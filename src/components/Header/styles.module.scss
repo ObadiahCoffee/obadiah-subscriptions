@@ -1,5 +1,11 @@
-.header {
-  
+header {
+
+  @include media-down(tablet) {
+    background-color: $primary;
+    height: 60px;
+    z-index: 90;
+  }
+
 }
 
 h1 {
@@ -8,11 +14,15 @@ h1 {
   left: 30px;
   top: 30px;
 
+  @include media-down(tablet) {
+    left: 22px;
+    top: 22px;
+  }
+
 }
 
 .container {
   padding: 14px 0;
-  background-color: red;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,7 +31,7 @@ h1 {
 .nav {
   position: absolute;
   right: 30px;
-  top: 30px;
+  top: 25px;
   .button {
     padding: 5px 35px;
   }

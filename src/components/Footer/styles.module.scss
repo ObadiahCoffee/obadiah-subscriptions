@@ -1,5 +1,12 @@
 .footer {
   padding: 20px 0;
+
+  @include media-down(tablet) {
+
+    margin-bottom: 45px;
+
+  }
+
 }
 
 .container {

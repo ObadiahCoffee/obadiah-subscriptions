@@ -30,7 +30,7 @@ const SEO = ({ title, desc, banner, schema, pathname, article, node }) => {
   useEffect(() => {
     const favicon = document.querySelectorAll('[rel="icon"]')[0];
     if (darkMode) {
-      if (favicon) favicon.href = '/favicon-dark-mode.png';
+      if (favicon) favicon.href = '/favicon.ico';
     }
   }, [darkMode]);
 
@@ -164,7 +164,7 @@ const SEO = ({ title, desc, banner, schema, pathname, article, node }) => {
         {!article && <script type="application/ld+json">{JSON.stringify(schema || schemaOrgWebPage)}</script>}
         {article && <script type="application/ld+json">{JSON.stringify(schema || schemaArticle)}</script>}
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
-        <link rel="icon" type="image/png" href="/favicon-light-mode.png" />
+        <link rel="icon" type="image/png" href="/favicon.ico" />
       </Helmet>
       <Facebook
         desc={seo.description}

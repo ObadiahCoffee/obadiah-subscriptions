@@ -122,6 +122,10 @@ export const Queries = graphql`
           html
           text
         }
+        more_info {
+          html
+          text
+        }
         subscription_cta_link {
           url
         }
