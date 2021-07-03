@@ -13,7 +13,7 @@ const Header = () => (
               {link.text}
             </Link>
           )) */}
-        <Link className={styles.cart} to="https://obadiah-coffee.myshopify.com/cart">
+        <Link className={styles.cart} to={`${process.env.GATSBY_SHOPIFY_URL}/cart`}>
           Cart
         </Link>
       </nav>

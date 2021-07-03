@@ -45,9 +45,10 @@ const Homepage = () => {
     }
   };
 
-  const goToSection = (prev) => {
+  const goToSection = (prev, forcedIndex) => {
     setBlockScroll(true);
-    const newActiveSectionIndex = prev ? activeSectionIndex - 1 : activeSectionIndex + 1;
+    const indexToUse = forcedIndex || activeSectionIndex;
+    const newActiveSectionIndex = prev ? indexToUse - 1 : indexToUse + 1;
     const nextSection = sections[newActiveSectionIndex];
     if (nextSection) {
       scrollIntoView(sections[newActiveSectionIndex], {

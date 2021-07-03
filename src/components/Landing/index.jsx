@@ -15,7 +15,7 @@ const Landing = ({ goToSection }) => {
 
   const handleGoToSection = (event) => {
     event.preventDefault();
-    goToSection();
+    goToSection(false, 0);
   };
 
   return (
