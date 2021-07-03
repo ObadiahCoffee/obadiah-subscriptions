@@ -55,7 +55,7 @@ const Homepage = () => {
     if (nextSection) {
       scrollIntoView(sections[newActiveSectionIndex], {
         ease: (t) => (1 + Math.sin(Math.PI * t - Math.PI / 2)) / 2,
-        block: 'center',
+        block: 'start',
         inline: 'center',
       });
       setActiveSectionIndex(newActiveSectionIndex);
