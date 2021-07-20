@@ -6,7 +6,11 @@ import * as styles from './styles.module.scss';
 const Cart = () => {
   const { cart, setCart, goToCheckout } = useContext(CartContext);
 
-
+  const frequencyConversion = (period) => {
+    if (period === 'Weekly') return 4;
+    if (period === 'Fortnightly') return 2;
+    if (period === 'Monthly') return 1;
+  };
 
   return (
     <Section className="anchor">
@@ -25,13 +29,17 @@ const Cart = () => {
                 Location<span>{cart.location}</span>
               </div>
             </div>
-            <div className={styles.cartTotal}>Total: £{cart.total.toFixed(2)} p/m</div>
+            <div className={styles.cartTotal}>
+              Total: £{cart.total.toFixed(2) * frequencyConversion(cart.frequency)} p/m
+            </div>
             <div className={styles.cartNotes}>
               <span>Need to make changes? No problem.</span>
               <span>Check the different selections before you go through to payment.</span>
             </div>
           </div>
-          <a className={styles.checkoutButton} onClick={goToCheckout}>Checkout</a>
+          <a className={styles.checkoutButton} onClick={goToCheckout}>
+            Checkout
+          </a>
           <CheckoutInfo />
         </div>
       </div>
