@@ -1,0 +1,136 @@
+// Mixins & Animations
+@mixin menu-toggle-mid-line($color: transparent) {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent calc(50% - 1px),
+    $color calc(50% - 1px),
+    $color calc(50% + 1px),
+    transparent calc(50% + 1px),
+    transparent 100%
+  );
+}
+@keyframes toggle_top_line {
+  25% {
+    // top: 10px;
+  }
+  100% {
+    top: 10px;
+    transform: rotate(45deg);
+  }
+}
+@keyframes toggle_bottom_line {
+  25% {
+    // top: 10px;
+  }
+  100% {
+    top: 10px;
+    transform: rotate(-45deg);
+  }
+}
+.hamburger-container {
+  display: flex;
+  // width:100vw;
+  align-items: center;
+  position: relative;
+  z-index: 999;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  .hamburger-text {
+    @include h1();
+    color: $primary;
+    padding-right: 20px;
+    font-size: 15px;
+    opacity: 1;
+    transition: opacity 0.3s;
+    @include media-down(mobile) {
+      display: none;
+    }
+    &.hidden {
+      opacity: 0;
+    }
+  }
+}
+
+body:not(.nav-open) {
+  .hamburger-container {
+    &.light-mode {
+      .hamburger {
+        // @include menu-toggle-mid-line($black);
+        &:before, &:after {
+          background: $black;
+        }
+      }
+    }
+    &.scrolled {
+      &.dark-mode {
+        .hamburger {
+          @include media-down(small-desktop) {
+            // @include menu-toggle-mid-line($black);
+            &:before, &:after {
+              background: $black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.hamburger {
+  // @include menu-toggle-mid-line($primary);
+  right: 0;
+  margin: 0;
+  display: block;
+  position: relative;
+  appearance: none;
+  border: none;
+  width: 18px;
+  height: 10px;
+  font-size: 0;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 2px;
+    background: $off-black;
+    border-radius: 1px
+  }
+  &:after {
+    top: auto;
+    bottom: 0;
+  }
+  @include media-down(large-tablet) {
+    display: block;
+  }
+  // Cross animation
+  &.active {
+    // Hide middle line
+    // @include menu-toggle-mid-line($color: transparent);
+    // animation: menu-toggle-animation .4s ease;
+    &:before {
+      animation: toggle_top_line .4s ease;
+      animation-fill-mode: forwards;
+    }
+    &:after {
+      animation: toggle_bottom_line .4s ease;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+.dark-mode {
+  .hamburger {
+    &:before, &:after {
+      background: $white;
+    }
+  }
+}
