@@ -22,19 +22,22 @@ header {
   @include media-down(large-tablet) {
     grid-template-columns: 85% 5% 10%;
   }
+  @include media-down(small-mobile) {
+    padding: 20px 15px 0 !important;
+  }
 }
 
 .nav {
   justify-self: center;
   display: flex;
   justify-content: space-between;
-  .link, .cartLink {
+  .link {
     @include body-font();
     position: relative;
     opacity: 0.3;
     font-size: 20px;
     font-style: normal;
-    margin-right: 20px;
+    margin: 0 10px;
     border-bottom: none;
     &:active, &:hover {
       color: $black;
@@ -156,7 +159,7 @@ header {
       }
     .link {
      font-size: 36px;
-     margin-right: 0;
+     margin: 0;
      max-width: fit-content;
      &::after {
        bottom: 15px;
@@ -166,6 +169,8 @@ header {
     .cartLink {
       align-self: flex-end;
       opacity: 1;
+      margin: 0;
+      font-size: 36px;
       &:hover {
         color: $primary;
       }

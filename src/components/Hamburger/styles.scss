@@ -38,6 +38,7 @@
   border: none;
   outline: none;
   cursor: pointer;
+  padding: 0;
   .hamburger-text {
     @include h1();
     color: $primary;
