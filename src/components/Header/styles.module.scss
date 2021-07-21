@@ -11,10 +11,14 @@ header {
 
 .logo {
   line-height: 1em;
+  max-width: 254px;
+  @include media-down(large-mobile) {
+    max-width: 211px;
+  }
 }
 
 .container {
-  padding: 30px 20px 16px !important;
+  padding: 30px 20px !important;
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 20% 60% 20%;
@@ -24,7 +28,7 @@ header {
     grid-template-columns: 85% 5% 10%;
   }
   @include media-down(small-mobile) {
-    padding: 20px 15px 14px !important;
+    padding: 20px 15px !important;
   }
 }
 
@@ -32,6 +36,9 @@ header {
   justify-self: center;
   display: flex;
   justify-content: space-between;
+  @include media-up(large-tablet) {
+    transform: translateY(8px);
+  }
   .link {
     @include body-font();
     position: relative;
@@ -88,6 +95,9 @@ header {
 
 .navRightContainer {
   justify-self: end;
+  @include media-up(large-tablet) {
+    transform: translateY(8px);
+  }
 }
 
 .cart {

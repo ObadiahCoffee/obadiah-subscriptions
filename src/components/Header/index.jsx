@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { use100vh } from 'react-div-100vh';
 import { navigate } from 'gatsby';
 import { Link, Hamburger } from 'components';
+import { ReactComponent as Logo } from '../../images/obadiah_coffee_logo.svg';
 import * as styles from './styles.module.scss';
 
 const links = [
@@ -113,7 +114,7 @@ const Header = ({ location }) => {
   return (
     <header className={styles.header}>
       <div className={`container ${styles.container} ${hamburgerOpenClass}`} style={showNavBurger ? { height } : {}}>
-        <h1 className={styles.logo}>Obadiah Coffee</h1>
+        <Logo className={styles.logo} />
         <nav className={styles.nav}>
           <div className={styles.linksContainer}>
             {links.map((link, index) => {
