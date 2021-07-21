@@ -1,45 +1,162 @@
 header {
-
+  background-color: $primary;
+  z-index: 90;
   @include media-down(tablet) {
-    background-color: $primary;
     height: 60px;
-    z-index: 90;
   }
-
+  a {
+    padding: 0;
+  }
 }
 
 .logo {
-
-  position: absolute;
-  left: 30px;
-  top: 30px;
-
-  @include media-down(tablet) {
-    left: 22px;
-    top: 22px;
-  }
-
+  line-height: 1em;
+  flex-basis: 30%;
 }
 
 .container {
-  padding: 14px 0;
+  padding: 30px 20px !important;
   display: flex;
-  justify-content: space-between;
+  flex-basis: 70%;
   align-items: center;
+  @include media-down(large-tablet) {
+    flex-basis: auto;
+  }
 }
 
 .nav {
-  position: absolute;
-  right: 30px;
-  top: 25px;
-  .button {
-    padding: 5px 35px;
+  flex-basis: 70%;
+  display: flex;
+  justify-content: space-between;
+  .link {
+    @include body-font();
+    position: relative;
+    opacity: 0.3;
+    font-size: 20px;
+    font-style: normal;
+    margin-right: 20px;
+    border-bottom: none;
+    &:active, &:hover {
+      color: $black;
+      background-color: $primary;
+    }
+    &::after {
+      content: '';
+      width: 0;
+      height: 0.5px;
+      background-color: $secondary;
+      position: absolute;
+      left: 0;
+      bottom: 0px;
+      transition: width 0.2s linear;
+    }
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+  .linkActive {
+    opacity: 1;
+    &.link {
+      &::after {
+        width: 100%;
+      }
+    }
   }
 }
 
 .cart {
+  padding: 6px 16px 0;
+  transform: translateY(-6px);
   @include body-font;
+  font-size: 20px;
   text-decoration: none;
   border: none;
   font-style: normal;
+  &:active, &:hover {
+    background-color: $black;
+  }
+}
+
+.hamburger {
+  @include media-up(large-tablet) {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+  @include media-down(large-mobile) {
+    transform: translateY(-2px);
+  }
+}
+
+@include media-down(large-tablet) {  
+  .logo {
+    flex-basis: 100%;
+  }
+  .nav {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    flex-basis: auto;
+    justify-content: space-evenly;
+  }
+  
+  .hamburgerOpen {
+    background-color: $primary;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 10% 80% 10%;
+    align-items: flex-start;
+    .logo {
+      flex-basis: auto;
+      flex-grow: 0.1;
+      opacity: 0;
+      visibility: hidden;
+    }
+    .nav {
+      max-width: fit-content;
+      margin: 0 auto;
+      flex-direction: column;
+      align-self: center;
+      width: auto;
+      height: 100%;
+      opacity: 1;
+      visibility: visible;
+      flex-grow: 1;
+      .linksContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    .link {
+     font-size: 36px;
+     margin-right: 0;
+     max-width: fit-content;
+     &::after {
+       bottom: 15px;
+     }
+    }
+    }
+    .cart {
+      font-size: 36px;
+      padding: 10px 26px 0;
+      max-width: fit-content;
+      align-self: center;
+    }
+    .hamburger {
+      justify-self: flex-end;
+    }
+  }
+}
+
+// B O D Y   L O C K   S T Y L E S
+:global(body.nav-open) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
 }
