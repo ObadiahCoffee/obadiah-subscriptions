@@ -43,7 +43,7 @@ header {
     &::after {
       content: '';
       width: 0;
-      height: 0.5px;
+      height: 1px;
       background-color: $secondary;
       position: absolute;
       left: 0;
