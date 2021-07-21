@@ -5,14 +5,14 @@ import '../../sass/global/styles.scss';
 import './styles.scss';
 
 const Layout = (props) => {
-  const { children, customSEO } = props;
+  const { children, seo, customSEO } = props;
   return (
     <>
       <NoJs />
       <WmAscii />
       <Header />
       <main>
-        {!customSEO && <SEO />}
+        {!customSEO && <SEO {...seo} />}
         {children}
       </main>
       <Footer />
