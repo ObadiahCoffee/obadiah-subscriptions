@@ -30,6 +30,12 @@ const links = [
     className: `${styles.link}`,
     activeClassName: `${styles.linkActive}`,
   },
+  {
+    to: `https://${process.env.GATSBY_SHOP_URL}/cart`,
+    text: 'Cart',
+    className: `${styles.cartLink}`,
+    activeClassName: `${styles.linkActive}`,
+  },
 ];
 
 const Header = ({ location }) => {
@@ -59,7 +65,8 @@ const Header = ({ location }) => {
     // lock body while show nav true
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     setScrollTop(scrollPosition);
-    document.body.style.top = `-${scrollPosition}px`;
+    // document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.top = `0px`;
     document.body.classList.add('nav-open');
     setBodyLock(true);
   };
@@ -123,11 +130,13 @@ const Header = ({ location }) => {
               );
             })}
           </div>
-          <Link className={styles.cart} to={`${process.env.GATSBY_SHOPIFY_URL}/cart`}>
+        </nav>
+        <div className={styles.navRightContainer}>
+          <Link className={styles.cart} to={`https://${process.env.GATSBY_SHOP_URL}/cart`}>
             Cart
           </Link>
-        </nav>
-        <Hamburger onClick={toggleNav} active={showNavBurger} className={styles.hamburger} />
+          <Hamburger onClick={toggleNav} active={showNavBurger} className={styles.hamburger} />
+        </div>
       </div>
     </header>
   );
