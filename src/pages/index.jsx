@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import scrollIntoView from 'smooth-scroll-into-view-if-needed';
+import { useStaticQuery, graphql } from 'gatsby';
 import { Header, Footer, Landing, CoffeeDetails, ReadMore, CoffeeOrder, Cart, MoreInfo, SEO } from 'components';
 import { ThemeProvider } from '../context/ThemeContext';
 import { CartProvider } from '../context/Cart';
@@ -10,6 +11,24 @@ const Homepage = () => {
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
   const [blockScroll, setBlockScroll] = useState(false);
   const [sections, setSections] = useState(false);
+
+  const seoQuery = graphql`
+    query {
+      ...seoData
+    }
+  `;
+
+  const { prismicHome } = useStaticQuery(seoQuery);
+
+  const { data } = prismicHome;
+  const { meta_title: metaTitle, meta_description: metaDesc, open_graph_image: ogImage, schema } = data;
+
+  const seo = {
+    title: metaTitle.text,
+    desc: metaDesc.text,
+    banner: ogImage && ogImage.url,
+    schema: schema.text,
+  };
 
   useEffect(() => {
     const sectionEls = document.getElementsByClassName('anchor');
@@ -79,7 +98,7 @@ const Homepage = () => {
   return (
     <ThemeProvider>
       <CartProvider>
-        <SEO title="Obadiah Coffee" />
+        <SEO {...seo} />
         <div className={styles.mainContainer} id="mainContainer">
           <MoreInfo />
           <Header />
