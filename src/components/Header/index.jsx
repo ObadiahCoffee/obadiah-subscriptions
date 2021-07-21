@@ -20,12 +20,6 @@ const links = [
     activeClassName: `${styles.linkActive}`,
   },
   {
-    to: `${process.env.GATSBY_SHOP_SIGN_IN_URL}`,
-    text: 'Sign In',
-    className: `${styles.link}`,
-    activeClassName: `${styles.linkActive}`,
-  },
-  {
     to: 'https://obadiah-coffee.myshopify.com/pages/contact',
     text: 'Contact',
     className: `${styles.link}`,

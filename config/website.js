@@ -1,8 +1,9 @@
 module.exports = {
   pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
-  title: 'Example title for SEO', // Default Site Title used for SEO & PWA
-  description: 'Example description for SEO', // Default Site Decription used for SEO
-  siteName: 'Website Name', // Sitename for Facebook
+  title: 'Seasonal Coffee Subscriptions', // Default Site Title used for SEO & PWA
+  description:
+    'We invite you to explore a seasonal rotation of outstanding coffees. We’ll send you, or someone you know our specialist coffees either once a month, or once every two weeks', // Default Site Decription used for SEO
+  siteName: 'Obadiah', // Sitename for Facebook
   siteLanguage: 'en', // Language Tag on <html> element
   banner: '/static/open-graph.jpg', // Default OpenGraph image
   ogLanguage: 'en_AU', // Facebook Language
