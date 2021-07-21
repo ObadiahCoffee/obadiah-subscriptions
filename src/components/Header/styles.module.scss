@@ -19,6 +19,7 @@ header {
   grid-auto-flow: column;
   grid-template-columns: 20% 60% 20%;
   align-items: center;
+  background-color: $primary;
   @include media-down(large-tablet) {
     grid-template-columns: 85% 5% 10%;
   }
