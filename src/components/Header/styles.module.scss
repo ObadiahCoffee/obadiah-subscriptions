@@ -11,18 +11,19 @@ header {
 
 .logo {
   line-height: 1em;
-  max-width: 222px;
+  max-width: 140px;
+  justify-self: center;
 }
 
 .container {
   padding: 30px 20px !important;
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: 20% 60% 20%;
+  grid-template-columns: 40% 20% 40%;
   align-items: center;
   background-color: $primary;
   @include media-down(large-tablet) {
-    grid-template-columns: 85% 5% 10%;
+    grid-template-columns: 10% 80% 10%;
   }
   @include media-down(small-mobile) {
     padding: 20px 15px !important;
@@ -30,7 +31,7 @@ header {
 }
 
 .nav {
-  justify-self: center;
+  justify-self: left;
   display: flex;
   justify-content: space-between;
   @include media-up(large-tablet) {
@@ -125,7 +126,7 @@ header {
   }
 }
 
-@include media-down(large-tablet) {  
+@include media-down(large-tablet) {
   .logo {
     flex-basis: 100%;
   }
@@ -137,7 +138,7 @@ header {
     flex-basis: auto;
     justify-content: space-evenly;
   }
-  
+
   .hamburgerOpen {
     background-color: $primary;
     display: grid;
@@ -164,6 +165,9 @@ header {
         display: grid;
         justify-items: center;
         grid-template-rows: repeat(4, 1fr) 50%;
+        @include media-down(large-tablet) {
+          width: calc(100vw - 40px);
+        }
       }
     .link {
      font-size: 36px;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { use100vh } from 'react-div-100vh';
 import { navigate } from 'gatsby';
 import { Link, Hamburger } from 'components';
-import { ReactComponent as Logo } from '../../images/obadiah_coffee_logo.svg';
+import { ReactComponent as Logo } from '../../images/obadiah_logo.svg';
 import * as styles from './styles.module.scss';
 
 const links = [
@@ -108,7 +108,6 @@ const Header = ({ location }) => {
   return (
     <header className={styles.header}>
       <div className={`container ${styles.container} ${hamburgerOpenClass}`} style={showNavBurger ? { height } : {}}>
-        <Logo className={styles.logo} />
         <nav className={styles.nav}>
           <div className={styles.linksContainer}>
             {links.map((link, index) => {
@@ -126,6 +125,7 @@ const Header = ({ location }) => {
             })}
           </div>
         </nav>
+        <Logo className={styles.logo} />
         <div className={styles.navRightContainer}>
           <Link className={styles.cart} to={`https://${process.env.GATSBY_SHOP_URL}/cart`}>
             Cart
