@@ -241,19 +241,16 @@ const hostingPlugins = () => {
     '/*': ['X-Frame-Options: DENY', 'X-XSS-Protection: 1; mode=block', 'X-Content-Type-Options: nosniff'],
   };
   if (HOST === 'netlify') {
-    plugins.push(
-      { resolve: 'gatsby-plugin-netlify-cache' },
-      {
-        resolve: `gatsby-plugin-netlify`,
-        options: {
-          headers: securityHeaders, // option to add more headers. `Link` headers are transformed by the below criteria
-          allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
-          mergeSecurityHeaders: true, // boolean to turn off the default security headers
-          mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers (disabled by default, until gzip is fixed for server push)
-          mergeCachingHeaders: true, // boolean to turn off the default caching headers
-        },
-      }
-    );
+    plugins.push({
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: securityHeaders, // option to add more headers. `Link` headers are transformed by the below criteria
+        allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
+        mergeSecurityHeaders: true, // boolean to turn off the default security headers
+        mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers (disabled by default, until gzip is fixed for server push)
+        mergeCachingHeaders: true, // boolean to turn off the default caching headers
+      },
+    });
   }
   if (HOST === 'gatsby-cloud') {
     plugins.push({
