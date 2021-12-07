@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+#ffffff#ffffff#ffffff<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="160.355" height="116.441" viewBox="0 0 160.355 116.441">
   <g id="Group_321" data-name="Group 321" transform="translate(-972 -1604.078)">
     <g id="Group_319" data-name="Group 319" transform="translate(72.892 -218)">
       <g id="Group_143" data-name="Group 143" transform="translate(0 -709.682)">
-        <path id="Path_51" data-name="Path 51" d="M323.838,259.482l13.036,8.81,13.288-12.222V208.9l-70.285.029-12.965,9.357,12.666,9.479Z" transform="translate(632.802 2379.364)" fill="#f2d9cd" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
-        <g id="Rectangle_108" data-name="Rectangle 108" transform="translate(899.108 2597.615)" fill="#f2d9cd" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1">
+        <path id="Path_51" data-name="Path 51" d="M323.838,259.482l13.036,8.81,13.288-12.222V208.9l-70.285.029-12.965,9.357,12.666,9.479Z" transform="translate(632.802 2379.364)" fill="#ffffff" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+        <g id="Rectangle_108" data-name="Rectangle 108" transform="translate(899.108 2597.615)" fill="#ffffff" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1">
           <rect width="70.585" height="50.586" stroke="none"/>
           <rect x="0.5" y="0.5" width="69.585" height="49.586" fill="none"/>
         </g>
@@ -13,8 +13,8 @@
         <path id="Path_52" data-name="Path 52" d="M0,0H70.2" transform="translate(908.207 2591.455)" fill="#fff" stroke="#000" stroke-width="0.283" stroke-dasharray="2 1 2 1 2 1"/>
       </g>
       <g id="Group_144" data-name="Group 144" transform="translate(76 -709.682)">
-        <path id="Path_51-2" data-name="Path 51" d="M323.838,259.482l13.036,8.81,13.288-12.222V208.9l-70.285.029-12.965,9.357,12.666,9.479Z" transform="translate(632.802 2379.364)" fill="#f2d9cd" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
-        <g id="Rectangle_108-2" data-name="Rectangle 108" transform="translate(899.108 2597.615)" fill="#f2d9cd" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1">
+        <path id="Path_51-2" data-name="Path 51" d="M323.838,259.482l13.036,8.81,13.288-12.222V208.9l-70.285.029-12.965,9.357,12.666,9.479Z" transform="translate(632.802 2379.364)" fill="#ffffff" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+        <g id="Rectangle_108-2" data-name="Rectangle 108" transform="translate(899.108 2597.615)" fill="#ffffff" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1">
           <rect width="70.585" height="50.586" stroke="none"/>
           <rect x="0.5" y="0.5" width="69.585" height="49.586" fill="none"/>
         </g>
@@ -23,8 +23,8 @@
         <path id="Path_52-2" data-name="Path 52" d="M0,0H70.2" transform="translate(908.207 2591.455)" fill="#fff" stroke="#000" stroke-width="0.283" stroke-dasharray="2 1 2 1 2 1"/>
       </g>
       <g id="Group_141" data-name="Group 141" transform="translate(0 -765.682)">
-        <path id="Path_51-3" data-name="Path 51" d="M323.838,259.482l13.036,8.81,13.288-12.222V208.9l-70.285.029-12.965,9.357,12.666,9.479Z" transform="translate(632.802 2379.364)" fill="#f2d9cd" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
-        <g id="Rectangle_108-3" data-name="Rectangle 108" transform="translate(899.108 2597.615)" fill="#f2d9cd" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1">
+        <path id="Path_51-3" data-name="Path 51" d="M323.838,259.482l13.036,8.81,13.288-12.222V208.9l-70.285.029-12.965,9.357,12.666,9.479Z" transform="translate(632.802 2379.364)" fill="#ffffff" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+        <g id="Rectangle_108-3" data-name="Rectangle 108" transform="translate(899.108 2597.615)" fill="#ffffff" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1">
           <rect width="70.585" height="50.586" stroke="none"/>
           <rect x="0.5" y="0.5" width="69.585" height="49.586" fill="none"/>
         </g>
@@ -33,8 +33,8 @@
         <path id="Path_52-3" data-name="Path 52" d="M0,0H70.2" transform="translate(908.207 2591.455)" fill="#fff" stroke="#000" stroke-width="0.283" stroke-dasharray="2 1 2 1 2 1"/>
       </g>
       <g id="Group_142" data-name="Group 142" transform="translate(76 -765.682)">
-        <path id="Path_51-4" data-name="Path 51" d="M323.838,259.482l13.036,8.81,13.288-12.222V208.9l-70.285.029-12.965,9.357,12.666,9.479Z" transform="translate(632.802 2379.364)" fill="#f2d9cd" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
-        <g id="Rectangle_108-4" data-name="Rectangle 108" transform="translate(899.108 2597.615)" fill="#f2d9cd" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1">
+        <path id="Path_51-4" data-name="Path 51" d="M323.838,259.482l13.036,8.81,13.288-12.222V208.9l-70.285.029-12.965,9.357,12.666,9.479Z" transform="translate(632.802 2379.364)" fill="#ffffff" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+        <g id="Rectangle_108-4" data-name="Rectangle 108" transform="translate(899.108 2597.615)" fill="#ffffff" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1">
           <rect width="70.585" height="50.586" stroke="none"/>
           <rect x="0.5" y="0.5" width="69.585" height="49.586" fill="none"/>
         </g>

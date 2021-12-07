@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+#ffffff#ffffff<?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="84.355" height="60.441" viewBox="0 0 84.355 60.441">
   <g id="Group_318" data-name="Group 318" transform="translate(-341 -1762.078)">
     <g id="Group_317" data-name="Group 317" transform="translate(-0.145 -116)">
       <g id="Group_147" data-name="Group 147" transform="translate(-557.964 -709.682)">
-        <path id="Path_51" data-name="Path 51" d="M323.838,259.482l13.036,8.81,13.288-12.222V208.9l-70.285.029-12.965,9.357,12.666,9.479Z" transform="translate(632.802 2379.364)" fill="#f2d9cd" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
-        <g id="Rectangle_108" data-name="Rectangle 108" transform="translate(899.108 2597.615)" fill="#f2d9cd" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1">
+        <path id="Path_51" data-name="Path 51" d="M323.838,259.482l13.036,8.81,13.288-12.222V208.9l-70.285.029-12.965,9.357,12.666,9.479Z" transform="translate(632.802 2379.364)" fill="#ffffff" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1"/>
+        <g id="Rectangle_108" data-name="Rectangle 108" transform="translate(899.108 2597.615)" fill="#ffffff" stroke="#000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1">
           <rect width="70.585" height="50.586" stroke="none"/>
           <rect x="0.5" y="0.5" width="69.585" height="49.586" fill="none"/>
         </g>
