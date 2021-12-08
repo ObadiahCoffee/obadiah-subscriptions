@@ -77,7 +77,7 @@ const CoffeeCard = () => {
                   Altitude<span>{altitude} MASL</span>
                 </div>
                 <div className={styles.infoRowItem}>
-                  Taste Notes<span>{tasteNotes}</span>
+                  Character<span>{tasteNotes}</span>
                 </div>
               </div>
 
