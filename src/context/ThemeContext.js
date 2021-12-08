@@ -31,7 +31,6 @@ export function ThemeProvider({ children }) {
     coffee_1_read_more_image: readMoreImage1,
     coffee_1_read_more_wysiwyg: readMoreWYSIWIG1,
     coffee_1_region: region1,
-    coffee_1_region_tagline: regionTagline1,
     coffee_1_region_title: regionTitle1,
     coffee_1_taste_notes: tasteNotes1,
     coffee_1_variety: variety1,
@@ -43,7 +42,6 @@ export function ThemeProvider({ children }) {
     coffee_2_read_more_image: readMoreImage2,
     coffee_2_read_more_wysiwyg: readMoreWYSIWIG2,
     coffee_2_region: region2,
-    coffee_2_region_tagline: regionTagline2,
     coffee_2_region_title: regionTitle2,
     coffee_2_taste_notes: tasteNotes2,
     coffee_2_variety: variety2,
@@ -52,7 +50,6 @@ export function ThemeProvider({ children }) {
   const tableData = [
     {
       regionTitle: regionTitle1?.text,
-      regionTagline: regionTagline1?.text,
       region: region1?.text,
       harvest: harvest1,
       process: process1?.text,
@@ -66,7 +63,6 @@ export function ThemeProvider({ children }) {
     },
     {
       regionTitle: regionTitle2?.text,
-      regionTagline: regionTagline2?.text,
       region: region2?.text,
       harvest: harvest2,
       process: process2?.text,
@@ -100,13 +96,13 @@ export function ThemeProvider({ children }) {
       { img: <Box4 className="multipleBoxes" />, label: `4 boxes for £${price4}`, sublabel: '(250g)', value: '4', price: price4, section: 'boxes' },
     ],
     [
-      { title: 'And how often would you like to receive it?', section: 'frequency' },
+      { title: 'How often would you like a delivery?', section: 'frequency' },
       { label: 'Weekly', section: 'frequency' },
       { label: 'Fortnightly', section: 'frequency' },
       { label: 'Monthly', section: 'frequency' },
     ],
     [
-      { title: 'Finally, where in the world are you?', section: 'location' },
+      { title: 'Where should we send it?', section: 'location' },
       { label: 'United Kingdom' },
       { label: 'Europe' },
       { label: 'Rest of World' },
