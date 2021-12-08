@@ -57,7 +57,7 @@ export function ThemeProvider({ children }) {
       producer: producer1?.text,
       tasteNotes: tasteNotes1?.text,
       variety: variety1?.text,
-      readMoreCTA: 'Read More',
+      readMoreCTA: readMoreCTA1?.text,
       readMoreImage: readMoreImage1,
       readMoreWYSIWIG: readMoreWYSIWIG1?.html,
     },

@@ -86,7 +86,7 @@ const CoffeeCard = () => {
                 <div className={styles.coffeeProducedByValue}>{producer}</div>
               </div>
 
-              <a onClick={() => toggleAccordion(index)}>Read More About The Origins</a>
+              <a onClick={() => toggleAccordion(index)}>Read More</a>
             </div>
         );
       })}
