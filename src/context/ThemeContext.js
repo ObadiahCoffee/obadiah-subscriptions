@@ -57,7 +57,7 @@ export function ThemeProvider({ children }) {
       producer: producer1?.text,
       tasteNotes: tasteNotes1?.text,
       variety: variety1?.text,
-      readMoreCTA: readMoreCTA1?.text,
+      readMoreCTA: 'Read More',
       readMoreImage: readMoreImage1,
       readMoreWYSIWIG: readMoreWYSIWIG1?.html,
     },
@@ -92,8 +92,8 @@ export function ThemeProvider({ children }) {
     [
       { title: 'How many boxes would you like?', section: 'boxes' },
       { img: <Box1 className="singleBox" />, label: `1 box for £${price1}`, sublabel: '(250g)', value: '1', price: price1, section: 'boxes' },
-      { img: <Box2 className="multipleBoxes" />, label: `2 boxes for £${price2}`, sublabel: '(250g)', value: '2', price: price2, section: 'boxes' },
-      { img: <Box4 className="multipleBoxes" />, label: `4 boxes for £${price4}`, sublabel: '(250g)', value: '4', price: price4, section: 'boxes' },
+      { img: <Box2 className="multipleBoxes" />, label: `2 boxes for £${price2}`, sublabel: '(500g)', value: '2', price: price2, section: 'boxes' },
+      { img: <Box4 className="multipleBoxes" />, label: `4 boxes for £${price4}`, sublabel: '(1000g)', value: '4', price: price4, section: 'boxes' },
     ],
     [
       { title: 'How often would you like a delivery?', section: 'frequency' },
