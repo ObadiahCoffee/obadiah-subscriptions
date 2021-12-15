@@ -30,7 +30,7 @@ const Cart = () => {
               </div>
             </div>
             <div className={styles.cartTotal}>
-              Total: £{cart.total.toFixed(2) * frequencyConversion(cart.frequency)} p/m
+              Total: £{cart.total.toFixed(2)}
             </div>
             <div className={styles.cartNotes}>
               <span>Need to make changes? No problem.</span>
