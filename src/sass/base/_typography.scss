@@ -14,7 +14,7 @@ $font-weight-bold: 700;
 // $font-weight-extra-bold: 800;
 // $font-weight-black: 900;
 
-$font-family-alt: 'Founders Grotesk', sans-serif;
+
 $font-family: 'Founders Grotesk', sans-serif;
 
 @mixin heading-font() {
@@ -58,11 +58,11 @@ $font-family: 'Founders Grotesk', sans-serif;
 
 @mixin h2 {
   @include heading-font();
-  font-size: 36px;
+  font-size: 30px;
   line-height: 1.2em;
   font-weight: $font-weight-regular;
   @include media-down(tablet) {
-    font-size: 28px;
+    font-size: 25px;
   }
 }
 
