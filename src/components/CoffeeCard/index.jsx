@@ -57,7 +57,7 @@ const CoffeeCard = () => {
           variety,
           readMoreCTA,
           readMoreImage,
-          readMoreWYSIWIG,
+          readMoreWYSIWYG,
         } = coffee;
         return (
             <div className={styles.coffeeCard} key={index}>
