@@ -9,7 +9,6 @@ import { ReactComponent as Box4 } from '../images/coffee-box-4.svg';
 export const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-
   // DATA FROM PRISMIC /////////////////////////////////////////////////////////
 
   const homeQuery = graphql`
@@ -18,7 +17,9 @@ export function ThemeProvider({ children }) {
     }
   `;
 
-  const { prismicHome: { data } } = useStaticQuery(homeQuery);
+  const {
+    prismicHome: { data },
+  } = useStaticQuery(homeQuery);
 
   // COFFEE INFORMATION DATA ///////////////////////////////////////////////////
 
@@ -72,17 +73,17 @@ export function ThemeProvider({ children }) {
       variety: variety2?.text,
       readMoreCTA: readMoreCTA2?.text,
       readMoreImage: readMoreImage2,
-      readMoreWYSIWIG: readMoreWYSIWIG1?.html,
+      readMoreWYSIWIG: readMoreWYSIWIG2?.html,
     },
   ];
 
   // States for interactive elements
-  const [isActiveAccordion, setIsActiveAccordion] = useState({status: "", index: 0});
+  const [isActiveAccordion, setIsActiveAccordion] = useState({ status: '', index: 0 });
   const [isActiveMoreInfo, setIsActiveMoreInfo] = useState(false);
 
   // Anchors
-  const moreInfoAnchor = useRef(null)
-  const coffeeSelectionAnchor = useRef(null)
+  const moreInfoAnchor = useRef(null);
+  const coffeeSelectionAnchor = useRef(null);
 
   // COFFEE ORDER DATA /////////////////////////////////////////////////////////
 
@@ -91,9 +92,30 @@ export function ThemeProvider({ children }) {
   const coffeeOrderData = [
     [
       { title: 'How many boxes would you like?', section: 'boxes' },
-      { img: <Box1 className="singleBox" />, label: `1 box for £${price1}`, sublabel: '(250g)', value: '1', price: price1, section: 'boxes' },
-      { img: <Box2 className="multipleBoxes" />, label: `2 boxes for £${price2}`, sublabel: '(500g)', value: '2', price: price2, section: 'boxes' },
-      { img: <Box4 className="multipleBoxes" />, label: `4 boxes for £${price4}`, sublabel: '(1000g)', value: '4', price: price4, section: 'boxes' },
+      {
+        img: <Box1 className="singleBox" />,
+        label: `1 box for £${price1}`,
+        sublabel: '(250g)',
+        value: '1',
+        price: price1,
+        section: 'boxes',
+      },
+      {
+        img: <Box2 className="multipleBoxes" />,
+        label: `2 boxes for £${price2}`,
+        sublabel: '(500g)',
+        value: '2',
+        price: price2,
+        section: 'boxes',
+      },
+      {
+        img: <Box4 className="multipleBoxes" />,
+        label: `4 boxes for £${price4}`,
+        sublabel: '(1000g)',
+        value: '4',
+        price: price4,
+        section: 'boxes',
+      },
     ],
     [
       { title: 'How often would you like a delivery?', section: 'frequency' },
