@@ -50,7 +50,7 @@ export const CartProvider = ({ children }) => {
     boxes: '1',
     frequency: 'Weekly',
     location: 'United Kingdom',
-    total: 12,
+    total: 15,
   });
 
   // shopifyVariant state to be updated once the cart is updated, via useEffect
