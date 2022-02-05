@@ -9,7 +9,6 @@ import { ReactComponent as Box4 } from '../images/coffee-box-4.svg';
 export const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-
   // DATA FROM PRISMIC /////////////////////////////////////////////////////////
 
   const homeQuery = graphql`
@@ -18,7 +17,9 @@ export function ThemeProvider({ children }) {
     }
   `;
 
-  const { prismicHome: { data } } = useStaticQuery(homeQuery);
+  const {
+    prismicHome: { data },
+  } = useStaticQuery(homeQuery);
 
   // COFFEE INFORMATION DATA ///////////////////////////////////////////////////
 
@@ -31,7 +32,6 @@ export function ThemeProvider({ children }) {
     coffee_1_read_more_image: readMoreImage1,
     coffee_1_read_more_wysiwyg: readMoreWYSIWIG1,
     coffee_1_region: region1,
-    coffee_1_region_tagline: regionTagline1,
     coffee_1_region_title: regionTitle1,
     coffee_1_taste_notes: tasteNotes1,
     coffee_1_variety: variety1,
@@ -43,7 +43,6 @@ export function ThemeProvider({ children }) {
     coffee_2_read_more_image: readMoreImage2,
     coffee_2_read_more_wysiwyg: readMoreWYSIWIG2,
     coffee_2_region: region2,
-    coffee_2_region_tagline: regionTagline2,
     coffee_2_region_title: regionTitle2,
     coffee_2_taste_notes: tasteNotes2,
     coffee_2_variety: variety2,
@@ -52,7 +51,6 @@ export function ThemeProvider({ children }) {
   const tableData = [
     {
       regionTitle: regionTitle1?.text,
-      regionTagline: regionTagline1?.text,
       region: region1?.text,
       harvest: harvest1,
       process: process1?.text,
@@ -66,7 +64,6 @@ export function ThemeProvider({ children }) {
     },
     {
       regionTitle: regionTitle2?.text,
-      regionTagline: regionTagline2?.text,
       region: region2?.text,
       harvest: harvest2,
       process: process2?.text,
@@ -76,17 +73,17 @@ export function ThemeProvider({ children }) {
       variety: variety2?.text,
       readMoreCTA: readMoreCTA2?.text,
       readMoreImage: readMoreImage2,
-      readMoreWYSIWIG: readMoreWYSIWIG1?.html,
+      readMoreWYSIWIG: readMoreWYSIWIG2?.html,
     },
   ];
 
   // States for interactive elements
-  const [isActiveAccordion, setIsActiveAccordion] = useState({status: "", index: 0});
+  const [isActiveAccordion, setIsActiveAccordion] = useState({ status: '', index: 0 });
   const [isActiveMoreInfo, setIsActiveMoreInfo] = useState(false);
 
   // Anchors
-  const moreInfoAnchor = useRef(null)
-  const coffeeSelectionAnchor = useRef(null)
+  const moreInfoAnchor = useRef(null);
+  const coffeeSelectionAnchor = useRef(null);
 
   // COFFEE ORDER DATA /////////////////////////////////////////////////////////
 
@@ -95,18 +92,39 @@ export function ThemeProvider({ children }) {
   const coffeeOrderData = [
     [
       { title: 'How many boxes would you like?', section: 'boxes' },
-      { img: <Box1 className="singleBox" />, label: `1 box for £${price1}`, sublabel: '(250g)', value: '1', price: price1, section: 'boxes' },
-      { img: <Box2 className="multipleBoxes" />, label: `2 boxes for £${price2}`, sublabel: '(250g)', value: '2', price: price2, section: 'boxes' },
-      { img: <Box4 className="multipleBoxes" />, label: `4 boxes for £${price4}`, sublabel: '(250g)', value: '4', price: price4, section: 'boxes' },
+      {
+        img: <Box1 className="singleBox" />,
+        label: `1 box for £${price1}`,
+        sublabel: '(250g)',
+        value: '1',
+        price: price1,
+        section: 'boxes',
+      },
+      {
+        img: <Box2 className="multipleBoxes" />,
+        label: `2 boxes for £${price2}`,
+        sublabel: '(500g)',
+        value: '2',
+        price: price2,
+        section: 'boxes',
+      },
+      {
+        img: <Box4 className="multipleBoxes" />,
+        label: `4 boxes for £${price4}`,
+        sublabel: '(1000g)',
+        value: '4',
+        price: price4,
+        section: 'boxes',
+      },
     ],
     [
-      { title: 'And how often would you like to receive it?', section: 'frequency' },
+      { title: 'How often would you like a delivery?', section: 'frequency' },
       { label: 'Weekly', section: 'frequency' },
       { label: 'Fortnightly', section: 'frequency' },
       { label: 'Monthly', section: 'frequency' },
     ],
     [
-      { title: 'Finally, where in the world are you?', section: 'location' },
+      { title: 'Where should we send it?', section: 'location' },
       { label: 'United Kingdom' },
       { label: 'Europe' },
       { label: 'Rest of World' },

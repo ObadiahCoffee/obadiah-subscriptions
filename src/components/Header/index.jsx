@@ -8,7 +8,7 @@ import * as styles from './styles.module.scss';
 const links = [
   {
     to: 'https://obadiah-coffee.myshopify.com/pages/shop',
-    text: 'Coffees',
+    text: 'Shop',
     className: `${styles.link}`,
     activeClassName: `${styles.linkActive}`,
   },

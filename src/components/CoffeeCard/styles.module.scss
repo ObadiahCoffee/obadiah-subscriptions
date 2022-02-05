@@ -50,9 +50,11 @@
 
 .coffeeRegionTitle {
 
-  font-size: 36px;
+  font-size: 30px;
+  font-weight: $font-weight-regular;
   padding: 10px;
   margin-bottom: 40px;
+  line-height: 90%;
 
 }
 
@@ -71,12 +73,20 @@
     font-size: 14px;
     text-transform: uppercase;
     text-align: left;
+    display: flex;
+    justify-content: space-between;
 
     span:last-child {
 
       font-weight: $font-weight-regular;
-      position: absolute;
-      right: 0;
+      // position: absolute;
+      // right: 0;
+
+      @include media-down(mobile) {
+        max-width: 160px;
+        text-align: right;
+        line-height: 1.3em;
+      }
 
     }
 
@@ -104,8 +114,7 @@
   font-size: 26px;
   text-transform: none;
   font-weight: $font-weight-regular;
-  font-family: $font-family-alt;
-  font-style: italic;
+  font-style: normal;
   margin: 2px 0 50px 0;
 
 }

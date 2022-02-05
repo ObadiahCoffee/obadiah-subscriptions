@@ -19,7 +19,7 @@ const Landing = ({ goToNextSection }) => {
         <h2>{prismicHome.data.header_title?.text}</h2>
         <p>{prismicHome.data.header_description?.text}</p>
         <a href="#" onClick={goToNextSection}>
-          Set up a subscription
+          Begin
         </a>
       </div>
     </Section>

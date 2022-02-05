@@ -57,7 +57,7 @@ const CoffeeCard = () => {
           variety,
           readMoreCTA,
           readMoreImage,
-          readMoreWYSIWIG,
+          readMoreWYSIWYG,
         } = coffee;
         return (
             <div className={styles.coffeeCard} key={index}>
@@ -77,7 +77,7 @@ const CoffeeCard = () => {
                   Altitude<span>{altitude} MASL</span>
                 </div>
                 <div className={styles.infoRowItem}>
-                  Taste Notes<span>{tasteNotes}</span>
+                  Character<span>{tasteNotes}</span>
                 </div>
               </div>
 
@@ -86,7 +86,7 @@ const CoffeeCard = () => {
                 <div className={styles.coffeeProducedByValue}>{producer}</div>
               </div>
 
-              <a onClick={() => toggleAccordion(index)}>Read More About The Origins</a>
+              <a onClick={() => toggleAccordion(index)}>Read More</a>
             </div>
         );
       })}
